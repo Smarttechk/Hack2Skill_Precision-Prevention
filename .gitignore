@@ -1,0 +1,33 @@
+data/
+tools/
+# downloaded packages and build output (rebuild with: cd frontend && npm install && npm run build)
+frontend/node_modules/
+frontend/dist/
+# generated outputs: everything is rebuilt by orchestrator.py and evaluate.py; only the results summary and
+# model cards are kept, and never the local demo logs (doctor decisions, consent changes, phone chats)
+outputs/*
+!outputs/results/
+outputs/results/*
+!outputs/results/results.json
+!outputs/results/seed_spread.json
+!outputs/results/sensitivity.csv
+!outputs/results/ai_ablation.json
+!outputs/models/
+outputs/models/*
+!outputs/models/risk_model_card.json
+!outputs/models/nhanes_validation.json
+!outputs/models/child_model_card.json
+__pycache__/
+*.pyc
+.env
+# sign-in data: never share or commit (also leave these out when zipping the project)
+config/users.json
+config/users.json.tmp
+config/demo_accounts.txt
+config/signup_requests.json
+config/signup_requests.json.tmp
+config/tls/
+outputs/sessions.json
+outputs/sessions.json.tmp
+outputs/access_log.csv
+outputs/auth_limits.json

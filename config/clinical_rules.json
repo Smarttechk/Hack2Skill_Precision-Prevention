@@ -1,0 +1,401 @@
+{
+  "_about": "Clinical rules used by the care-gap, priority, risk and chat agents. Every value: value, status (published = from the named guideline; design = a choice of this system) and source. Ages in years unless the name says months.",
+  "values": {
+    "adult_age": {
+      "value": 18,
+      "status": "published",
+      "source": "UAE age of majority; adults decide their own consent, children through a guardian"
+    },
+    "well_child_interval_months_under_1": {
+      "value": 3,
+      "status": "published",
+      "source": "AAP Bright Futures schedule: visits at 1, 2, 4, 6, 9 and 12 months"
+    },
+    "well_child_interval_months_after_1": {
+      "value": 12,
+      "status": "published",
+      "source": "AAP Bright Futures schedule: yearly from age 3 (more often between 1 and 3)"
+    },
+    "well_child_grace_months": {
+      "value": 2,
+      "status": "design",
+      "source": "A visit is overdue 2 months after it was due"
+    },
+    "developmental_screen_ages_months": {
+      "value": [
+        9,
+        18,
+        30
+      ],
+      "status": "published",
+      "source": "AAP: developmental screening at 9, 18 and 30 months"
+    },
+    "autism_screen_ages_months": {
+      "value": [
+        18,
+        24
+      ],
+      "status": "published",
+      "source": "AAP: autism screening at 18 and 24 months"
+    },
+    "screen_window_months": {
+      "value": [
+        2,
+        12
+      ],
+      "status": "design",
+      "source": "A missed screen counts as a gap from 2 to 12 months after the age it was due"
+    },
+    "vaccine_catch_up": {
+      "value": {
+        "from_age_months": 3,
+        "under_age_months": 24,
+        "gap_months": 6
+      },
+      "status": "published",
+      "source": "UAE national immunisation schedule: vaccines at 2, 4, 6, 12 and 18 months, so no vaccine for over 6 months before age 2 means one was missed"
+    },
+    "mmr_first_dose_window_months": {
+      "value": [
+        12,
+        24
+      ],
+      "status": "published",
+      "source": "UAE national immunisation schedule: first measles (MMR) dose at 12 months"
+    },
+    "mmr_second_dose_window_months": {
+      "value": [
+        60,
+        144
+      ],
+      "status": "published",
+      "source": "UAE national immunisation schedule: second MMR dose in early school years; checked up to age 12"
+    },
+    "bp_check_every_months": {
+      "value": 12,
+      "status": "published",
+      "source": "USPSTF: blood pressure screening for adults"
+    },
+    "bp_check_every_months_with_hypertension": {
+      "value": 6,
+      "status": "published",
+      "source": "Follow-up of known high blood pressure at least twice a year (guidelines: every 3-6 months until controlled)"
+    },
+    "hba1c_every_months_with_diabetes": {
+      "value": 6,
+      "status": "published",
+      "source": "ADA Standards of Care: HbA1c at least twice a year"
+    },
+    "diabetes_screen": {
+      "value": {
+        "from_age": 35,
+        "or_bmi_at_least": 25,
+        "every_months": 36
+      },
+      "status": "published",
+      "source": "ADA and USPSTF: screen from age 35, or earlier with overweight (BMI 25+); repeat every 3 years if normal"
+    },
+    "cervical_screen": {
+      "value": {
+        "ages": [
+          25,
+          65
+        ],
+        "every_months": 36
+      },
+      "status": "published",
+      "source": "Department of Health Abu Dhabi and USPSTF: cervical screening 25-65, every 3 years (smear)"
+    },
+    "breast_screen": {
+      "value": {
+        "ages": [
+          40,
+          69
+        ],
+        "every_months": 24
+      },
+      "status": "published",
+      "source": "Department of Health Abu Dhabi: mammography 40-69 every 2 years"
+    },
+    "bowel_screen": {
+      "value": {
+        "ages": [
+          45,
+          75
+        ],
+        "every_months": 12
+      },
+      "status": "published",
+      "source": "Department of Health Abu Dhabi and USPSTF: bowel screening 45-75, stool test every year"
+    },
+    "lipid_test": {
+      "value": {
+        "from_age": 40,
+        "every_months": 60
+      },
+      "status": "published",
+      "source": "USPSTF: lipid testing from 40, every 5 years"
+    },
+    "depression_screen_every_months": {
+      "value": 12,
+      "status": "published",
+      "source": "USPSTF: depression screening for adults"
+    },
+    "lung_screen_ages_smokers": {
+      "value": [
+        50,
+        80
+      ],
+      "status": "published",
+      "source": "USPSTF 2021: lung screening for smokers aged 50-80"
+    },
+    "premarital_ages": {
+      "value": [
+        18,
+        40
+      ],
+      "status": "design",
+      "source": "UAE premarital screening programme; offered to unmarried carriers in this age range"
+    },
+    "genetic_rules": {
+      "value": {
+        "FH": {
+          "check": "cholesterol_test",
+          "from_age": 2,
+          "every_months": 12,
+          "extra": null
+        },
+        "BRCA": {
+          "check": "breast_screening",
+          "from_age": 25,
+          "every_months": 12,
+          "extra": "genetic_counselling"
+        },
+        "LYNCH": {
+          "check": "bowel_screening",
+          "from_age": 25,
+          "every_months": 24,
+          "extra": "genetic_counselling"
+        },
+        "HBB_CARRIER": {
+          "check": "carrier_counselling",
+          "from_age": 16,
+          "every_months": null,
+          "extra": null
+        },
+        "MODY": {
+          "check": "blood_sugar_test",
+          "from_age": 10,
+          "every_months": 12,
+          "extra": null
+        }
+      },
+      "status": "published",
+      "source": "Familial hypercholesterolaemia: lipid testing from age 2 (AAP/NLA); BRCA: yearly breast imaging from 25 (NCCN); Lynch: colonoscopy every 1-2 years from 25 (NCCN); carrier counselling before marriage age (design: 16); MODY: yearly glucose testing (design)"
+    },
+    "actionable_variants": {
+      "value": [
+        "pathogenic",
+        "likely_pathogenic"
+      ],
+      "status": "published",
+      "source": "ACMG: only pathogenic and likely pathogenic variants are acted on; uncertain variants are not"
+    },
+    "genetic_marker_genes": {
+      "value": {
+        "FH": ["LDLR", "APOB", "PCSK9"],
+        "BRCA": ["BRCA1", "BRCA2"],
+        "LYNCH": ["MLH1", "MSH2", "MSH6", "PMS2", "EPCAM"],
+        "HBB_CARRIER": ["HBB"],
+        "MODY": ["GCK", "HNF1A", "HNF4A", "HNF1B"]
+      },
+      "status": "published",
+      "source": "Genes behind each marker group, so a hospital's genetic result (gene symbol) reaches the right rule: familial hypercholesterolaemia LDLR/APOB/PCSK9; hereditary breast and ovarian cancer BRCA1/BRCA2; Lynch syndrome MLH1/MSH2/MSH6/PMS2/EPCAM (ACMG secondary findings list); beta-globin HBB; the common MODY genes GCK/HNF1A/HNF4A/HNF1B. A result for any other gene is stored but changes nothing"
+    },
+    "family_history_diabetes_codes": {
+      "value": {
+        "codes": ["73211009", "44054006", "46635009", "160303001"],
+        "icd10_prefixes": ["E10", "E11", "E13", "E14", "Z83.3"]
+      },
+      "status": "published",
+      "source": "A relative's condition that counts as a family history of diabetes: SNOMED CT diabetes mellitus (73211009), type 2 (44054006), type 1 (46635009), family history of diabetes mellitus (160303001); ICD-10 E10-E14 and Z83.3"
+    },
+    "consent_when_not_recorded": {
+      "value": {
+        "contact": true,
+        "use_genetic": false
+      },
+      "status": "design",
+      "source": "What holds for a person with no consent record. Contact about preventive care by their own care provider is allowed until they say no (they can stop it at any time: STOP, the My care page, or the clinic). Genetic results are never used without a recorded yes. Set contact to false where the Department of Health requires a recorded yes before any outreach"
+    },
+    "prediabetes_hba1c": {
+      "value": [
+        5.7,
+        6.5
+      ],
+      "status": "published",
+      "source": "ADA: prediabetes is HbA1c 5.7-6.4%"
+    },
+    "weight_support_bmi": {
+      "value": 30,
+      "status": "published",
+      "source": "WHO: obesity is BMI 30 or more"
+    },
+    "child_obesity_bmi_percentile": {
+      "value": 95,
+      "status": "published",
+      "source": "CDC and AAP: obesity in children is BMI at or above the 95th percentile"
+    },
+    "warning_no_visit_days": {
+      "value": 730,
+      "status": "design",
+      "source": "No clinic visit for over 2 years"
+    },
+    "warning_missed_check_under_age": {
+      "value": 6,
+      "status": "design",
+      "source": "A missed check-up or vaccine is a warning sign under age 6"
+    },
+    "warning_chronic_test_months": {
+      "value": 12,
+      "status": "design",
+      "source": "A long-term illness with no test for 12 months"
+    },
+    "warning_er_visits_same_problem": {
+      "value": 3,
+      "status": "design",
+      "source": "3 or more emergency visits in 12 months for the same problem"
+    },
+    "results_review_invite_days": {
+      "value": 2,
+      "status": "design",
+      "source": "An abnormal result is offered a review within 2 days"
+    },
+    "emergency_number": {
+      "value": "998",
+      "status": "published",
+      "source": "UAE ambulance number"
+    },
+    "usual_care_checks": {
+      "value": [
+        "bowel_screening",
+        "bp_check",
+        "breast_screening",
+        "cervical_screening",
+        "diabetes_screen",
+        "well_child_visit"
+      ],
+      "status": "design",
+      "source": "Checks usual care invites for (by age and sex only); this system adds the rest"
+    },
+    "check_groups": {
+      "value": {
+        "well_child": [
+          "autism_screen",
+          "developmental_screen",
+          "mmr_vaccine",
+          "well_child_visit"
+        ],
+        "adult_screening": [
+          "basic_health_check",
+          "bowel_screening",
+          "bp_check",
+          "breast_screening",
+          "cervical_screening",
+          "depression_screen",
+          "diabetes_screen",
+          "hba1c_test",
+          "lipid_test",
+          "lung_screening"
+        ],
+        "programmes": [
+          "family_nutrition_programme",
+          "prediabetes_programme",
+          "stop_smoking_service",
+          "weight_support"
+        ]
+      },
+      "status": "design",
+      "source": "How checks are grouped in the results"
+    },
+    "urgent_signs": {
+      "value": [
+        "Abnormal result with no follow-up",
+        "Child growth concern",
+        "Pregnancy with no recent check"
+      ],
+      "status": "design",
+      "source": "Warning signs that make a person Urgent (contact within the Urgent deadline)"
+    },
+    "high_signs": {
+      "value": [
+        "Behaviour concern with no assessment",
+        "Development concern with no assessment",
+        "Long-term illness with no recent test",
+        "Many emergency visits for the same problem"
+      ],
+      "status": "design",
+      "source": "Warning signs that make a person High urgency"
+    },
+    "blood_sugar_checks": {
+      "value": [
+        "basic_health_check",
+        "blood_sugar_test",
+        "diabetes_screen",
+        "hba1c_test",
+        "prediabetes_programme"
+      ],
+      "status": "design",
+      "source": "Checks that measure blood sugar, so a visit for one of them can find diabetes"
+    },
+    "never_held_checks": {
+      "value": [
+        "emergency_callback",
+        "results_review"
+      ],
+      "status": "design",
+      "source": "Cards a doctor cannot put on hold from the list: an abnormal result or an emergency is always followed up"
+    },
+    "record_date_for_check": {
+      "value": {
+        "breast_screening": "last_breast_screen",
+        "bowel_screening": "last_bowel_screen",
+        "cholesterol_test": "ldl_date",
+        "blood_sugar_test": "hba1c_date"
+      },
+      "status": "design",
+      "source": "Which record date counts as the last test for each genetic-pathway check"
+    },
+    "no_consent_task": {
+      "value": {
+        "check": "reach_without_messages",
+        "pathway": "Care team contact",
+        "reason": "Urgent but no contact consent, so no messages are sent; decide how to reach this person (for example at their next visit)",
+        "guideline": "Clinician review"
+      },
+      "status": "design",
+      "source": "An Urgent person who refused messages still needs a clinician's decision; the task closes when consent returns or the person is no longer Urgent"
+    },
+    "guideline_aliases": {
+      "value": {
+        "vaccine_catch_up": "mmr_vaccine",
+        "cholesterol_test": "lipid_test",
+        "blood_sugar_test": "diabetes_screen",
+        "basic_health_check": "bp_check"
+      },
+      "status": "design",
+      "source": "Checks that use another check's guideline row"
+    },
+    "case_finding_checks": {
+      "value": [
+        "basic_health_check",
+        "blood_sugar_test",
+        "bp_check",
+        "diabetes_screen",
+        "hba1c_test"
+      ],
+      "status": "design",
+      "source": "Checks that can find hidden diabetes or high blood pressure. The system cannot see hidden cases, so the evaluation agent watches who completes these checks by group (adults of screening age) and alerts the team when a group falls behind"
+    }
+  }
+}

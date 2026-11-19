@@ -1,0 +1,83 @@
+{
+  "test": "NHANES 2015-2023 adults never told they have diabetes (real survey data)",
+  "label": "HbA1c 6.5% or more",
+  "adults": 12925,
+  "cases": 456,
+  "top_share": 0.3,
+  "scores": [
+    {
+      "name": "FINDRISC, every item NHANES has (6 of 8)",
+      "kind": "published",
+      "auc": 0.748,
+      "auc_low": 0.728,
+      "auc_high": 0.767,
+      "cases_found_share": 0.647,
+      "invited_share": 0.3,
+      "items": "age, BMI, waist, treated for high blood pressure, ever told of high blood sugar, close relative with diabetes",
+      "source": "Lindstrom J, Tuomilehto J. The diabetes risk score. Diabetes Care 2003;26:725-731"
+    },
+    {
+      "name": "FINDRISC as used in this prototype (no waist)",
+      "kind": "used here",
+      "auc": 0.743,
+      "auc_low": 0.724,
+      "auc_high": 0.763,
+      "cases_found_share": 0.64,
+      "invited_share": 0.3,
+      "items": "age, BMI, high blood pressure diagnosis, told of high blood sugar, family history; the missing items widen the range",
+      "source": "Lindstrom J, Tuomilehto J. The diabetes risk score. Diabetes Care 2003;26:725-731"
+    },
+    {
+      "name": "ADA diabetes risk test (5 of 7 items)",
+      "kind": "published",
+      "auc": 0.737,
+      "auc_low": 0.717,
+      "auc_high": 0.754,
+      "cases_found_share": 0.627,
+      "invited_share": 0.3,
+      "items": "age, sex, family history, high blood pressure, BMI",
+      "source": "Bang H et al. Development and validation of a patient self-assessment score for diabetes risk. Ann Intern Med 2009;151:775-783"
+    },
+    {
+      "name": "Broad rule today (age 45+ or BMI 25+)",
+      "kind": "rule",
+      "auc": 0.566,
+      "auc_low": null,
+      "auc_high": null,
+      "cases_found_share": 0.993,
+      "invited_share": 0.866,
+      "items": "age and BMI",
+      "source": null
+    }
+  ],
+  "by_cycle": [
+    {
+      "cycle": "2015-2016",
+      "adults": 4186,
+      "cases": 134,
+      "auc": 0.75
+    },
+    {
+      "cycle": "2017-2018",
+      "adults": 4002,
+      "cases": 178,
+      "auc": 0.736
+    },
+    {
+      "cycle": "2021-2023",
+      "adults": 4737,
+      "cases": 144,
+      "auc": 0.749
+    }
+  ],
+  "headline": {
+    "score": "FINDRISC as used in this prototype (no waist)",
+    "auc": 0.743,
+    "auc_low": 0.724,
+    "auc_high": 0.763,
+    "cases_found_share": 0.64,
+    "invited_share": 0.3,
+    "adults": 12925
+  },
+  "note": "Nothing is trained: the points are the published ones, filled in only where NHANES has the answer, so a full questionnaire would do a little better. None was built for the UAE. The check shows how well the score ranks real people on data it was not tuned to."
+}

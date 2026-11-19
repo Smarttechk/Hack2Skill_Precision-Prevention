@@ -1,0 +1,128 @@
+{
+  "seeds": [
+    7,
+    21,
+    22,
+    23,
+    24
+  ],
+  "runs": [
+    {
+      "seed": 7,
+      "well_child_new": 0.511,
+      "adult_screening_new": 0.343,
+      "found_new": 311,
+      "followup_new": 0.847,
+      "followup_results_new": 163,
+      "well_child_old": 0.08,
+      "adult_screening_old": 0.104,
+      "found_old": 64,
+      "followup_old": 0.525,
+      "followup_results_old": 40
+    },
+    {
+      "seed": 21,
+      "well_child_new": 0.492,
+      "adult_screening_new": 0.339,
+      "found_new": 326,
+      "followup_new": 0.824,
+      "followup_results_new": 159,
+      "well_child_old": 0.094,
+      "adult_screening_old": 0.111,
+      "found_old": 56,
+      "followup_old": 0.688,
+      "followup_results_old": 32
+    },
+    {
+      "seed": 22,
+      "well_child_new": 0.52,
+      "adult_screening_new": 0.34,
+      "found_new": 335,
+      "followup_new": 0.828,
+      "followup_results_new": 186,
+      "well_child_old": 0.087,
+      "adult_screening_old": 0.098,
+      "found_old": 64,
+      "followup_old": 0.622,
+      "followup_results_old": 45
+    },
+    {
+      "seed": 23,
+      "well_child_new": 0.525,
+      "adult_screening_new": 0.35,
+      "found_new": 322,
+      "followup_new": 0.793,
+      "followup_results_new": 169,
+      "well_child_old": 0.096,
+      "adult_screening_old": 0.106,
+      "found_old": 64,
+      "followup_old": 0.556,
+      "followup_results_old": 36
+    },
+    {
+      "seed": 24,
+      "well_child_new": 0.466,
+      "adult_screening_new": 0.342,
+      "found_new": 302,
+      "followup_new": 0.842,
+      "followup_results_new": 165,
+      "well_child_old": 0.129,
+      "adult_screening_old": 0.106,
+      "found_old": 52,
+      "followup_old": 0.735,
+      "followup_results_old": 34
+    }
+  ],
+  "summary": {
+    "well_child_new": {
+      "mean": 0.503,
+      "min": 0.466,
+      "max": 0.525
+    },
+    "adult_screening_new": {
+      "mean": 0.343,
+      "min": 0.339,
+      "max": 0.35
+    },
+    "found_new": {
+      "mean": 319.2,
+      "min": 302.0,
+      "max": 335.0
+    },
+    "followup_new": {
+      "mean": 0.827,
+      "min": 0.793,
+      "max": 0.847
+    },
+    "followup_results_new": {
+      "mean": 168.4,
+      "min": 159.0,
+      "max": 186.0
+    },
+    "well_child_old": {
+      "mean": 0.097,
+      "min": 0.08,
+      "max": 0.129
+    },
+    "adult_screening_old": {
+      "mean": 0.105,
+      "min": 0.098,
+      "max": 0.111
+    },
+    "found_old": {
+      "mean": 60.0,
+      "min": 52.0,
+      "max": 64.0
+    },
+    "followup_old": {
+      "mean": 0.625,
+      "min": 0.525,
+      "max": 0.735
+    },
+    "followup_results_old": {
+      "mean": 37.4,
+      "min": 32.0,
+      "max": 45.0
+    }
+  }
+}

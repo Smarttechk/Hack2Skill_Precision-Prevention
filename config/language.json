@@ -1,0 +1,233 @@
+{
+  "_about": "Words the chat assistant recognises, by language. Every list must be checked by a native-speaking clinician before a pilot.",
+  "values": {
+    "emergency_words": {
+      "value": {
+        "English": [
+          "chest pain",
+          "chest hurts",
+          "heart attack",
+          "can't breathe",
+          "cannot breathe",
+          "not breathing",
+          "unconscious",
+          "severe bleeding",
+          "fainted",
+          "stroke",
+          "seizure",
+          "suicide",
+          "kill myself"
+        ],
+        "Arabic": [
+          "ألم في الصدر",
+          "الم في الصدر",
+          "لا أستطيع التنفس",
+          "ما اقدر اتنفس",
+          "نزيف",
+          "إغماء",
+          "اغماء",
+          "فاقد الوعي",
+          "جلطة",
+          "انتحار"
+        ],
+        "Urdu": [
+          "سینے میں درد",
+          "سانس نہیں",
+          "بے ہوش",
+          "خون بہہ رہا",
+          "دل کا دورہ",
+          "خودکشی"
+        ],
+        "Hindi": [
+          "सीने में दर्द",
+          "छाती में दर्द",
+          "सांस नहीं",
+          "साँस नहीं",
+          "बेहोश",
+          "खून बह रहा",
+          "दिल का दौरा",
+          "आत्महत्या",
+          "seene mein dard",
+          "saans nahi",
+          "behosh"
+        ],
+        "Tagalog": [
+          "masakit ang dibdib",
+          "sakit sa dibdib",
+          "hindi makahinga",
+          "nawalan ng malay",
+          "dumudugo",
+          "atake sa puso",
+          "magpapakamatay"
+        ]
+      },
+      "status": "design",
+      "source": "Words that trigger the emergency answer and an Urgent call-back (not yet checked by native speakers)"
+    },
+    "preference_words": {
+      "value": {
+        "Voice call": [
+          "call me",
+          "phone me",
+          "اتصل بي",
+          "اتصلوا",
+          "کال کریں",
+          "فون کریں",
+          "call karo",
+          "फोन करें",
+          "कॉल करें",
+          "tawagan",
+          "tumawag"
+        ],
+        "WhatsApp": [
+          "whatsapp",
+          "واتساب",
+          "واٹس ایپ",
+          "व्हाट्सएप"
+        ],
+        "Evening": [
+          "evening",
+          "مساء",
+          "المساء",
+          "شام",
+          "शाम",
+          "gabi"
+        ],
+        "Morning": [
+          "morning",
+          "صباح",
+          "الصباح",
+          "صبح",
+          "सुबह",
+          "umaga"
+        ]
+      },
+      "status": "design",
+      "source": "Reply phrases for a channel or time choice"
+    },
+    "patient_check_names": {
+      "value": {
+        "well_child_visit": "child health check",
+        "developmental_screen": "development check",
+        "autism_screen": "development check",
+        "mmr_vaccine": "vaccination",
+        "bp_check": "blood pressure check",
+        "diabetes_screen": "blood sugar check",
+        "hba1c_test": "blood sugar test",
+        "lipid_test": "blood test",
+        "cholesterol_test": "blood test",
+        "cervical_screening": "cervical screening",
+        "breast_screening": "breast screening",
+        "bowel_screening": "bowel screening",
+        "depression_screen": "wellbeing check",
+        "lung_screening": "lung check",
+        "basic_health_check": "health check",
+        "blood_sugar_test": "blood sugar test",
+        "genetic_counselling": "appointment with our specialist team",
+        "carrier_counselling": "appointment with our specialist team",
+        "premarital_screening": "premarital health check",
+        "results_review": "results appointment",
+        "prediabetes_programme": "healthy lifestyle programme",
+        "weight_support": "healthy weight support",
+        "stop_smoking_service": "stop-smoking support",
+        "family_nutrition_programme": "family nutrition programme",
+        "vaccine_catch_up": "vaccination",
+        "emergency_callback": "call from our nurse",
+        "reach_without_messages": "call from our care team"
+      },
+      "status": "design",
+      "source": "What a check is called when talking to a patient: never a disease, gene or risk score (to be translated and checked with patients)"
+    },
+    "family_replies": {
+      "value": {
+        "English": {
+          "emergency": "This may be an emergency. Please call {n} now. We have told the care team.",
+          "stop": "You will not receive more messages. Reply START at any time to join again.",
+          "start": "Welcome back. We will send you a reminder when your next check-up is due.",
+          "info": "This check-up helps find health problems early, when they are easier to treat. It is quick and covered by your plan.",
+          "later": "No problem. We will ask again in {n} days.",
+          "preference": "Thank you, we have saved your preference.",
+          "nothing": "Thank you. There is nothing to book right now.",
+          "booked": "Booked for {date} ({option}).{also} Reply LATER to change.",
+          "also": " We also booked {n} of your family for the same visit."
+        },
+        "Arabic": {
+          "emergency": "قد تكون هذه حالة طارئة. يرجى الاتصال بالرقم {n} الآن. لقد أبلغنا فريق الرعاية.",
+          "stop": "لن تصلك رسائل أخرى. أرسل ابدأ في أي وقت للعودة.",
+          "start": "مرحباً بعودتك. سنرسل لك تذكيراً عندما يحين موعد فحصك القادم.",
+          "info": "يساعد هذا الفحص على اكتشاف المشكلات الصحية مبكراً، حين يكون علاجها أسهل. إنه سريع ومشمول بتأمينك.",
+          "later": "لا مشكلة. سنسألك مرة أخرى بعد {n} يوماً.",
+          "preference": "شكراً لك، لقد حفظنا تفضيلك.",
+          "nothing": "شكراً لك. لا يوجد ما يلزم حجزه الآن.",
+          "booked": "تم الحجز بتاريخ {date} ({option}).{also} للتغيير أرسل لاحقاً.",
+          "also": " وحجزنا أيضاً لعدد {n} من أفراد أسرتك في الزيارة نفسها."
+        },
+        "Urdu": {
+          "emergency": "یہ ایمرجنسی ہو سکتی ہے۔ براہ کرم ابھی {n} پر کال کریں۔ ہم نے نگہداشت ٹیم کو بتا دیا ہے۔",
+          "stop": "آپ کو مزید پیغامات نہیں ملیں گے۔ دوبارہ شامل ہونے کے لیے کسی بھی وقت شروع بھیجیں۔",
+          "start": "خوش آمدید۔ آپ کے اگلے معائنے کا وقت آنے پر ہم آپ کو یاد دہانی بھیجیں گے۔",
+          "info": "یہ معائنہ صحت کے مسائل کو جلد پکڑنے میں مدد کرتا ہے، جب ان کا علاج آسان ہوتا ہے۔ یہ جلدی ہو جاتا ہے اور آپ کے پلان میں شامل ہے۔",
+          "later": "کوئی بات نہیں۔ ہم {n} دن بعد دوبارہ پوچھیں گے۔",
+          "preference": "شکریہ، ہم نے آپ کی ترجیح محفوظ کر لی ہے۔",
+          "nothing": "شکریہ۔ اس وقت بک کرنے کے لیے کچھ نہیں ہے۔",
+          "booked": "{date} کے لیے بک ہو گیا ({option})۔{also} تبدیل کرنے کے لیے بعد میں بھیجیں۔",
+          "also": " ہم نے آپ کے خاندان کے {n} افراد کو بھی اسی وزٹ کے لیے بک کیا ہے۔"
+        },
+        "Hindi": {
+          "emergency": "यह आपातकाल हो सकता है। कृपया अभी {n} पर कॉल करें। हमने देखभाल टीम को बता दिया है।",
+          "stop": "आपको और संदेश नहीं मिलेंगे। फिर से जुड़ने के लिए कभी भी शुरू भेजें।",
+          "start": "फिर से स्वागत है। आपकी अगली जाँच का समय आने पर हम आपको याद दिलाएँगे।",
+          "info": "यह जाँच स्वास्थ्य समस्याओं को जल्दी पकड़ने में मदद करती है, जब उनका इलाज आसान होता है। यह जल्दी हो जाती है और आपके प्लान में शामिल है।",
+          "later": "कोई बात नहीं। हम {n} दिन बाद फिर पूछेंगे।",
+          "preference": "धन्यवाद, हमने आपकी पसंद सहेज ली है।",
+          "nothing": "धन्यवाद। अभी बुक करने के लिए कुछ नहीं है।",
+          "booked": "{date} के लिए बुक हो गया ({option})।{also} बदलने के लिए बाद में भेजें।",
+          "also": " हमने आपके परिवार के {n} सदस्यों को भी इसी विज़िट के लिए बुक किया है।"
+        },
+        "Tagalog": {
+          "emergency": "Maaaring emergency ito. Pakitawagan ang {n} ngayon. Naabisuhan na namin ang care team.",
+          "stop": "Hindi ka na makakatanggap ng mga mensahe. Sumagot ng START anumang oras para sumali muli.",
+          "start": "Maligayang pagbabalik. Magpapadala kami ng paalala kapag oras na ng iyong susunod na check-up.",
+          "info": "Nakakatulong ang check-up na ito na makita nang maaga ang mga problema sa kalusugan, kung kailan mas madali itong gamutin. Mabilis ito at sakop ng iyong plan.",
+          "later": "Walang problema. Magtatanong ulit kami pagkalipas ng {n} araw.",
+          "preference": "Salamat, na-save na namin ang iyong pinili.",
+          "nothing": "Salamat. Wala pang kailangang i-book sa ngayon.",
+          "booked": "Naka-book para sa {date} ({option}).{also} Sumagot ng LATER para baguhin.",
+          "also": " Nai-book din namin ang {n} miyembro ng iyong pamilya sa parehong pagbisita."
+        }
+      },
+      "status": "design",
+      "source": "The chat assistant's answers in the family's language (drafts: native speakers must check them before a pilot). {n}, {date}, {option} and {also} are filled in when the answer is sent"
+    },
+    "care_options": {
+      "value": {
+        "Arabic": {
+          "Clinic visit": "زيارة العيادة",
+          "Clinic visit with transport help offered": "زيارة العيادة مع المساعدة في النقل",
+          "Telehealth": "استشارة عن بُعد",
+          "Mobile clinic on {date}": "عيادة متنقلة يوم {date}"
+        },
+        "Urdu": {
+          "Clinic visit": "کلینک کا دورہ",
+          "Clinic visit with transport help offered": "کلینک کا دورہ، آمد و رفت میں مدد دستیاب",
+          "Telehealth": "فون یا ویڈیو پر مشورہ",
+          "Mobile clinic on {date}": "موبائل کلینک {date} کو"
+        },
+        "Hindi": {
+          "Clinic visit": "क्लिनिक विज़िट",
+          "Clinic visit with transport help offered": "क्लिनिक विज़िट, आने-जाने में मदद उपलब्ध",
+          "Telehealth": "फ़ोन या वीडियो पर सलाह",
+          "Mobile clinic on {date}": "मोबाइल क्लिनिक {date} को"
+        },
+        "Tagalog": {
+          "Clinic visit": "Pagbisita sa klinika",
+          "Clinic visit with transport help offered": "Pagbisita sa klinika, may tulong sa transportasyon",
+          "Telehealth": "Konsulta sa telepono o video",
+          "Mobile clinic on {date}": "Mobile clinic sa {date}"
+        }
+      },
+      "status": "design",
+      "source": "How the care option (clinic, transport help, telehealth, mobile clinic) is written inside a message in each language (drafts: native speakers must check them); English uses the option as it is"
+    }
+  }
+}

@@ -1,0 +1,561 @@
+{
+  "_about": "How the synthetic Synthea patients are made to look like the UAE (scripts/uae_adjust.py) and how features are built (scripts/preprocess.py). published = from the named source; assumption = no published UAE value, a reasoned choice; design = a choice of this project. Changing a value and re-running the data steps changes the synthetic population.",
+  "values": {
+    "adjust_seed": {
+      "value": 2026,
+      "status": "design",
+      "source": "Random seed for the UAE adjustment (same seed, same population)"
+    },
+    "features_seed": {
+      "value": 2027,
+      "status": "design",
+      "source": "Random seed for simulated attributes in preprocessing"
+    },
+    "region_share": {
+      "value": {
+        "Abu Dhabi": 0.58,
+        "Al Ain": 0.3,
+        "Al Dhafra": 0.12
+      },
+      "status": "assumption",
+      "source": "Share of Abu Dhabi emirate residents by region; replace with Statistics Centre Abu Dhabi figures"
+    },
+    "place_weights": {
+      "value": {
+        "city": 8,
+        "town": 5,
+        "suburb": 5,
+        "quarter": 4,
+        "neighbourhood": 4,
+        "village": 2,
+        "hamlet": 1
+      },
+      "status": "assumption",
+      "source": "Relative number of residents per OpenStreetMap place type, within a region"
+    },
+    "home_jitter_degrees": {
+      "value": 0.008,
+      "status": "design",
+      "source": "Random spread of homes around a place centre (about 1 km), so neighbours are not stacked"
+    },
+    "road_speed_kmh": {
+      "value": {
+        "city": 30,
+        "rural": 55,
+        "remote": 70
+      },
+      "status": "assumption",
+      "source": "Average road speed by area type, used for travel time to the nearest facility"
+    },
+    "road_detour_factor": {
+      "value": 1.3,
+      "status": "assumption",
+      "source": "Road distance is about 1.3 times the straight-line distance"
+    },
+    "travel_overhead_min": {
+      "value": 5,
+      "status": "assumption",
+      "source": "Minutes added to every trip (parking, walking in)"
+    },
+    "facilities_radius_km": {
+      "value": 10,
+      "status": "design",
+      "source": "Radius for counting nearby health facilities"
+    },
+    "nationality_mix": {
+      "value": {
+        "working_men": {
+          "Emirati": 0.12,
+          "Other Arab": 0.12,
+          "South Asian": 0.52,
+          "Filipino": 0.07,
+          "Western": 0.05,
+          "Other": 0.12
+        },
+        "others": {
+          "Emirati": 0.3,
+          "Other Arab": 0.18,
+          "South Asian": 0.28,
+          "Filipino": 0.12,
+          "Western": 0.05,
+          "Other": 0.07
+        }
+      },
+      "status": "assumption",
+      "source": "Nationality mix; the expatriate workforce is mostly men of working age (no official Abu Dhabi breakdown by nationality is published)"
+    },
+    "language_by_nationality": {
+      "value": {
+        "Emirati": {
+          "Arabic": 1.0
+        },
+        "Other Arab": {
+          "Arabic": 0.9,
+          "English": 0.1
+        },
+        "South Asian": {
+          "Urdu": 0.45,
+          "Hindi": 0.4,
+          "English": 0.15
+        },
+        "Filipino": {
+          "Tagalog": 0.7,
+          "English": 0.3
+        },
+        "Western": {
+          "English": 1.0
+        },
+        "Other": {
+          "English": 0.7,
+          "Arabic": 0.3
+        }
+      },
+      "status": "assumption",
+      "source": "Main language by nationality"
+    },
+    "working_ages": {
+      "value": [
+        18,
+        64
+      ],
+      "status": "design",
+      "source": "Ages counted as working age"
+    },
+    "work_shift_mix": {
+      "value": {
+        "day": 0.5,
+        "evening": 0.15,
+        "none": 0.35
+      },
+      "status": "assumption",
+      "source": "Work shifts of working-age adults"
+    },
+    "work_shift_mix_south_asian_men": {
+      "value": {
+        "day": 0.75,
+        "evening": 0.15,
+        "none": 0.1
+      },
+      "status": "assumption",
+      "source": "Work shifts of South Asian working-age men (more day-shift labour)"
+    },
+    "insurance_mix_day_shift": {
+      "value": {
+        "Basic": 0.8,
+        "Enhanced": 0.2
+      },
+      "status": "assumption",
+      "source": "Insurance of non-Emiratis on day shifts; Emiratis are on Thiqa (published: Thiqa is the scheme for UAE nationals)"
+    },
+    "insurance_mix_others": {
+      "value": {
+        "Basic": 0.4,
+        "Enhanced": 0.6
+      },
+      "status": "assumption",
+      "source": "Insurance of other non-Emiratis"
+    },
+    "phone_mix": {
+      "value": {
+        "smartphone": 0.85,
+        "basic": 0.12,
+        "none": 0.03
+      },
+      "status": "assumption",
+      "source": "Phone type"
+    },
+    "can_read_share": {
+      "value": 0.95,
+      "status": "assumption",
+      "source": "Share who can read a text message"
+    },
+    "smoking_rate": {
+      "value": {
+        "M": 0.126,
+        "F": 0.02
+      },
+      "status": "published",
+      "source": "Gives the WHO 2025 UAE adult smoking rate of 8.8% overall with 64% men in the population"
+    },
+    "smoking_from_age": {
+      "value": 15,
+      "status": "published",
+      "source": "WHO tobacco indicators count people aged 15 and over"
+    },
+    "guardian_ages": {
+      "value": [
+        22,
+        55
+      ],
+      "status": "design",
+      "source": "A child's guardian is an adult of these ages, of the same nationality where possible"
+    },
+    "mcv2_target": {
+      "value": 0.92,
+      "status": "published",
+      "source": "WHO/UNICEF estimates 2025: UAE second measles dose coverage 92%"
+    },
+    "mmr_check_ages": {
+      "value": [
+        5,
+        9
+      ],
+      "status": "design",
+      "source": "Children checked for the second dose (Synthea keeps about 10 years of history, so older children's doses are missing)"
+    },
+    "missed_visit_model": {
+      "value": {
+        "base": 0.05,
+        "barrier_slope": 0.4,
+        "max": 0.9,
+        "family_sd": 0.06,
+        "default_barrier": 0.3,
+        "search_range": [
+          0.0,
+          3.0
+        ],
+        "search_steps": 25
+      },
+      "status": "assumption",
+      "source": "Chance a well-child visit is dropped rises with the family's access barrier; scaled so the measles target is met"
+    },
+    "undiagnosed_share": {
+      "value": {
+        "diabetes": 0.4,
+        "hypertension": 0.5
+      },
+      "status": "assumption",
+      "source": "Share of all cases not yet diagnosed; totals are matched to WHO UAE prevalence"
+    },
+    "prevalence_ages": {
+      "value": {
+        "diabetes": [
+          18,
+          120
+        ],
+        "hypertension": [
+          30,
+          79
+        ]
+      },
+      "status": "published",
+      "source": "Age ranges of the WHO indicators (diabetes 18+, hypertension 30-79)"
+    },
+    "recent_normal_test_days": {
+      "value": 180,
+      "status": "design",
+      "source": "A normal test in the last 6 months rules out a hidden case"
+    },
+    "hidden_case_weights": {
+      "value": {
+        "age_centre": 45,
+        "bmi_centre": 27,
+        "default_bmi": 27.0,
+        "ancestry": 0.25,
+        "ancestry_groups": [
+          "Emirati",
+          "South Asian"
+        ],
+        "diabetes": {
+          "age_per_year": 0.0322,
+          "bmi_per_unit": 0.0862,
+          "male": 0.1469,
+          "prediabetes": 1.2305,
+          "smoking": 0.4623
+        },
+        "hypertension": {
+          "age_per_year": 0.055,
+          "bmi_per_unit": 0.046,
+          "male": 0.3183,
+          "prediabetes": 0.0,
+          "smoking": 0.1493
+        }
+      },
+      "status": "calibrated",
+      "source": "Who becomes a hidden case follows the log-odds of being undiagnosed among real NHANES adults (2015-2023, logistic regression of age, BMI, sex, told-prediabetes and smoking; hypertension without prediabetes). The ancestry effect (0.25) has no published value and stays an assumption"
+    },
+    "hidden_onset_years": {
+      "value": 5,
+      "status": "assumption",
+      "source": "A hidden case started some time in the last 5 years (after the last normal test)"
+    },
+    "hidden_values": {
+      "value": {
+        "hba1c_from": 6.5,
+        "hba1c_spread": 0.9,
+        "systolic_from": 140,
+        "systolic_spread": 12
+      },
+      "status": "assumption",
+      "source": "The value a test would show today for a hidden case (truth file only)"
+    },
+    "consent_contact": {
+      "value": 0.92,
+      "status": "assumption",
+      "source": "Share who allow contact"
+    },
+    "consent_genetic": {
+      "value": 0.7,
+      "status": "assumption",
+      "source": "Share who allow use of genetic information"
+    },
+    "family_history_recorded": {
+      "value": 0.75,
+      "status": "assumption",
+      "source": "Share with family history in the records"
+    },
+    "family_history_diabetes": {
+      "value": {
+        "with_diabetes": 0.45,
+        "without_diabetes": 0.15
+      },
+      "status": "published",
+      "source": "Odds ratio about 4.6, close to NHANES 1999-2002 (diabetes in 14.3% with a first-degree relative with diabetes vs 3.2% without, odds ratio about 5; CDC, Preventing Chronic Disease 2005)"
+    },
+    "child_concerns": {
+      "value": {
+        "development_under_6": 0.06,
+        "behaviour": 0.05,
+        "assessed": 0.4
+      },
+      "status": "assumption",
+      "source": "Development and behaviour concerns (Synthea has none) and the share already assessed"
+    },
+    "genetic_markers": {
+      "value": {
+        "FH": 0.004,
+        "BRCA": 0.003,
+        "LYNCH": 0.003,
+        "HBB_CARRIER": 0.05,
+        "MODY": 0.001
+      },
+      "status": "assumption",
+      "source": "Marker prevalence (FH about 1 in 250, BRCA about 1 in 300-400; HBB carriers higher in the region)"
+    },
+    "genetic_inheritance": {
+      "value": 0.5,
+      "status": "published",
+      "source": "A child of a carrier inherits a dominant marker with 50% chance"
+    },
+    "variant_status_mix": {
+      "value": {
+        "pathogenic": 0.6,
+        "likely_pathogenic": 0.25,
+        "VUS": 0.15
+      },
+      "status": "assumption",
+      "source": "Status of a found variant"
+    },
+    "polygenic_heritability": {
+      "value": 0.5,
+      "status": "assumption",
+      "source": "Child's polygenic score = half the guardian's plus noise (variance kept at 1)"
+    },
+    "married": {
+      "value": {
+        "from_age": 22,
+        "share": 0.7
+      },
+      "status": "assumption",
+      "source": "Share married"
+    },
+    "well_child_ages_months": {
+      "value": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        9,
+        12,
+        15,
+        18,
+        24,
+        30,
+        36,
+        48,
+        60,
+        72,
+        84,
+        96,
+        108,
+        120,
+        132,
+        144,
+        156,
+        168,
+        180,
+        192,
+        204
+      ],
+      "status": "published",
+      "source": "AAP Bright Futures well-child visit ages"
+    },
+    "well_child_windows_days": {
+      "value": {
+        "under_24_months": [
+          30,
+          61
+        ],
+        "under_48_months": [
+          60,
+          92
+        ],
+        "older": [
+          180,
+          183
+        ]
+      },
+      "status": "design",
+      "source": "Days before and after a due date that a visit still counts"
+    },
+    "history_years": {
+      "value": 10,
+      "status": "design",
+      "source": "Synthea keeps about 10 years of records"
+    },
+    "valid_ranges": {
+      "value": {
+        "hba1c": [
+          3.5,
+          20
+        ],
+        "bmi": [
+          10,
+          80
+        ],
+        "bmi_percentile": [
+          0,
+          100
+        ],
+        "systolic_bp": [
+          60,
+          260
+        ],
+        "diastolic_bp": [
+          30,
+          160
+        ],
+        "total_cholesterol": [
+          50,
+          500
+        ],
+        "ldl": [
+          10,
+          400
+        ],
+        "hdl": [
+          5,
+          150
+        ]
+      },
+      "status": "design",
+      "source": "Physiologically possible values; anything outside is set to missing"
+    },
+    "abnormal_results": {
+      "value": {
+        "hba1c": 6.5,
+        "systolic_bp": 160,
+        "ldl": 190,
+        "followup_days": 30
+      },
+      "status": "published",
+      "source": "HbA1c 6.5%+ (ADA diabetes), systolic 160+ (stage 2 hypertension), LDL 190+ (possible familial hypercholesterolaemia); no visit within 30 days counts as no follow-up"
+    },
+    "child_growth_concern": {
+      "value": {
+        "ages": [
+          2,
+          17
+        ],
+        "below_percentile": 5,
+        "at_or_above_percentile": 97
+      },
+      "status": "published",
+      "source": "WHO growth references: BMI below the 5th or at/above the 97th percentile"
+    },
+    "prenatal_check_days": {
+      "value": 42,
+      "status": "published",
+      "source": "Antenatal visits at least every 6 weeks (WHO antenatal care model)"
+    },
+    "screened_months": {
+      "value": 36,
+      "status": "published",
+      "source": "A diabetes test in the last 3 years counts as screened (ADA)"
+    },
+    "data_sufficient": {
+      "value": {
+        "adult_visits_2y": 2,
+        "adult_labs": 1,
+        "child_visits_2y": 1,
+        "years_of_records": 1
+      },
+      "status": "design",
+      "source": "Enough records to compute a risk score"
+    },
+    "risk_cutoff_years": {
+      "value": 2,
+      "status": "design",
+      "source": "The risk model learns from records up to 2 years ago and what happened since"
+    },
+    "feature_lookback_days": {
+      "value": 730,
+      "status": "design",
+      "source": "Visits and lab results are counted over the last 2 years (the _2y features)"
+    },
+    "er_lookback_days": {
+      "value": 365,
+      "status": "design",
+      "source": "Emergency visits and abnormal results are looked for in the last 12 months"
+    },
+    "region_boundaries": {
+      "value": {
+        "al_dhafra_west_of_lon": 53.9,
+        "al_ain_east_of_lon": 55.3,
+        "al_ain_south_of_lat": 24.6
+      },
+      "status": "assumption",
+      "source": "Approximate boundaries used to put an OpenStreetMap place in Abu Dhabi, Al Ain or Al Dhafra region"
+    },
+    "calendar_years": {
+      "value": [
+        2025,
+        2026,
+        2027
+      ],
+      "status": "design",
+      "source": "Years of the UAE calendar downloaded (Ramadan, Eid, public holidays)"
+    },
+    "uae_fixed_holidays": {
+      "value": {
+        "01-01": "New Year's Day",
+        "12-01": "Commemoration Day",
+        "12-02": "National Day",
+        "12-03": "National Day"
+      },
+      "status": "published",
+      "source": "UAE federal public holidays (Gregorian dates)"
+    },
+    "uae_hijri_holidays": {
+      "value": {
+        "01-01": "Islamic New Year",
+        "03-12": "Prophet's Birthday",
+        "12-09": "Arafat Day",
+        "10-01": "Eid al-Fitr",
+        "10-02": "Eid al-Fitr",
+        "10-03": "Eid al-Fitr",
+        "12-10": "Eid al-Adha",
+        "12-11": "Eid al-Adha",
+        "12-12": "Eid al-Adha"
+      },
+      "status": "published",
+      "source": "UAE federal public holidays (Hijri month-day, Umm al-Qura calendar)"
+    },
+    "ramadan_hijri_month": {
+      "value": 9,
+      "status": "published",
+      "source": "Ramadan is the 9th Hijri month"
+    }
+  }
+}

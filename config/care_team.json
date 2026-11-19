@@ -1,0 +1,49 @@
+{
+  "_about": "Care teams: which doctor is responsible for which patients (api/careteam.py). Every value has a status (design = a choice made for the prototype) and a source.",
+  "values": {
+    "specialties": {
+      "value": {
+        "Paediatrics": {"who": "children", "text": "Children (under 18)", "aliases": ["paediatric", "pediatric", "child"]},
+        "Family medicine": {"who": "adults", "text": "Adults, for check-ups and screening", "aliases": ["family", "general practice", "general practitioner", "gp", "primary care"]},
+        "Internal medicine": {"who": "adults_long_term", "text": "Adults with diabetes or high blood pressure", "aliases": ["internal", "endocrin", "diabet", "cardio"]},
+        "Genetic counselling": {"who": "genetic", "text": "People with a genetic pathway, only with their genetic consent", "aliases": ["genetic", "genomic"]}
+      },
+      "status": "design",
+      "source": "Who each specialty looks after in the prototype. A person can have one doctor per specialty (a care team): a family doctor and a genetic counsellor, for example"
+    },
+    "genetic_checks": {
+      "value": ["genetic_counselling", "carrier_counselling"],
+      "status": "design",
+      "source": "The pathway cards that need a genetic counsellor"
+    },
+    "default_panel_limit": {"value": 400, "status": "assumption", "source": "How many patients one doctor looks after when no limit is set"},
+    "break_glass_hours": {"value": 4, "status": "design", "source": "How long a doctor may open one patient outside their panel after giving a reason"},
+    "break_glass_min_reason": {"value": 12, "status": "design", "source": "The shortest reason accepted (characters)"},
+    "sharing_default_days": {"value": 30, "status": "design", "source": "How long a family's sharing with another hospital lasts unless they choose otherwise"},
+    "sharing_max_days": {"value": 365, "status": "design", "source": "The longest a family can share a record with another hospital in one go"},
+    "demo_outreach": {
+      "value": [
+        {"user": "aisha.n", "name": "Aisha Nasser", "hospital": "Abu Dhabi"},
+        {"user": "faisal.k", "name": "Faisal Khan", "hospital": "Abu Dhabi"},
+        {"user": "maria.s", "name": "Maria Santos", "hospital": "Al Ain"},
+        {"user": "omar.d", "name": "Omar Daoud", "hospital": "Al Dhafra"}
+      ],
+      "status": "design",
+      "source": "Made-up outreach staff for open mode (no accounts), so two people working the same list can be tried by switching the preview. A hospital is a region"
+    },
+    "demo_doctors": {
+      "value": [
+        {"user": "dr.amina", "name": "Dr Amina Al Mansoori", "hospital": "Abu Dhabi", "specialty": ["Paediatrics"], "languages": ["Arabic", "English"], "panel_limit": 450, "duty": false, "backup": "dr.rashid"},
+        {"user": "dr.rashid", "name": "Dr Rashid Al Hammadi", "hospital": "Abu Dhabi", "specialty": ["Paediatrics"], "languages": ["Urdu", "Hindi", "English"], "panel_limit": 450, "duty": true, "backup": "dr.amina"},
+        {"user": "dr.omar", "name": "Dr Omar Khalil", "hospital": "Abu Dhabi", "specialty": ["Family medicine"], "languages": ["Arabic", "Urdu"], "panel_limit": 1200, "duty": false, "backup": "dr.priya"},
+        {"user": "dr.priya", "name": "Dr Priya Nair", "hospital": "Abu Dhabi", "specialty": ["Family medicine", "Internal medicine"], "languages": ["Hindi", "English", "Tagalog"], "panel_limit": 1200, "duty": false, "backup": "dr.omar"},
+        {"user": "dr.noor", "name": "Dr Noor Al Ketbi", "hospital": "Abu Dhabi", "specialty": ["Genetic counselling"], "languages": ["Arabic", "English"], "panel_limit": 250, "duty": false, "backup": null},
+        {"user": "dr.hassan", "name": "Dr Hassan Saeed", "hospital": "Al Ain", "specialty": ["Paediatrics", "Family medicine"], "languages": ["Arabic", "English", "Urdu"], "panel_limit": 900, "duty": true, "backup": "dr.sara"},
+        {"user": "dr.sara", "name": "Dr Sara Al Shamsi", "hospital": "Al Ain", "specialty": ["Family medicine", "Internal medicine"], "languages": ["Arabic", "English", "Hindi"], "panel_limit": 900, "duty": false, "backup": "dr.hassan"},
+        {"user": "dr.khalid", "name": "Dr Khalid Al Mazrouei", "hospital": "Al Dhafra", "specialty": ["Paediatrics", "Family medicine"], "languages": ["Arabic", "English"], "panel_limit": 700, "duty": true, "backup": null}
+      ],
+      "status": "design",
+      "source": "Made-up doctors for open mode (no accounts), so the care-team pages can be tried without creating accounts. A hospital is a region"
+    }
+  }
+}

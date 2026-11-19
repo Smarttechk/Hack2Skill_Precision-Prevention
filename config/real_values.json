@@ -1,0 +1,727 @@
+{
+  "_about": "Every number the simulation and the cost model use. status: published = taken from the source; calibrated = tuned so the usual-care run matches the published figure (see scripts/calibrate.py); design = a choice of this system, not a fact; assumption = no published value found, kept and tested in the sensitivity analysis. Checked 11 Nov 2026.",
+  "usd_to_aed": {
+    "value": 3.6725,
+    "status": "published",
+    "source": "Central Bank of the UAE: dirham pegged to the US dollar at 3.6725",
+    "url": "https://www.centralbank.ae"
+  },
+  "cost": {
+    "whatsapp_per_message_usd": {
+      "value": 0.0157,
+      "status": "published",
+      "source": "Meta WhatsApp Business Platform rate card, UAE, utility template (as reproduced by SleekFlow, Oct 2026)",
+      "url": "https://sleekflow.io/blog/whatsapp-business-price-uae"
+    },
+    "sms_per_message_usd": {
+      "value": 0.1176,
+      "status": "published",
+      "source": "Twilio outbound SMS price to the UAE (textbee.dev summary of Twilio's price page, checked Sep 2026)",
+      "url": "https://www.twilio.com/en-us/sms/pricing/ae"
+    },
+    "hosting_per_hour_usd": {
+      "value": 0.235,
+      "status": "published",
+      "source": "Azure Standard_D4s_v5 on-demand price, UAE North region (devzero.io price table)",
+      "url": "https://www.devzero.io/instances/azure/Standard_D4s_v5"
+    },
+    "nurse_salary_per_year_aed": {
+      "value": 82936,
+      "status": "published",
+      "source": "Payscale: median base salary of a registered nurse in the UAE",
+      "url": "https://www.payscale.com/research/AE/Job=Registered_Nurse_(RN)/Salary"
+    },
+    "diabetes_cost_per_person_year_usd": {
+      "value": 2100,
+      "status": "published",
+      "source": "IDF Diabetes Atlas 10th edition (2021): health spending per person with diabetes, UAE (via Statista)",
+      "url": "https://statista.com/statistics/1459431/mena-cost-per-person-diabetes-by-country"
+    },
+    "outreach_nurses_new": {
+      "value": 2,
+      "status": "design",
+      "source": "Staffing plan of this system: two nurses run the outreach queue, staff calls and health-worker visits"
+    },
+    "outreach_nurses_usual_care": {
+      "value": 1,
+      "status": "design",
+      "source": "Usual care: one nurse handles reminder lists"
+    },
+    "primary_care_visit_aed": {
+      "value": 220,
+      "status": "published",
+      "source": "Typical GP consultation in Abu Dhabi, AED 220 (indicative range 120-450), Zavis UAE price directory. An aggregator estimate, not the DoH Mandatory Tariff; used for every attended visit in both ways; no separate published price was found for a telehealth or mobile-clinic visit, so the same price is used (the range is shown as well)",
+      "url": "https://www.zavis.ai/directory/pricing/gp-consultation/abu-dhabi"
+    },
+    "primary_care_visit_aed_range": {
+      "value": [
+        120,
+        450
+      ],
+      "status": "published",
+      "source": "Indicative range of a GP consultation in Abu Dhabi, AED 120 to 450 (Zavis UAE price directory); used to show how much the cost per person depends on the visit price",
+      "url": "https://www.zavis.ai/directory/pricing/gp-consultation/abu-dhabi"
+    }
+  },
+  "behaviour": {
+    "reply_whatsapp": {
+      "value": 0.23,
+      "status": "published",
+      "source": "Fabens et al. 2024, JMIR Formative Research: 23% of WhatsApp users replied to two-way follow-up messages",
+      "url": "https://formative.jmir.org/2024/1/e62762"
+    },
+    "reply_sms": {
+      "value": 0.2,
+      "status": "published",
+      "source": "Fabens et al. 2024, JMIR Formative Research: 20% of SMS users replied",
+      "url": "https://formative.jmir.org/2024/1/e62762"
+    },
+    "phone_vs_sms_ratio": {
+      "value": 1.278,
+      "status": "published",
+      "source": "Study within a trial (2019): attendance 23% after a phone reminder vs 18% after SMS (23/18)",
+      "url": "https://api-pubmed-ncbi.laibokeji.com/31051248"
+    },
+    "home_visit_reply": {
+      "value": "same as a phone call",
+      "status": "assumption",
+      "source": "No published reply rate for a health-worker home visit; set equal to a phone call, which is conservative"
+    },
+    "language_match_odds_ratio": {
+      "value": 2.012,
+      "status": "published",
+      "source": "WellSpan Health 2025, JMIR: language-matched outreach, adjusted odds ratio 2.01 for taking up screening",
+      "url": "https://www.jmir.org/2025/1/e71211"
+    },
+    "no_show_rate": {
+      "value": 0.2082,
+      "status": "published",
+      "source": "Emirates Health Services primary care, Jul-Sep 2022: 14,038 no-shows of 67,429 booked appointments (JMIR Formative Research 2025)",
+      "url": "https://formative.jmir.org/2025/1/e64936"
+    },
+    "text_opt_out_rate": {
+      "value": 0.025,
+      "status": "published",
+      "source": "Kaiser Permanente Colorado, JAMA Network Open 2021: 2.5% of adults opted out of automated health texts in a year",
+      "url": "https://doi.org/10.1001/jamanetworkopen.2021.3479"
+    },
+    "results_not_followed_up_low": {
+      "value": 0.068,
+      "status": "published",
+      "source": "Callen et al. 2011, J Gen Intern Med systematic review: abnormal lab results not followed up, lowest study",
+      "url": "https://psnet.ahrq.gov/issue/failure-follow-test-results-ambulatory-patients-systematic-review"
+    },
+    "results_not_followed_up_high": {
+      "value": 0.62,
+      "status": "published",
+      "source": "Callen et al. 2011: abnormal lab results not followed up, highest study",
+      "url": "https://psnet.ahrq.gov/issue/failure-follow-test-results-ambulatory-patients-systematic-review"
+    },
+    "capacity_per_day": {
+      "value": 120,
+      "status": "design",
+      "source": "New contacts per day, the same for both ways so the comparison is fair"
+    },
+    "reply_split": {
+      "value": {
+        "BOOK": 0.62,
+        "INFO": 0.13,
+        "LATER": 0.17
+      },
+      "status": "assumption",
+      "source": "No published split of reply types; STOP is calibrated separately to the published opt-out rate"
+    },
+    "results_reply_split": {
+      "value": {
+        "BOOK": 0.8,
+        "INFO": 0.12,
+        "LATER": 0.08,
+        "STOP": 0.0
+      },
+      "status": "assumption",
+      "source": "No published value for replies to a nurse calling about a result"
+    },
+    "cannot_read_sms_factor": {
+      "value": 0.3,
+      "status": "assumption",
+      "source": "No published value for SMS replies from people who cannot read"
+    },
+    "barrier_reply_effect": {
+      "value": 0.4,
+      "status": "assumption",
+      "source": "No published value: replies fall by up to 40% with the highest access barrier"
+    },
+    "telehealth_boost": {
+      "value": 0.198,
+      "status": "published",
+      "source": "Primary care, 23 NYC public clinics, about 1.2 million visits (J Gen Intern Med 2022): telephone visits had adjusted odds ratio 0.82 for non-attendance against in-person in the later period; used as ln(1/0.82) on the attendance log-odds. Video visits did worse (odds ratio 2.02), so this applies to phone telehealth. Mobile clinics are given the same effect (assumption). Tested from 0 in the sensitivity analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36220946/"
+    },
+    "doctor_agree": {
+      "value": 0.85,
+      "status": "assumption",
+      "source": "A 2026 review found no study reporting doctors' agreement with AI decision support in primary care"
+    },
+    "prior_no_show_odds_ratio": {
+      "value": 1.11,
+      "status": "published",
+      "source": "Gebhart 2017, OHSU family medicine primary care: each earlier missed appointment, odds ratio 1.11 for a no-show (quality-improvement report, not peer reviewed)",
+      "url": "https://digitalcollections.ohsu.edu/record/7628/files/Gebhart.Timothy.2017.pdf"
+    },
+    "lead_time_no_show_odds_ratio_per_day": {
+      "value": 1.0019,
+      "status": "published",
+      "source": "Predictors of no-show in neurology clinics, Healthcare 2022: odds of a no-show rise 1.0019 times per day between booking and visit (a specialty clinic; no primary care per-day figure found)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9025597/"
+    },
+    "reminder_no_show_reduction_automated": {
+      "value": 0.29,
+      "status": "published",
+      "source": "Hasvold and Wootton 2011, systematic review: automated reminders cut non-attendance by 29% of its usual level (against no reminder, so it may overstate an extra reminder)",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3188816/"
+    },
+    "reminder_no_show_reduction_call": {
+      "value": 0.39,
+      "status": "published",
+      "source": "Hasvold and Wootton 2011: a phone call by staff cut non-attendance by 39% of its usual level",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3188816/"
+    },
+    "transport_help_effect": {
+      "value": 0.0,
+      "status": "published",
+      "source": "Chaiyachati et al. 2018, JAMA Internal Medicine: offering free rides did not change missed primary care visits (36.5% vs 36.7%)",
+      "url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2671405"
+    },
+    "ramadan_attendance_effect": {
+      "value": 0.0,
+      "status": "assumption",
+      "source": "No study found that shows more missed visits in Ramadan; a trial in 36 Riyadh primary care centres recorded fewer no-shows during Ramadan, partly from recording errors. Set to no effect."
+    },
+    "evening_slot_effect": {
+      "value": 0.0,
+      "status": "assumption",
+      "source": "No published effect of evening slots on attendance; set to no effect, so this system gets no credit for offering them"
+    },
+    "attendance_barrier_effect": {
+      "value": -1.6,
+      "status": "assumption",
+      "source": "Change in attendance log-odds from the lowest to the highest access barrier (language, insurance, day shift, phone, travel). No single published value for this combined score."
+    },
+    "info_then_book": {
+      "value": 0.5,
+      "status": "assumption",
+      "source": "Share of people who book the day after asking for information. No published value found."
+    },
+    "booking_lead_days": {
+      "value": [
+        2,
+        10
+      ],
+      "status": "design",
+      "source": "A visit is booked 2 to 10 days after the person says yes"
+    },
+    "prior_no_show_count_cap": {
+      "value": 3,
+      "status": "design",
+      "source": "Earlier missed visits count up to 3; beyond that the published odds ratio (measured on few repeat no-shows) is not extended"
+    }
+  },
+  "design": {
+    "priority_weights": {
+      "value": {
+        "risk": 0.5,
+        "gaps": 0.2,
+        "barrier": 0.3
+      },
+      "status": "design",
+      "source": "Priority score = weights x (risk, number of gaps out of 5, access barrier). Puts health need first and moves people with barriers up."
+    },
+    "access_barrier_weights": {
+      "value": {
+        "language_not_arabic_or_english": 0.25,
+        "basic_insurance": 0.2,
+        "day_shift": 0.2,
+        "no_smartphone": 0.15,
+        "travel_90_min_or_more": 0.2,
+        "travel_full_minutes": 90
+      },
+      "status": "design",
+      "source": "Points for each barrier, adding up to at most 1; the travel part reaches its full weight at 90 minutes"
+    },
+    "no_reply_give_up_day": {
+      "value": 24,
+      "status": "design",
+      "source": "Days after the first message with no reply before the person is put back on the list"
+    },
+    "no_reply_retry_after_days": {
+      "value": 30,
+      "status": "design",
+      "source": "Days to wait before inviting someone again who never replied"
+    },
+    "on_hold_review_after_days": {
+      "value": 30,
+      "status": "design",
+      "source": "A card a doctor put on hold goes back to the doctor after a month"
+    },
+    "deadline_days": {
+      "value": {
+        "Urgent": 2,
+        "High": 7,
+        "Routine": 30
+      },
+      "status": "design",
+      "source": "Days to make contact for each urgency level"
+    },
+    "risk_high_share": {
+      "value": 0.15,
+      "status": "design",
+      "source": "High risk = the top 15% of risk scores"
+    },
+    "risk_moderate_share": {
+      "value": 0.4,
+      "status": "design",
+      "source": "Moderate risk or above = the top 40% of risk scores"
+    },
+    "reminder_days": {
+      "value": [
+        3,
+        7
+      ],
+      "status": "design",
+      "source": "Days after the first message when this system sends a reminder on the same channel"
+    },
+    "followup_choice_days": {
+      "value": [
+        10,
+        17
+      ],
+      "status": "design",
+      "source": "Days after the first message when the follow-up chooser picks a reminder, a call or a health-worker visit"
+    },
+    "usual_care_reminder_day": {
+      "value": 14,
+      "status": "design",
+      "source": "Usual care: one reminder two weeks after the first message"
+    },
+    "telehealth_travel_min": {
+      "value": 60,
+      "status": "design",
+      "source": "After a missed visit, telehealth is offered when travel is over this many minutes (only for checks that can be done remotely)"
+    },
+    "later_pause_days": {
+      "value": {
+        "result": 7,
+        "other": 30
+      },
+      "status": "design",
+      "source": "Pause after a LATER reply: a week when a result is waiting, a month otherwise"
+    },
+    "mobile_clinic_places": {
+      "value": 3,
+      "status": "design",
+      "source": "Each week a mobile clinic goes to this many rural or remote places with the most people waiting"
+    },
+    "noshow_model_min_auc": {
+      "value": 0.6,
+      "status": "design",
+      "source": "The no-show model plans support only if it ranks later visits at least this well"
+    },
+    "noshow_support_cutoffs": {
+      "value": {
+        "extra_reminder": 0.3,
+        "health_worker_call": 0.6
+      },
+      "status": "design",
+      "source": "Fallback only (a model without its own cut-offs): predicted chance of missing at which support is added"
+    },
+    "support_rule": {
+      "value": {
+        "extra_reminder_barrier": 0.4,
+        "health_worker_call_barrier": 0.6,
+        "extra_reminder_no_shows": 1,
+        "health_worker_call_no_shows": 2
+      },
+      "status": "design",
+      "source": "Used when the no-show model is not good enough: access barrier or past missed visits at which support is added"
+    },
+    "clinic_result_handling_day": {
+      "value": 21,
+      "status": "design",
+      "source": "Days after an abnormal result when the clinic's own result handling acts (at the published follow-up rate)"
+    },
+    "clinic_slots_per_day": {
+      "value": 40,
+      "status": "design",
+      "source": "Preventive-check appointments a day for these 5,000 people (clinic and telehealth share them); the same limit both ways. Busy days push bookings later."
+    },
+    "mobile_clinic_slots": {
+      "value": 25,
+      "status": "design",
+      "source": "Visits one mobile clinic session can take; when full, people are booked at the clinic"
+    },
+    "mobile_clinic_first_day": {
+      "value": 3,
+      "status": "design",
+      "source": "Days after planning that the first mobile clinic of the week runs (one place a day after that)"
+    },
+    "priority_boosts": {
+      "value": {
+        "missed_deadline": 1.0,
+        "missed_visit": 0.5,
+        "emergency": 10.0
+      },
+      "status": "design",
+      "source": "Added to the priority score: past the contact deadline, after a missed visit, after emergency words"
+    },
+    "max_rebooks": {
+      "value": 2,
+      "status": "design",
+      "source": "Rebookings after missed visits before the person rests and is invited again later"
+    },
+    "clinician_decides_checks": {
+      "value": [
+        "genetic_counselling",
+        "carrier_counselling",
+        "results_review",
+        "premarital_screening",
+        "prediabetes_programme",
+        "weight_support",
+        "stop_smoking_service",
+        "family_nutrition_programme",
+        "emergency_callback"
+      ],
+      "status": "design",
+      "source": "Checks a clinician must approve before anyone is contacted"
+    },
+    "telehealth_checks": {
+      "value": [
+        "genetic_counselling",
+        "carrier_counselling",
+        "results_review",
+        "premarital_screening",
+        "depression_screen"
+      ],
+      "status": "design",
+      "source": "Checks that can be done by a phone or video call; everything else needs a visit"
+    },
+    "noshow_support_shares": {
+      "value": {
+        "extra_reminder": 0.2,
+        "health_worker_call": 0.05
+      },
+      "status": "design",
+      "source": "When the no-show model is used: an extra reminder for the 20% it ranks most likely to miss, a health-worker call for the top 5%"
+    },
+    "alerts": {
+      "value": {
+        "missed_deadlines": 50,
+        "opt_out_spike_min": 5,
+        "opt_out_spike_ratio": 2.0,
+        "fairness_gap": 0.15,
+        "fairness_min_group": 50,
+        "repeat_days": 7,
+        "window_days": 7,
+        "repeat_growth": 1.5
+      },
+      "status": "design",
+      "source": "When the evaluation agent warns the team: people past their deadline, opt-outs today against last week, and the gap in reach between language groups; the same kind of alert is repeated within 7 days only if its number grows by half; opt-out spikes are compared with the last 7 days, fairness is checked every 7 days, and a repeated alert needs its number to grow by half"
+    },
+    "reach_floor_gap": {
+      "value": 0.1,
+      "status": "design",
+      "source": "Reach floor: a language, nationality, insurance or region group more than 10 points behind the best-reached group of its kind goes first within each urgency level, so giving priority to people with barriers never leaves another group far behind"
+    },
+    "run_date": {
+      "value": "2026-11-12",
+      "status": "design",
+      "source": "The date every step treats as today (data adjustment, features, simulation start), so a rerun gives the same results. Override with PP_RUN_DATE=YYYY-MM-DD."
+    },
+    "contact_windows": {
+      "value": {
+        "ramadan": "20:30-22:30",
+        "friday": "16:00-20:00",
+        "after_day_shift": "18:00-21:00",
+        "default": "10:00-13:00"
+      },
+      "status": "design",
+      "source": "Best time to send: after iftar in Ramadan, Friday afternoon, after a day shift, otherwise late morning"
+    },
+    "max_message_characters": {
+      "value": 320,
+      "status": "design",
+      "source": "Longest message sent (two SMS segments); a longer template goes to a staff call"
+    },
+    "blocked_message_words": {
+      "value": [
+        "gene",
+        "genetic",
+        "brca",
+        "cancer",
+        "risk score",
+        "%",
+        "carrier"
+      ],
+      "status": "design",
+      "source": "Words a message may never contain (privacy and no alarming language); such a message goes to a staff call"
+    },
+    "max_reply_probability": {
+      "value": 0.95,
+      "status": "design",
+      "source": "Upper limit on anyone's chance of replying in the simulation"
+    },
+    "uncalibrated_fallbacks": {
+      "value": {
+        "base_attendance_logit": 1.1,
+        "stop_share": 0.08
+      },
+      "status": "design",
+      "source": "Used only before scripts/calibrate.py has run; the calibrated values replace them"
+    },
+    "age_groups": {
+      "value": {
+        "0-17": [
+          0,
+          17
+        ],
+        "18-39": [
+          18,
+          39
+        ],
+        "40-64": [
+          40,
+          64
+        ],
+        "65+": [
+          65,
+          120
+        ]
+      },
+      "status": "design",
+      "source": "Age groups for fairness checks in the evaluation agent"
+    },
+    "fairness_age_bands": {
+      "value": {
+        "0-5": [
+          0,
+          5
+        ],
+        "6-17": [
+          6,
+          17
+        ],
+        "18-39": [
+          18,
+          39
+        ],
+        "40-64": [
+          40,
+          64
+        ],
+        "65+": [
+          65,
+          120
+        ]
+      },
+      "status": "design",
+      "source": "Age bands for the fairness tables in the results"
+    },
+    "outcome_window_days": {
+      "value": 30,
+      "status": "design",
+      "source": "Timely attendance and result follow-up are counted within 30 days"
+    },
+    "sensitivity": {
+      "value": {
+        "reply_multipliers": [
+          0.7,
+          1.0
+        ],
+        "attendance_logit_drop": 0.5,
+        "doctor_agree_low": 0.6,
+        "seeds": [
+          11,
+          12
+        ],
+        "clinic_slots_low": 30
+      },
+      "status": "design",
+      "source": "Settings tried in the worst-case analysis: 30% fewer replies, much lower attendance, doctors agreeing far less often, two random seeds; and a quarter fewer clinic slots (30 instead of 40 a day)"
+    },
+    "community_actions": {
+      "value": {
+        "children_overdue_for_school_day": 15,
+        "remote_gap_share_for_mobile_clinic": 0.3,
+        "low_uptake_for_health_talk": 0.4,
+        "min_people": 10,
+        "reliable_people": 30
+      },
+      "status": "design",
+      "source": "When the Communities page suggests a school screening day, a mobile clinic or a health talk, and how small a place can be shown"
+    },
+    "map_min_people": {
+      "value": 10,
+      "status": "design",
+      "source": "Places with fewer people are not shown on the map (privacy)"
+    },
+    "phone_demo_people": {
+      "value": 300,
+      "status": "design",
+      "source": "People offered in the phone demo list"
+    },
+    "simulation": {
+      "value": {
+        "days": 60,
+        "seed": 7,
+        "live_demo_seed": 99,
+        "learner_seed_offset": 1000
+      },
+      "status": "design",
+      "source": "Length of the simulated period and its random seeds (same seeds, same results)"
+    },
+    "calibration": {
+      "value": {
+        "seeds": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "max_rounds": 6,
+        "attendance_tolerance": 0.008,
+        "opt_out_tolerance": 0.002,
+        "damping_after_first": 0.6,
+        "max_stop_share": 0.5
+      },
+      "status": "design",
+      "source": "Usual care is calibrated over 6 runs (other seeds than the reported run) until attendance and opt-out are within these tolerances of the published figures"
+    },
+    "small_groups": {
+      "value": {
+        "hide_under": 10,
+        "not_reliable_under": 30
+      },
+      "status": "design",
+      "source": "Fairness tables hide groups under 10 people (privacy) and mark groups under 30 as not reliable"
+    },
+    "page_sizes": {
+      "value": {
+        "doctor_list": 200,
+        "queue": 30,
+        "households": 200,
+        "journeys": 300,
+        "learning_rows": 12,
+        "alerts": 20
+      },
+      "status": "design",
+      "source": "How many rows each page shows at first"
+    },
+    "urgent_slots": {
+      "value": {
+        "per_day": 10,
+        "lead_days": [
+          1,
+          3
+        ]
+      },
+      "status": "design",
+      "source": "Appointments kept free each day for results reviews and other Urgent cases (as clinics keep same-week slots), booked 1 to 3 days ahead; the same rule in both ways"
+    },
+    "followup_actions": {
+      "value": {
+        "reminder_same_channel": null,
+        "switch_channel": "Voice call",
+        "community_health_worker": "Community health worker visit"
+      },
+      "status": "design",
+      "source": "Follow-up options the learner chooses from, and the channel each one uses (none = the same channel)"
+    },
+    "support_levels": {
+      "value": [
+        "Standard reminder",
+        "Extra reminder the day before; offer a different time",
+        "Community health worker call before the visit; offer transport or telehealth"
+      ],
+      "status": "design",
+      "source": "Support added before a visit, from least to most"
+    },
+    "fairness_groups": {
+      "value": {
+        "language": "guardian.language",
+        "nationality": "person.nationality",
+        "insurance": "person.insurance",
+        "region": "person.region",
+        "age group": "person.age_group",
+        "sex": "person.sex"
+      },
+      "status": "design",
+      "source": "Groups the evaluation agent checks for fair reach (the family's language decides the message, the person's own record the rest)"
+    },
+    "short_contact_day_weekday": {
+      "value": 4,
+      "status": "published",
+      "source": "Friday (Python weekday 4): UAE public-sector half day with Friday prayer, so the Friday contact window is used"
+    },
+    "weekly_review_every_days": {
+      "value": 7,
+      "status": "design",
+      "source": "Every 7 days the care-gap agent re-checks recalls and warning signs, and mobile clinic days are planned"
+    },
+    "streamlit_view": {
+      "value": {
+        "map_centre": [
+          24.0,
+          54.6
+        ],
+        "map_zoom": 7,
+        "place_radius_base_m": 300,
+        "place_radius_per_person_m": 20,
+        "facility_radius_m": 250,
+        "person_picker_rows": 200,
+        "learning_rows": 15,
+        "calls_slider": {
+          "min": 10,
+          "max": 120,
+          "default": 30,
+          "step": 10
+        }
+      },
+      "status": "design",
+      "source": "Display settings of the older Streamlit dashboard (map centred on Abu Dhabi emirate; list lengths)"
+    },
+    "gaps_for_full_score": {
+      "value": 5,
+      "status": "design",
+      "source": "The gaps part of the priority score reaches its full weight at 5 open care gaps"
+    },
+    "ai_features": {
+      "value": {
+        "learn_first_channel": false
+      },
+      "status": "design",
+      "source": "Switch for the one AI step that acts inside the rules. learn_first_channel: the first message's channel is learned from replies, starting from the rule. It is off: over 5 seeds it did not improve completed care or the number of undiagnosed cases found (outputs/results/ai_ablation.json; python evaluate.py --ablation repeats it). Switch it on when a hospital's own data shows a gain"
+    },
+    "first_channel_learner": {
+      "value": {
+        "choices": {
+          "smartphone": ["WhatsApp", "SMS"]
+        },
+        "rule_prior_replies": 8
+      },
+      "status": "design",
+      "source": "First-contact channel learner (Thompson sampling, like the follow-up learner). It chooses only among channels that need no staff time and that the person can use; everyone else keeps the rule's channel, and a person's own stated channel always wins. The rule's channel starts with this many assumed replies, so the learner departs from the rule only after real replies say so"
+    },
+    "spread_seeds": {
+      "value": [
+        7,
+        21,
+        22,
+        23,
+        24
+      ],
+      "status": "design",
+      "source": "Random seeds for the seed-spread check (python evaluate.py --seeds): the headline results are re-run with each seed, both ways, and reported as the average and the range, so one run's luck is not mistaken for an effect"
+    }
+  }
+}

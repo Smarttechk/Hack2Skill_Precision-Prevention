@@ -1,0 +1,105 @@
+<mxfile host="app.diagrams.net" agent="make_drawio.py" version="24.7.17">
+  <diagram id="e2e" name="1 End-to-end architecture">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="8" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="780" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="From raw data to a completed check-up, with the doctor deciding" style="text;html=1;align=left;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#1F1F1F;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="24" y="12" width="700" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="1. Sources" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;container=1;collapsible=0;recursiveResize=0;align=left;verticalAlign=top;spacingLeft=14;spacingTop=4;fontStyle=1;fillColor=#F3F3F1;strokeColor=#BDBDBD;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="24" y="56" width="660" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="2. Data" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;container=1;collapsible=0;recursiveResize=0;align=left;verticalAlign=top;spacingLeft=14;spacingTop=4;fontStyle=1;fillColor=#F3F3F1;strokeColor=#BDBDBD;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="24" y="200" width="660" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="3. Decisions, run daily by the orchestrator" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;container=1;collapsible=0;recursiveResize=0;align=left;verticalAlign=top;spacingLeft=14;spacingTop=4;fontStyle=1;fillColor=#F3F3F1;strokeColor=#BDBDBD;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="24" y="344" width="660" height="204" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="4. Engagement and safety" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;container=1;collapsible=0;recursiveResize=0;align=left;verticalAlign=top;spacingLeft=14;spacingTop=4;fontStyle=1;fillColor=#F3F3F1;strokeColor=#BDBDBD;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="24" y="572" width="660" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="b5" value="5. People and systems" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;container=1;collapsible=0;recursiveResize=0;align=left;verticalAlign=top;spacingLeft=14;spacingTop=4;fontStyle=1;fillColor=#F3F3F1;strokeColor=#BDBDBD;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="24" y="716" width="660" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="&lt;b&gt;Synthea&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;synthetic patients,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;6 age-sex groups&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b1">
+          <mxGeometry x="16" y="32" width="148" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;Real public data&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;NHANES, WHO, World&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;Bank, OSM, calendar&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b1">
+          <mxGeometry x="176" y="32" width="148" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;Reference files&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;guidelines,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;templates, replies&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b1">
+          <mxGeometry x="336" y="32" width="148" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="&lt;b&gt;Malaffi (pilot)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;FHIR records,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;after approval&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b1">
+          <mxGeometry x="496" y="32" width="148" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" value="&lt;b&gt;Build and adjust&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;get_all_data.py and&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;uae_adjust.py&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b2">
+          <mxGeometry x="16" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="&lt;b&gt;Patient table&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;one row per person,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;consent applied&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#DAE8FC;strokeColor=#1F6FD1;strokeWidth=2;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b2">
+          <mxGeometry x="230" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" value="&lt;b&gt;Truth file (locked)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;hidden cases, used only&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;by the simulation&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b2">
+          <mxGeometry x="444" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="&lt;b&gt;Care-gap rules&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;24 guideline rules,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;warning signs&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b3">
+          <mxGeometry x="16" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="&lt;b&gt;Risk score&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;published FINDRISC,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;reasons, range, NHANES-checked&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b3">
+          <mxGeometry x="230" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="&lt;b&gt;Pathway cards&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;outreach invite or&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;clinician decides&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b3">
+          <mxGeometry x="444" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="&lt;b&gt;No-show rule&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;adds support only,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;never lowers priority&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b3">
+          <mxGeometry x="16" y="116" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="&lt;b&gt;Follow-up learner&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;picks reminder, channel&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;or health worker&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b3">
+          <mxGeometry x="230" y="116" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="&lt;b&gt;Evaluation&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;results, fairness,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;worst case, reports&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b3">
+          <mxGeometry x="444" y="116" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="&lt;b&gt;Message composer&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;approved templates,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;timing, safety check&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b4">
+          <mxGeometry x="16" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="&lt;b&gt;Chat&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;fixed rules and&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;approved replies&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b4">
+          <mxGeometry x="230" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="&lt;b&gt;Consent and audit&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;per-purpose consent,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;every action logged&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b4">
+          <mxGeometry x="444" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="o1" value="&lt;b&gt;Dashboard&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;doctors agree or&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;disagree; managers&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b5">
+          <mxGeometry x="16" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="o2" value="&lt;b&gt;Families&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;WhatsApp, SMS, voice,&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;health worker visits&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b5">
+          <mxGeometry x="230" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="o3" value="&lt;b&gt;Clinic systems&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;FHIR Tasks to Malaffi&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#5F5F5F&quot;&gt;and clinic work lists&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=#FFFFFF;strokeColor=#9E9E9E;fontColor=#1F1F1F;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="b5">
+          <mxGeometry x="444" y="32" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="f0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#9E9E9E;strokeWidth=1.25;fontColor=#5F5F5F;fontSize=11;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="b1" target="b2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#9E9E9E;strokeWidth=1.25;fontColor=#5F5F5F;fontSize=11;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="b2" target="b3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#9E9E9E;strokeWidth=1.25;fontColor=#5F5F5F;fontSize=11;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="b3" target="b4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#9E9E9E;strokeWidth=1.25;fontColor=#5F5F5F;fontSize=11;fontFamily=Helvetica;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="b4" target="b5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="loop" value="doctor decisions, replies, attendance" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#9E9E9E;strokeWidth=1.25;fontColor=#5F5F5F;fontSize=11;fontFamily=Helvetica;exitX=1;exitY=0.5;entryX=1;entryY=0.5;labelPosition=right;align=left;verticalLabelPosition=middle;" edge="1" parent="1" source="b5" target="b3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="712" y="776" />
+              <mxPoint x="712" y="446" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

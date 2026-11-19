@@ -1,0 +1,22 @@
+{
+  "base_attendance_logit": {
+    "value": 1.889,
+    "status": "calibrated",
+    "target": "usual care attends 79.2% of booked visits",
+    "achieved": 0.785,
+    "source": {
+      "text": "Emirates Health Services primary care, Jul-Sep 2022: 14,038 no-shows of 67,429 booked appointments (JMIR Formative Research 2025)",
+      "url": "https://formative.jmir.org/2025/1/e64936"
+    }
+  },
+  "stop_share": {
+    "value": 0.0824,
+    "status": "calibrated",
+    "target": "2.5% of contacted people opt out",
+    "achieved": 0.0249,
+    "source": {
+      "text": "Kaiser Permanente Colorado, JAMA Network Open 2021: 2.5% of adults opted out of automated health texts in a year",
+      "url": "https://doi.org/10.1001/jamanetworkopen.2021.3479"
+    }
+  }
+}

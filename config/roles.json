@@ -1,0 +1,304 @@
+{
+  "_about": "Who can sign in to what. Pages per role, the API calls behind each page, limits per account (region or own record), sessions and password rules. The server enforces it (api/auth.py) and the app reads it from /api/roles.",
+  "values": {
+    "role_pages": {
+      "value": {
+        "admin": [
+          "home",
+          "today",
+          "accounts",
+          "audit",
+          "careteam",
+          "journey",
+          "phone",
+          "doctor",
+          "queue",
+          "family",
+          "why",
+          "map",
+          "communities"
+        ],
+        "doctor": [
+          "doctor",
+          "family",
+          "journey"
+        ],
+        "outreach": [
+          "queue",
+          "family",
+          "journey",
+          "phone"
+        ],
+        "manager": [
+          "home",
+          "results",
+          "map",
+          "communities"
+        ],
+        "patient": [
+          "mycare",
+          "why"
+        ]
+      },
+      "status": "design",
+      "source": "Pages per role, least access each role needs: hospital admin (every page, accounts, access log), doctors, outreach staff, programme managers (totals only, no individual patient records), and patients or families (their own records only)"
+    },
+    "demo_pages": {
+      "value": [
+        "phone"
+      ],
+      "status": "design",
+      "source": "Demo tools that a production deployment does not show: the patient phone simulator (families reply from their own WhatsApp or SMS). Hidden for every role unless the server runs with PP_DEMO=1; while hidden, their API calls are refused too"
+    },
+    "page_api": {
+      "value": {
+        "home": [
+          "/api/results",
+          "/api/operations"
+        ],
+        "doctor": [
+          "/api/doctor",
+          "/api/person",
+          "/api/alerts",
+          "/api/fhir",
+          "/api/careteam"
+        ],
+        "queue": [
+          "/api/queue",
+          "/api/visits"
+        ],
+        "family": [
+          "/api/households",
+          "/api/household"
+        ],
+        "journey": [
+          "/api/journeys",
+          "/api/journey"
+        ],
+        "phone": [
+          "/api/phone"
+        ],
+        "why": [
+          "/api/why"
+        ],
+        "map": [
+          "/api/map"
+        ],
+        "communities": [
+          "/api/communities"
+        ],
+        "results": [
+          "/api/results"
+        ],
+        "accounts": [
+          "/api/admin"
+        ],
+        "careteam": [
+          "/api/admin"
+        ],
+        "mycare": [
+          "/api/mycare",
+          "/api/fhir"
+        ]
+      },
+      "status": "design",
+      "source": "API calls behind each page; /api/fhir is the FHIR R4 API (records as standard FHIR): doctors and the hospital admin within their limits, a patient for their own record and their children's"
+    },
+    "everyone_api": {
+      "value": [
+        "/api/status",
+        "/api/overview",
+        "/api/me",
+        "/api/roles",
+        "/api/logout",
+        "/api/careteam/demo"
+      ],
+      "status": "design",
+      "source": "API calls any signed-in user may make (/api/careteam/demo answers only in open mode, with the made-up doctors)"
+    },
+    "admin_only_api": {
+      "value": [
+        "/api/reload",
+        "/api/admin"
+      ],
+      "status": "design",
+      "source": "API calls only the hospital admin may make"
+    },
+    "password_hash_iterations": {
+      "value": 600000,
+      "status": "published",
+      "source": "PBKDF2-HMAC-SHA256 iterations: OWASP Password Storage Cheat Sheet (2023) recommends 600,000",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
+    },
+    "public_api": {
+      "value": [
+        "/api/login",
+        "/api/me",
+        "/api/roles",
+        "/api/signup",
+        "/api/public/info",
+        "/api/health"
+      ],
+      "status": "design",
+      "source": "API calls allowed before signing in: sign-in, sign-up request, who am I, the role menu, the public project summary (totals only) and the health check for monitoring (no patient data)"
+    },
+    "admin_role": {
+      "value": "admin",
+      "status": "design",
+      "source": "The role that may open every page and reload results"
+    },
+    "account_scope": {
+      "value": {
+        "region": [
+          "doctor",
+          "outreach",
+          "admin"
+        ],
+        "person": [
+          "patient"
+        ]
+      },
+      "status": "design",
+      "source": "Which roles an account's limits apply to: a doctor, outreach or admin account with a region sees only people in that region (an admin with a region is a hospital admin; without one, the central admin); a patient account sees only its own record and the children it is guardian of"
+    },
+    "session_hours": {
+      "value": 8,
+      "status": "design",
+      "source": "A sign-in lasts one working shift, then the person signs in again"
+    },
+    "login_max_failures": {
+      "value": 5,
+      "status": "published",
+      "source": "OWASP Authentication Cheat Sheet: limit failed sign-ins (brute-force protection); counted per user name and computer, so nobody can lock a doctor out from elsewhere",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html"
+    },
+    "login_lockout_minutes": {
+      "value": 15,
+      "status": "design",
+      "source": "How long sign-in is blocked after too many wrong passwords"
+    },
+    "min_password_length": {
+      "value": 10,
+      "status": "design",
+      "source": "Shortest password accepted when an account is created"
+    },
+    "login_max_failures_per_computer": {
+      "value": 20,
+      "status": "design",
+      "source": "A computer that fails this many sign-ins, whatever the user names, is blocked for the lockout time (password guessing across accounts)"
+    },
+    "session_cookie": {
+      "value": "pp_session",
+      "status": "design",
+      "source": "Name of the HttpOnly, SameSite=Strict session cookie (page scripts cannot read it; Secure when served over HTTPS)"
+    },
+    "access_log_page_rows": {
+      "value": 200,
+      "status": "design",
+      "source": "Newest access-log lines shown on the Accounts page"
+    },
+    "logged_person_paths": {
+      "value": [
+        "/api/person/",
+        "/api/journey/",
+        "/api/why/",
+        "/api/household/",
+        "/api/phone/",
+        "/api/fhir/Patient",
+        "/api/fhir/Encounter",
+        "/api/fhir/Condition",
+        "/api/fhir/Observation",
+        "/api/fhir/Immunization",
+        "/api/fhir/Procedure",
+        "/api/fhir/FamilyMemberHistory",
+        "/api/fhir/Consent",
+        "/api/careteam/lookup",
+        "/api/fhir/MedicationRequest",
+        "/api/fhir/AllergyIntolerance",
+        "/api/fhir/CarePlan",
+        "/api/mycare/"
+      ],
+      "status": "design",
+      "source": "Opening one of these (one person's or family's record) is written to the access log with who, when and from where"
+    },
+    "signup_fields": {
+      "value": {
+        "admin": [
+          "full_name",
+          "email",
+          "phone",
+          "hospital",
+          "job_title"
+        ],
+        "doctor": [
+          "full_name",
+          "email",
+          "phone",
+          "license_number",
+          "specialty",
+          "facility"
+        ],
+        "outreach": [
+          "full_name",
+          "email",
+          "phone",
+          "staff_id",
+          "languages",
+          "facility"
+        ],
+        "manager": [
+          "full_name",
+          "email",
+          "phone",
+          "department"
+        ],
+        "patient": [
+          "full_name",
+          "phone",
+          "date_of_birth",
+          "emirates_id",
+          "language"
+        ]
+      },
+      "status": "design",
+      "source": "Details each role gives when signing up, so the hospital admin can check who they are before approving (licence for doctors, staff number for outreach, Emirates ID and date of birth for patients)"
+    },
+    "signup_optional_fields": {
+      "value": {
+        "doctor": [
+          "region"
+        ],
+        "outreach": [
+          "region"
+        ],
+        "patient": [
+          "record_number",
+          "home_region",
+          "children"
+        ]
+      },
+      "status": "design",
+      "source": "Details a person may add: the region they work in, or their health record number and children"
+    },
+    "signup_auto_approve_first_admin": {
+      "value": true,
+      "status": "design",
+      "source": "When no account exists yet, the first hospital admin to sign up is active at once (someone must approve everyone else)"
+    },
+    "signup_max_per_computer_per_hour": {
+      "value": 20,
+      "status": "design",
+      "source": "Sign-up requests one computer may send in an hour (stops form flooding)"
+    },
+    "emirates_id_pattern": {
+      "value": "^784-?\\d{4}-?\\d{7}-?\\d$",
+      "status": "published",
+      "source": "UAE Emirates ID number format: 784-YYYY-NNNNNNN-C (15 digits starting with the UAE country code 784)"
+    },
+    "user_name_pattern": {
+      "value": "^[A-Za-z0-9._-]{3,40}$",
+      "status": "design",
+      "source": "User names: 3 to 40 letters, numbers, dots, dashes or underscores"
+    }
+  }
+}

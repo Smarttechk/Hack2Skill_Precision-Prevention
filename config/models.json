@@ -1,0 +1,64 @@
+{
+  "_about": "Settings of the three models (risk, NHANES real-data check, no-show). design = a modelling choice: small, regularised trees because the data are small; seeds make every run repeatable.",
+  "values": {
+    "cv_folds": {
+      "value": 5,
+      "status": "design",
+      "source": "Folds for cross-validated scores, model checks and recalibration"
+    },
+    "top_reasons": {
+      "value": 3,
+      "status": "design",
+      "source": "Number of reasons shown with each risk score"
+    },
+    "fallback_cutoffs": {
+      "value": {
+        "high": 0.6,
+        "moderate": 0.3,
+        "base_rate": 0.2
+      },
+      "status": "design",
+      "source": "Used only if the risk model card is missing (the real cut-offs come from the score spread)"
+    },
+    "nhanes_adult_age": {
+      "value": 20,
+      "status": "published",
+      "source": "NHANES diabetes analyses use adults aged 20 and over"
+    },
+    "nhanes_top_share": {
+      "value": 0.3,
+      "status": "design",
+      "source": "Strategy compared with the broad rule: invite the top 30% by score"
+    },
+    "no_score_rank": {
+      "value": 0.5,
+      "status": "design",
+      "source": "People with no risk score (children, too few records) count as the middle rank in the priority score"
+    },
+    "undiagnosed_bp_threshold": {
+      "value": [
+        140,
+        90
+      ],
+      "status": "published",
+      "source": "WHO and ESC/ESH: hypertension is blood pressure 140/90 mmHg or more on repeated measurement (average of the NHANES readings)"
+    },
+    "local_calibration": {
+      "value": {
+        "who_file": "who/uae_who_indicators.csv",
+        "indicators": {
+          "diabetes": [
+            "NCD_DIABETES_PREVALENCE_AGESTD",
+            "18-PLUS"
+          ],
+          "hypertension": [
+            "NCD_HYP_PREVALENCE_A",
+            null
+          ]
+        }
+      },
+      "status": "published",
+      "source": "Each score is shifted (intercept only, ranking unchanged) so the average over local adults without that diagnosis matches the expected undiagnosed rate: WHO UAE prevalence (data/real/who) minus the diagnosed share in the records, capped at the published undiagnosed share (config/synthetic_data.json)"
+    }
+  }
+}

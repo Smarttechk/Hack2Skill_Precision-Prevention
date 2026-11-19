@@ -1,0 +1,5137 @@
+{
+  "run": {
+    "mode": "new",
+    "start": "2026-11-12",
+    "days": 60,
+    "params": {
+      "capacity": 120,
+      "base_attendance_logit": 1.889,
+      "telehealth_boost": 0.198,
+      "reply_mult": 1.0,
+      "doctor_agree": 0.85,
+      "old_followup_rate": 0.656,
+      "stop_share": 0.0824,
+      "clinic_slots_per_day": 40
+    }
+  },
+  "new": {
+    "days": 60,
+    "people": 5000,
+    "recommended": 4582,
+    "contacted": 4229,
+    "messages_sent": 5591,
+    "well_child": {
+      "checks_due": 425,
+      "checks_done": 217,
+      "check_rate": 0.511,
+      "people_due": 425,
+      "people_completed": 217,
+      "people_rate": 0.511,
+      "people_rate_range": [
+        0.463,
+        0.558
+      ],
+      "basis": "people and checks due under usual-care rules (same for both ways)"
+    },
+    "adult_screening": {
+      "checks_due": 4750,
+      "checks_done": 1635,
+      "check_rate": 0.344,
+      "people_due": 2894,
+      "people_completed": 992,
+      "people_rate": 0.343,
+      "people_rate_range": [
+        0.326,
+        0.36
+      ],
+      "basis": "people and checks due under usual-care rules (same for both ways)"
+    },
+    "preventive_actions": {
+      "checks_due": 2597,
+      "checks_done": 819,
+      "check_rate": 0.315,
+      "people_due": 2073,
+      "people_completed": 667,
+      "people_rate": 0.322,
+      "people_rate_range": [
+        0.302,
+        0.342
+      ]
+    },
+    "timely_attendance": 0.381,
+    "abnormal_found": 311,
+    "abnormal_found_by_condition": {
+      "hypertension": 166,
+      "diabetes": 145
+    },
+    "followup_within_30_days": 0.847,
+    "followup_eligible_results": 163,
+    "followup_followed_up": 138,
+    "followup_range": [
+      0.783,
+      0.894
+    ],
+    "diagnosed": 198,
+    "contacts_per_case_found": 18.0,
+    "opt_out_rate": 0.09,
+    "doctor_agreement": 0.861,
+    "community_health_worker_visits": 161,
+    "messages_by_channel": {
+      "WhatsApp": 4490,
+      "SMS": 636,
+      "Staff call": 278,
+      "Community health worker visit": 161,
+      "Voice call": 26
+    },
+    "visits_attended": 1861,
+    "attendance_of_booked_visits": 0.821,
+    "well_child_all_checks": {
+      "checks_due": 644,
+      "checks_done": 316,
+      "check_rate": 0.491,
+      "people_due": 511,
+      "people_completed": 253,
+      "people_rate": 0.495,
+      "people_rate_range": [
+        0.452,
+        0.538
+      ]
+    },
+    "adult_screening_all_checks": {
+      "checks_due": 9991,
+      "checks_done": 3431,
+      "check_rate": 0.343,
+      "people_due": 3778,
+      "people_completed": 1331,
+      "people_rate": 0.352,
+      "people_rate_range": [
+        0.337,
+        0.368
+      ]
+    }
+  },
+  "old": {
+    "days": 60,
+    "people": 5000,
+    "recommended": 3319,
+    "contacted": 3098,
+    "messages_sent": 3876,
+    "well_child": {
+      "checks_due": 425,
+      "checks_done": 34,
+      "check_rate": 0.08,
+      "people_due": 425,
+      "people_completed": 34,
+      "people_rate": 0.08,
+      "people_rate_range": [
+        0.058,
+        0.11
+      ],
+      "basis": "people and checks due under usual-care rules (same for both ways)"
+    },
+    "adult_screening": {
+      "checks_due": 4750,
+      "checks_done": 480,
+      "check_rate": 0.101,
+      "people_due": 2894,
+      "people_completed": 302,
+      "people_rate": 0.104,
+      "people_rate_range": [
+        0.094,
+        0.116
+      ],
+      "basis": "people and checks due under usual-care rules (same for both ways)"
+    },
+    "preventive_actions": {
+      "checks_due": 0,
+      "checks_done": 0,
+      "check_rate": 0.0,
+      "people_due": 0,
+      "people_completed": 0,
+      "people_rate": 0.0,
+      "people_rate_range": [
+        NaN,
+        NaN
+      ]
+    },
+    "timely_attendance": 0.104,
+    "abnormal_found": 64,
+    "abnormal_found_by_condition": {
+      "hypertension": 52,
+      "diabetes": 12
+    },
+    "followup_within_30_days": 0.525,
+    "followup_eligible_results": 40,
+    "followup_followed_up": 21,
+    "followup_range": [
+      0.375,
+      0.671
+    ],
+    "diagnosed": 35,
+    "contacts_per_case_found": 60.6,
+    "opt_out_rate": 0.024,
+    "doctor_agreement": null,
+    "community_health_worker_visits": 0,
+    "messages_by_channel": {
+      "SMS": 3876
+    },
+    "visits_attended": 338,
+    "attendance_of_booked_visits": 0.797,
+    "well_child_all_checks": {
+      "checks_due": 425,
+      "checks_done": 34,
+      "check_rate": 0.08,
+      "people_due": 425,
+      "people_completed": 34,
+      "people_rate": 0.08,
+      "people_rate_range": [
+        0.058,
+        0.11
+      ]
+    },
+    "adult_screening_all_checks": {
+      "checks_due": 4750,
+      "checks_done": 480,
+      "check_rate": 0.101,
+      "people_due": 2894,
+      "people_completed": 302,
+      "people_rate": 0.104,
+      "people_rate_range": [
+        0.094,
+        0.116
+      ]
+    }
+  },
+  "cost_new": {
+    "total_cost_aed": 438463,
+    "outreach_cost_aed": 29043,
+    "visit_cost_aed": 409420,
+    "parts_aed": {
+      "WhatsApp messages": 258.9,
+      "SMS messages": 274.7,
+      "Nurse time": 27266.6,
+      "Cloud server": 1242.8,
+      "Clinic visits": 409420
+    },
+    "completed_checks": 3747,
+    "people_completed": 1584,
+    "cost_per_completed_check_aed": 117.0,
+    "cost_per_person_completed_aed": 276.8,
+    "cost_per_person_completed_range_aed": [
+      159.3,
+      547.0
+    ],
+    "outreach_cost_per_person_completed_aed": 18.3
+  },
+  "cost_old": {
+    "total_cost_aed": 89667,
+    "outreach_cost_aed": 15307,
+    "visit_cost_aed": 74360,
+    "parts_aed": {
+      "WhatsApp messages": 0.0,
+      "SMS messages": 1674.0,
+      "Nurse time": 13633.3,
+      "Clinic visits": 74360
+    },
+    "completed_checks": 514,
+    "people_completed": 336,
+    "cost_per_completed_check_aed": 174.5,
+    "cost_per_person_completed_aed": 266.9,
+    "cost_per_person_completed_range_aed": [
+      166.3,
+      498.2
+    ],
+    "outreach_cost_per_person_completed_aed": 45.6
+  },
+  "clinical_value": {
+    "found_new": 311,
+    "found_old": 64,
+    "extra_found": 247,
+    "found_only_by_new_system": 291,
+    "avg_days_earlier_when_both_found": -8.2,
+    "share_of_hidden_cases_found_new": {
+      "hidden_cases_at_start": 931,
+      "found_by_day_30": 0.175,
+      "found_by_day_60": 0.334
+    },
+    "share_of_hidden_cases_found_old": {
+      "hidden_cases_at_start": 931,
+      "found_by_day_30": 0.043,
+      "found_by_day_60": 0.069
+    }
+  },
+  "value": {
+    "extra_cost_aed": 348796,
+    "extra_cases_found": 247,
+    "extra_cost_per_extra_case_found_aed": 1412.1,
+    "diabetes_cost_per_person_year_aed": 7712
+  },
+  "sources": [
+    {
+      "group": "Exchange rate",
+      "name": "usd_to_aed",
+      "value": 3.6725,
+      "status": "published",
+      "source": "Central Bank of the UAE: dirham pegged to the US dollar at 3.6725",
+      "url": "https://www.centralbank.ae"
+    },
+    {
+      "group": "Costs",
+      "name": "whatsapp_per_message_usd",
+      "value": 0.0157,
+      "status": "published",
+      "source": "Meta WhatsApp Business Platform rate card, UAE, utility template (as reproduced by SleekFlow, Oct 2026)",
+      "url": "https://sleekflow.io/blog/whatsapp-business-price-uae"
+    },
+    {
+      "group": "Costs",
+      "name": "sms_per_message_usd",
+      "value": 0.1176,
+      "status": "published",
+      "source": "Twilio outbound SMS price to the UAE (textbee.dev summary of Twilio's price page, checked Sep 2026)",
+      "url": "https://www.twilio.com/en-us/sms/pricing/ae"
+    },
+    {
+      "group": "Costs",
+      "name": "hosting_per_hour_usd",
+      "value": 0.235,
+      "status": "published",
+      "source": "Azure Standard_D4s_v5 on-demand price, UAE North region (devzero.io price table)",
+      "url": "https://www.devzero.io/instances/azure/Standard_D4s_v5"
+    },
+    {
+      "group": "Costs",
+      "name": "nurse_salary_per_year_aed",
+      "value": 82936,
+      "status": "published",
+      "source": "Payscale: median base salary of a registered nurse in the UAE",
+      "url": "https://www.payscale.com/research/AE/Job=Registered_Nurse_(RN)/Salary"
+    },
+    {
+      "group": "Costs",
+      "name": "diabetes_cost_per_person_year_usd",
+      "value": 2100,
+      "status": "published",
+      "source": "IDF Diabetes Atlas 10th edition (2021): health spending per person with diabetes, UAE (via Statista)",
+      "url": "https://statista.com/statistics/1459431/mena-cost-per-person-diabetes-by-country"
+    },
+    {
+      "group": "Costs",
+      "name": "outreach_nurses_new",
+      "value": 2,
+      "status": "design",
+      "source": "Staffing plan of this system: two nurses run the outreach queue, staff calls and health-worker visits",
+      "url": null
+    },
+    {
+      "group": "Costs",
+      "name": "outreach_nurses_usual_care",
+      "value": 1,
+      "status": "design",
+      "source": "Usual care: one nurse handles reminder lists",
+      "url": null
+    },
+    {
+      "group": "Costs",
+      "name": "primary_care_visit_aed",
+      "value": 220,
+      "status": "published",
+      "source": "Typical GP consultation in Abu Dhabi, AED 220 (indicative range 120-450), Zavis UAE price directory. An aggregator estimate, not the DoH Mandatory Tariff; used for every attended visit in both ways; no separate published price was found for a telehealth or mobile-clinic visit, so the same price is used (the range is shown as well)",
+      "url": "https://www.zavis.ai/directory/pricing/gp-consultation/abu-dhabi"
+    },
+    {
+      "group": "Costs",
+      "name": "primary_care_visit_aed_range",
+      "value": [
+        120,
+        450
+      ],
+      "status": "published",
+      "source": "Indicative range of a GP consultation in Abu Dhabi, AED 120 to 450 (Zavis UAE price directory); used to show how much the cost per person depends on the visit price",
+      "url": "https://www.zavis.ai/directory/pricing/gp-consultation/abu-dhabi"
+    },
+    {
+      "group": "Behaviour",
+      "name": "reply_whatsapp",
+      "value": 0.23,
+      "status": "published",
+      "source": "Fabens et al. 2024, JMIR Formative Research: 23% of WhatsApp users replied to two-way follow-up messages",
+      "url": "https://formative.jmir.org/2024/1/e62762"
+    },
+    {
+      "group": "Behaviour",
+      "name": "reply_sms",
+      "value": 0.2,
+      "status": "published",
+      "source": "Fabens et al. 2024, JMIR Formative Research: 20% of SMS users replied",
+      "url": "https://formative.jmir.org/2024/1/e62762"
+    },
+    {
+      "group": "Behaviour",
+      "name": "phone_vs_sms_ratio",
+      "value": 1.278,
+      "status": "published",
+      "source": "Study within a trial (2019): attendance 23% after a phone reminder vs 18% after SMS (23/18)",
+      "url": "https://api-pubmed-ncbi.laibokeji.com/31051248"
+    },
+    {
+      "group": "Behaviour",
+      "name": "home_visit_reply",
+      "value": "same as a phone call",
+      "status": "assumption",
+      "source": "No published reply rate for a health-worker home visit; set equal to a phone call, which is conservative",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "language_match_odds_ratio",
+      "value": 2.012,
+      "status": "published",
+      "source": "WellSpan Health 2025, JMIR: language-matched outreach, adjusted odds ratio 2.01 for taking up screening",
+      "url": "https://www.jmir.org/2025/1/e71211"
+    },
+    {
+      "group": "Behaviour",
+      "name": "no_show_rate",
+      "value": 0.2082,
+      "status": "published",
+      "source": "Emirates Health Services primary care, Jul-Sep 2022: 14,038 no-shows of 67,429 booked appointments (JMIR Formative Research 2025)",
+      "url": "https://formative.jmir.org/2025/1/e64936"
+    },
+    {
+      "group": "Behaviour",
+      "name": "text_opt_out_rate",
+      "value": 0.025,
+      "status": "published",
+      "source": "Kaiser Permanente Colorado, JAMA Network Open 2021: 2.5% of adults opted out of automated health texts in a year",
+      "url": "https://doi.org/10.1001/jamanetworkopen.2021.3479"
+    },
+    {
+      "group": "Behaviour",
+      "name": "results_not_followed_up_low",
+      "value": 0.068,
+      "status": "published",
+      "source": "Callen et al. 2011, J Gen Intern Med systematic review: abnormal lab results not followed up, lowest study",
+      "url": "https://psnet.ahrq.gov/issue/failure-follow-test-results-ambulatory-patients-systematic-review"
+    },
+    {
+      "group": "Behaviour",
+      "name": "results_not_followed_up_high",
+      "value": 0.62,
+      "status": "published",
+      "source": "Callen et al. 2011: abnormal lab results not followed up, highest study",
+      "url": "https://psnet.ahrq.gov/issue/failure-follow-test-results-ambulatory-patients-systematic-review"
+    },
+    {
+      "group": "Behaviour",
+      "name": "capacity_per_day",
+      "value": 120,
+      "status": "design",
+      "source": "New contacts per day, the same for both ways so the comparison is fair",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "reply_split",
+      "value": {
+        "BOOK": 0.62,
+        "INFO": 0.13,
+        "LATER": 0.17
+      },
+      "status": "assumption",
+      "source": "No published split of reply types; STOP is calibrated separately to the published opt-out rate",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "results_reply_split",
+      "value": {
+        "BOOK": 0.8,
+        "INFO": 0.12,
+        "LATER": 0.08,
+        "STOP": 0.0
+      },
+      "status": "assumption",
+      "source": "No published value for replies to a nurse calling about a result",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "cannot_read_sms_factor",
+      "value": 0.3,
+      "status": "assumption",
+      "source": "No published value for SMS replies from people who cannot read",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "barrier_reply_effect",
+      "value": 0.4,
+      "status": "assumption",
+      "source": "No published value: replies fall by up to 40% with the highest access barrier",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "telehealth_boost",
+      "value": 0.198,
+      "status": "published",
+      "source": "Primary care, 23 NYC public clinics, about 1.2 million visits (J Gen Intern Med 2022): telephone visits had adjusted odds ratio 0.82 for non-attendance against in-person in the later period; used as ln(1/0.82) on the attendance log-odds. Video visits did worse (odds ratio 2.02), so this applies to phone telehealth. Mobile clinics are given the same effect (assumption). Tested from 0 in the sensitivity analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36220946/"
+    },
+    {
+      "group": "Behaviour",
+      "name": "doctor_agree",
+      "value": 0.85,
+      "status": "assumption",
+      "source": "A 2026 review found no study reporting doctors' agreement with AI decision support in primary care",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "prior_no_show_odds_ratio",
+      "value": 1.11,
+      "status": "published",
+      "source": "Gebhart 2017, OHSU family medicine primary care: each earlier missed appointment, odds ratio 1.11 for a no-show (quality-improvement report, not peer reviewed)",
+      "url": "https://digitalcollections.ohsu.edu/record/7628/files/Gebhart.Timothy.2017.pdf"
+    },
+    {
+      "group": "Behaviour",
+      "name": "lead_time_no_show_odds_ratio_per_day",
+      "value": 1.0019,
+      "status": "published",
+      "source": "Predictors of no-show in neurology clinics, Healthcare 2022: odds of a no-show rise 1.0019 times per day between booking and visit (a specialty clinic; no primary care per-day figure found)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9025597/"
+    },
+    {
+      "group": "Behaviour",
+      "name": "reminder_no_show_reduction_automated",
+      "value": 0.29,
+      "status": "published",
+      "source": "Hasvold and Wootton 2011, systematic review: automated reminders cut non-attendance by 29% of its usual level (against no reminder, so it may overstate an extra reminder)",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3188816/"
+    },
+    {
+      "group": "Behaviour",
+      "name": "reminder_no_show_reduction_call",
+      "value": 0.39,
+      "status": "published",
+      "source": "Hasvold and Wootton 2011: a phone call by staff cut non-attendance by 39% of its usual level",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3188816/"
+    },
+    {
+      "group": "Behaviour",
+      "name": "transport_help_effect",
+      "value": 0.0,
+      "status": "published",
+      "source": "Chaiyachati et al. 2018, JAMA Internal Medicine: offering free rides did not change missed primary care visits (36.5% vs 36.7%)",
+      "url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2671405"
+    },
+    {
+      "group": "Behaviour",
+      "name": "ramadan_attendance_effect",
+      "value": 0.0,
+      "status": "assumption",
+      "source": "No study found that shows more missed visits in Ramadan; a trial in 36 Riyadh primary care centres recorded fewer no-shows during Ramadan, partly from recording errors. Set to no effect.",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "evening_slot_effect",
+      "value": 0.0,
+      "status": "assumption",
+      "source": "No published effect of evening slots on attendance; set to no effect, so this system gets no credit for offering them",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "attendance_barrier_effect",
+      "value": -1.6,
+      "status": "assumption",
+      "source": "Change in attendance log-odds from the lowest to the highest access barrier (language, insurance, day shift, phone, travel). No single published value for this combined score.",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "info_then_book",
+      "value": 0.5,
+      "status": "assumption",
+      "source": "Share of people who book the day after asking for information. No published value found.",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "booking_lead_days",
+      "value": [
+        2,
+        10
+      ],
+      "status": "design",
+      "source": "A visit is booked 2 to 10 days after the person says yes",
+      "url": null
+    },
+    {
+      "group": "Behaviour",
+      "name": "prior_no_show_count_cap",
+      "value": 3,
+      "status": "design",
+      "source": "Earlier missed visits count up to 3; beyond that the published odds ratio (measured on few repeat no-shows) is not extended",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "priority_weights",
+      "value": {
+        "risk": 0.5,
+        "gaps": 0.2,
+        "barrier": 0.3
+      },
+      "status": "design",
+      "source": "Priority score = weights x (risk, number of gaps out of 5, access barrier). Puts health need first and moves people with barriers up.",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "access_barrier_weights",
+      "value": {
+        "language_not_arabic_or_english": 0.25,
+        "basic_insurance": 0.2,
+        "day_shift": 0.2,
+        "no_smartphone": 0.15,
+        "travel_90_min_or_more": 0.2,
+        "travel_full_minutes": 90
+      },
+      "status": "design",
+      "source": "Points for each barrier, adding up to at most 1; the travel part reaches its full weight at 90 minutes",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "no_reply_give_up_day",
+      "value": 24,
+      "status": "design",
+      "source": "Days after the first message with no reply before the person is put back on the list",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "no_reply_retry_after_days",
+      "value": 30,
+      "status": "design",
+      "source": "Days to wait before inviting someone again who never replied",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "on_hold_review_after_days",
+      "value": 30,
+      "status": "design",
+      "source": "A card a doctor put on hold goes back to the doctor after a month",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "deadline_days",
+      "value": {
+        "Urgent": 2,
+        "High": 7,
+        "Routine": 30
+      },
+      "status": "design",
+      "source": "Days to make contact for each urgency level",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "risk_high_share",
+      "value": 0.15,
+      "status": "design",
+      "source": "High risk = the top 15% of risk scores",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "risk_moderate_share",
+      "value": 0.4,
+      "status": "design",
+      "source": "Moderate risk or above = the top 40% of risk scores",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "reminder_days",
+      "value": [
+        3,
+        7
+      ],
+      "status": "design",
+      "source": "Days after the first message when this system sends a reminder on the same channel",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "followup_choice_days",
+      "value": [
+        10,
+        17
+      ],
+      "status": "design",
+      "source": "Days after the first message when the follow-up chooser picks a reminder, a call or a health-worker visit",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "usual_care_reminder_day",
+      "value": 14,
+      "status": "design",
+      "source": "Usual care: one reminder two weeks after the first message",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "telehealth_travel_min",
+      "value": 60,
+      "status": "design",
+      "source": "After a missed visit, telehealth is offered when travel is over this many minutes (only for checks that can be done remotely)",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "later_pause_days",
+      "value": {
+        "result": 7,
+        "other": 30
+      },
+      "status": "design",
+      "source": "Pause after a LATER reply: a week when a result is waiting, a month otherwise",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "mobile_clinic_places",
+      "value": 3,
+      "status": "design",
+      "source": "Each week a mobile clinic goes to this many rural or remote places with the most people waiting",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "noshow_model_min_auc",
+      "value": 0.6,
+      "status": "design",
+      "source": "The no-show model plans support only if it ranks later visits at least this well",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "noshow_support_cutoffs",
+      "value": {
+        "extra_reminder": 0.3,
+        "health_worker_call": 0.6
+      },
+      "status": "design",
+      "source": "Fallback only (a model without its own cut-offs): predicted chance of missing at which support is added",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "support_rule",
+      "value": {
+        "extra_reminder_barrier": 0.4,
+        "health_worker_call_barrier": 0.6,
+        "extra_reminder_no_shows": 1,
+        "health_worker_call_no_shows": 2
+      },
+      "status": "design",
+      "source": "Used when the no-show model is not good enough: access barrier or past missed visits at which support is added",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "clinic_result_handling_day",
+      "value": 21,
+      "status": "design",
+      "source": "Days after an abnormal result when the clinic's own result handling acts (at the published follow-up rate)",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "clinic_slots_per_day",
+      "value": 40,
+      "status": "design",
+      "source": "Preventive-check appointments a day for these 5,000 people (clinic and telehealth share them); the same limit both ways. Busy days push bookings later.",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "mobile_clinic_slots",
+      "value": 25,
+      "status": "design",
+      "source": "Visits one mobile clinic session can take; when full, people are booked at the clinic",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "mobile_clinic_first_day",
+      "value": 3,
+      "status": "design",
+      "source": "Days after planning that the first mobile clinic of the week runs (one place a day after that)",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "priority_boosts",
+      "value": {
+        "missed_deadline": 1.0,
+        "missed_visit": 0.5,
+        "emergency": 10.0
+      },
+      "status": "design",
+      "source": "Added to the priority score: past the contact deadline, after a missed visit, after emergency words",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "max_rebooks",
+      "value": 2,
+      "status": "design",
+      "source": "Rebookings after missed visits before the person rests and is invited again later",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "clinician_decides_checks",
+      "value": [
+        "genetic_counselling",
+        "carrier_counselling",
+        "results_review",
+        "premarital_screening",
+        "prediabetes_programme",
+        "weight_support",
+        "stop_smoking_service",
+        "family_nutrition_programme",
+        "emergency_callback"
+      ],
+      "status": "design",
+      "source": "Checks a clinician must approve before anyone is contacted",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "telehealth_checks",
+      "value": [
+        "genetic_counselling",
+        "carrier_counselling",
+        "results_review",
+        "premarital_screening",
+        "depression_screen"
+      ],
+      "status": "design",
+      "source": "Checks that can be done by a phone or video call; everything else needs a visit",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "noshow_support_shares",
+      "value": {
+        "extra_reminder": 0.2,
+        "health_worker_call": 0.05
+      },
+      "status": "design",
+      "source": "When the no-show model is used: an extra reminder for the 20% it ranks most likely to miss, a health-worker call for the top 5%",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "alerts",
+      "value": {
+        "missed_deadlines": 50,
+        "opt_out_spike_min": 5,
+        "opt_out_spike_ratio": 2.0,
+        "fairness_gap": 0.15,
+        "fairness_min_group": 50,
+        "repeat_days": 7,
+        "window_days": 7,
+        "repeat_growth": 1.5
+      },
+      "status": "design",
+      "source": "When the evaluation agent warns the team: people past their deadline, opt-outs today against last week, and the gap in reach between language groups; the same kind of alert is repeated within 7 days only if its number grows by half; opt-out spikes are compared with the last 7 days, fairness is checked every 7 days, and a repeated alert needs its number to grow by half",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "reach_floor_gap",
+      "value": 0.1,
+      "status": "design",
+      "source": "Reach floor: a language, nationality, insurance or region group more than 10 points behind the best-reached group of its kind goes first within each urgency level, so giving priority to people with barriers never leaves another group far behind",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "run_date",
+      "value": "2026-11-12",
+      "status": "design",
+      "source": "The date every step treats as today (data adjustment, features, simulation start), so a rerun gives the same results. Override with PP_RUN_DATE=YYYY-MM-DD.",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "contact_windows",
+      "value": {
+        "ramadan": "20:30-22:30",
+        "friday": "16:00-20:00",
+        "after_day_shift": "18:00-21:00",
+        "default": "10:00-13:00"
+      },
+      "status": "design",
+      "source": "Best time to send: after iftar in Ramadan, Friday afternoon, after a day shift, otherwise late morning",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "max_message_characters",
+      "value": 320,
+      "status": "design",
+      "source": "Longest message sent (two SMS segments); a longer template goes to a staff call",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "blocked_message_words",
+      "value": [
+        "gene",
+        "genetic",
+        "brca",
+        "cancer",
+        "risk score",
+        "%",
+        "carrier"
+      ],
+      "status": "design",
+      "source": "Words a message may never contain (privacy and no alarming language); such a message goes to a staff call",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "max_reply_probability",
+      "value": 0.95,
+      "status": "design",
+      "source": "Upper limit on anyone's chance of replying in the simulation",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "uncalibrated_fallbacks",
+      "value": {
+        "base_attendance_logit": 1.1,
+        "stop_share": 0.08
+      },
+      "status": "design",
+      "source": "Used only before scripts/calibrate.py has run; the calibrated values replace them",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "age_groups",
+      "value": {
+        "0-17": [
+          0,
+          17
+        ],
+        "18-39": [
+          18,
+          39
+        ],
+        "40-64": [
+          40,
+          64
+        ],
+        "65+": [
+          65,
+          120
+        ]
+      },
+      "status": "design",
+      "source": "Age groups for fairness checks in the evaluation agent",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "fairness_age_bands",
+      "value": {
+        "0-5": [
+          0,
+          5
+        ],
+        "6-17": [
+          6,
+          17
+        ],
+        "18-39": [
+          18,
+          39
+        ],
+        "40-64": [
+          40,
+          64
+        ],
+        "65+": [
+          65,
+          120
+        ]
+      },
+      "status": "design",
+      "source": "Age bands for the fairness tables in the results",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "outcome_window_days",
+      "value": 30,
+      "status": "design",
+      "source": "Timely attendance and result follow-up are counted within 30 days",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "sensitivity",
+      "value": {
+        "reply_multipliers": [
+          0.7,
+          1.0
+        ],
+        "attendance_logit_drop": 0.5,
+        "doctor_agree_low": 0.6,
+        "seeds": [
+          11,
+          12
+        ],
+        "clinic_slots_low": 30
+      },
+      "status": "design",
+      "source": "Settings tried in the worst-case analysis: 30% fewer replies, much lower attendance, doctors agreeing far less often, two random seeds; and a quarter fewer clinic slots (30 instead of 40 a day)",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "community_actions",
+      "value": {
+        "children_overdue_for_school_day": 15,
+        "remote_gap_share_for_mobile_clinic": 0.3,
+        "low_uptake_for_health_talk": 0.4,
+        "min_people": 10,
+        "reliable_people": 30
+      },
+      "status": "design",
+      "source": "When the Communities page suggests a school screening day, a mobile clinic or a health talk, and how small a place can be shown",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "map_min_people",
+      "value": 10,
+      "status": "design",
+      "source": "Places with fewer people are not shown on the map (privacy)",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "phone_demo_people",
+      "value": 300,
+      "status": "design",
+      "source": "People offered in the phone demo list",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "simulation",
+      "value": {
+        "days": 60,
+        "seed": 7,
+        "live_demo_seed": 99,
+        "learner_seed_offset": 1000
+      },
+      "status": "design",
+      "source": "Length of the simulated period and its random seeds (same seeds, same results)",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "calibration",
+      "value": {
+        "seeds": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "max_rounds": 6,
+        "attendance_tolerance": 0.008,
+        "opt_out_tolerance": 0.002,
+        "damping_after_first": 0.6,
+        "max_stop_share": 0.5
+      },
+      "status": "design",
+      "source": "Usual care is calibrated over 6 runs (other seeds than the reported run) until attendance and opt-out are within these tolerances of the published figures",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "small_groups",
+      "value": {
+        "hide_under": 10,
+        "not_reliable_under": 30
+      },
+      "status": "design",
+      "source": "Fairness tables hide groups under 10 people (privacy) and mark groups under 30 as not reliable",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "page_sizes",
+      "value": {
+        "doctor_list": 200,
+        "queue": 30,
+        "households": 200,
+        "journeys": 300,
+        "learning_rows": 12,
+        "alerts": 20
+      },
+      "status": "design",
+      "source": "How many rows each page shows at first",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "urgent_slots",
+      "value": {
+        "per_day": 10,
+        "lead_days": [
+          1,
+          3
+        ]
+      },
+      "status": "design",
+      "source": "Appointments kept free each day for results reviews and other Urgent cases (as clinics keep same-week slots), booked 1 to 3 days ahead; the same rule in both ways",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "followup_actions",
+      "value": {
+        "reminder_same_channel": null,
+        "switch_channel": "Voice call",
+        "community_health_worker": "Community health worker visit"
+      },
+      "status": "design",
+      "source": "Follow-up options the learner chooses from, and the channel each one uses (none = the same channel)",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "support_levels",
+      "value": [
+        "Standard reminder",
+        "Extra reminder the day before; offer a different time",
+        "Community health worker call before the visit; offer transport or telehealth"
+      ],
+      "status": "design",
+      "source": "Support added before a visit, from least to most",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "fairness_groups",
+      "value": {
+        "language": "guardian.language",
+        "nationality": "person.nationality",
+        "insurance": "person.insurance",
+        "region": "person.region",
+        "age group": "person.age_group",
+        "sex": "person.sex"
+      },
+      "status": "design",
+      "source": "Groups the evaluation agent checks for fair reach (the family's language decides the message, the person's own record the rest)",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "short_contact_day_weekday",
+      "value": 4,
+      "status": "published",
+      "source": "Friday (Python weekday 4): UAE public-sector half day with Friday prayer, so the Friday contact window is used",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "weekly_review_every_days",
+      "value": 7,
+      "status": "design",
+      "source": "Every 7 days the care-gap agent re-checks recalls and warning signs, and mobile clinic days are planned",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "streamlit_view",
+      "value": {
+        "map_centre": [
+          24.0,
+          54.6
+        ],
+        "map_zoom": 7,
+        "place_radius_base_m": 300,
+        "place_radius_per_person_m": 20,
+        "facility_radius_m": 250,
+        "person_picker_rows": 200,
+        "learning_rows": 15,
+        "calls_slider": {
+          "min": 10,
+          "max": 120,
+          "default": 30,
+          "step": 10
+        }
+      },
+      "status": "design",
+      "source": "Display settings of the older Streamlit dashboard (map centred on Abu Dhabi emirate; list lengths)",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "gaps_for_full_score",
+      "value": 5,
+      "status": "design",
+      "source": "The gaps part of the priority score reaches its full weight at 5 open care gaps",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "ai_features",
+      "value": {
+        "learn_first_channel": false
+      },
+      "status": "design",
+      "source": "Switch for the one AI step that acts inside the rules. learn_first_channel: the first message's channel is learned from replies, starting from the rule. It is off: over 5 seeds it did not improve completed care or the number of undiagnosed cases found (outputs/results/ai_ablation.json; python evaluate.py --ablation repeats it). Switch it on when a hospital's own data shows a gain",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "first_channel_learner",
+      "value": {
+        "choices": {
+          "smartphone": [
+            "WhatsApp",
+            "SMS"
+          ]
+        },
+        "rule_prior_replies": 8
+      },
+      "status": "design",
+      "source": "First-contact channel learner (Thompson sampling, like the follow-up learner). It chooses only among channels that need no staff time and that the person can use; everyone else keeps the rule's channel, and a person's own stated channel always wins. The rule's channel starts with this many assumed replies, so the learner departs from the rule only after real replies say so",
+      "url": null
+    },
+    {
+      "group": "Design",
+      "name": "spread_seeds",
+      "value": [
+        7,
+        21,
+        22,
+        23,
+        24
+      ],
+      "status": "design",
+      "source": "Random seeds for the seed-spread check (python evaluate.py --seeds): the headline results are re-run with each seed, both ways, and reported as the average and the range, so one run's luck is not mistaken for an effect",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "adult_age",
+      "value": 18,
+      "status": "published",
+      "source": "UAE age of majority; adults decide their own consent, children through a guardian",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "well_child_interval_months_under_1",
+      "value": 3,
+      "status": "published",
+      "source": "AAP Bright Futures schedule: visits at 1, 2, 4, 6, 9 and 12 months",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "well_child_interval_months_after_1",
+      "value": 12,
+      "status": "published",
+      "source": "AAP Bright Futures schedule: yearly from age 3 (more often between 1 and 3)",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "well_child_grace_months",
+      "value": 2,
+      "status": "design",
+      "source": "A visit is overdue 2 months after it was due",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "developmental_screen_ages_months",
+      "value": [
+        9,
+        18,
+        30
+      ],
+      "status": "published",
+      "source": "AAP: developmental screening at 9, 18 and 30 months",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "autism_screen_ages_months",
+      "value": [
+        18,
+        24
+      ],
+      "status": "published",
+      "source": "AAP: autism screening at 18 and 24 months",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "screen_window_months",
+      "value": [
+        2,
+        12
+      ],
+      "status": "design",
+      "source": "A missed screen counts as a gap from 2 to 12 months after the age it was due",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "vaccine_catch_up",
+      "value": {
+        "from_age_months": 3,
+        "under_age_months": 24,
+        "gap_months": 6
+      },
+      "status": "published",
+      "source": "UAE national immunisation schedule: vaccines at 2, 4, 6, 12 and 18 months, so no vaccine for over 6 months before age 2 means one was missed",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "mmr_first_dose_window_months",
+      "value": [
+        12,
+        24
+      ],
+      "status": "published",
+      "source": "UAE national immunisation schedule: first measles (MMR) dose at 12 months",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "mmr_second_dose_window_months",
+      "value": [
+        60,
+        144
+      ],
+      "status": "published",
+      "source": "UAE national immunisation schedule: second MMR dose in early school years; checked up to age 12",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "bp_check_every_months",
+      "value": 12,
+      "status": "published",
+      "source": "USPSTF: blood pressure screening for adults",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "bp_check_every_months_with_hypertension",
+      "value": 6,
+      "status": "published",
+      "source": "Follow-up of known high blood pressure at least twice a year (guidelines: every 3-6 months until controlled)",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "hba1c_every_months_with_diabetes",
+      "value": 6,
+      "status": "published",
+      "source": "ADA Standards of Care: HbA1c at least twice a year",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "diabetes_screen",
+      "value": {
+        "from_age": 35,
+        "or_bmi_at_least": 25,
+        "every_months": 36
+      },
+      "status": "published",
+      "source": "ADA and USPSTF: screen from age 35, or earlier with overweight (BMI 25+); repeat every 3 years if normal",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "cervical_screen",
+      "value": {
+        "ages": [
+          25,
+          65
+        ],
+        "every_months": 36
+      },
+      "status": "published",
+      "source": "Department of Health Abu Dhabi and USPSTF: cervical screening 25-65, every 3 years (smear)",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "breast_screen",
+      "value": {
+        "ages": [
+          40,
+          69
+        ],
+        "every_months": 24
+      },
+      "status": "published",
+      "source": "Department of Health Abu Dhabi: mammography 40-69 every 2 years",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "bowel_screen",
+      "value": {
+        "ages": [
+          45,
+          75
+        ],
+        "every_months": 12
+      },
+      "status": "published",
+      "source": "Department of Health Abu Dhabi and USPSTF: bowel screening 45-75, stool test every year",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "lipid_test",
+      "value": {
+        "from_age": 40,
+        "every_months": 60
+      },
+      "status": "published",
+      "source": "USPSTF: lipid testing from 40, every 5 years",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "depression_screen_every_months",
+      "value": 12,
+      "status": "published",
+      "source": "USPSTF: depression screening for adults",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "lung_screen_ages_smokers",
+      "value": [
+        50,
+        80
+      ],
+      "status": "published",
+      "source": "USPSTF 2021: lung screening for smokers aged 50-80",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "premarital_ages",
+      "value": [
+        18,
+        40
+      ],
+      "status": "design",
+      "source": "UAE premarital screening programme; offered to unmarried carriers in this age range",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "genetic_rules",
+      "value": {
+        "FH": {
+          "check": "cholesterol_test",
+          "from_age": 2,
+          "every_months": 12,
+          "extra": null
+        },
+        "BRCA": {
+          "check": "breast_screening",
+          "from_age": 25,
+          "every_months": 12,
+          "extra": "genetic_counselling"
+        },
+        "LYNCH": {
+          "check": "bowel_screening",
+          "from_age": 25,
+          "every_months": 24,
+          "extra": "genetic_counselling"
+        },
+        "HBB_CARRIER": {
+          "check": "carrier_counselling",
+          "from_age": 16,
+          "every_months": null,
+          "extra": null
+        },
+        "MODY": {
+          "check": "blood_sugar_test",
+          "from_age": 10,
+          "every_months": 12,
+          "extra": null
+        }
+      },
+      "status": "published",
+      "source": "Familial hypercholesterolaemia: lipid testing from age 2 (AAP/NLA); BRCA: yearly breast imaging from 25 (NCCN); Lynch: colonoscopy every 1-2 years from 25 (NCCN); carrier counselling before marriage age (design: 16); MODY: yearly glucose testing (design)",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "actionable_variants",
+      "value": [
+        "pathogenic",
+        "likely_pathogenic"
+      ],
+      "status": "published",
+      "source": "ACMG: only pathogenic and likely pathogenic variants are acted on; uncertain variants are not",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "genetic_marker_genes",
+      "value": {
+        "FH": [
+          "LDLR",
+          "APOB",
+          "PCSK9"
+        ],
+        "BRCA": [
+          "BRCA1",
+          "BRCA2"
+        ],
+        "LYNCH": [
+          "MLH1",
+          "MSH2",
+          "MSH6",
+          "PMS2",
+          "EPCAM"
+        ],
+        "HBB_CARRIER": [
+          "HBB"
+        ],
+        "MODY": [
+          "GCK",
+          "HNF1A",
+          "HNF4A",
+          "HNF1B"
+        ]
+      },
+      "status": "published",
+      "source": "Genes behind each marker group, so a hospital's genetic result (gene symbol) reaches the right rule: familial hypercholesterolaemia LDLR/APOB/PCSK9; hereditary breast and ovarian cancer BRCA1/BRCA2; Lynch syndrome MLH1/MSH2/MSH6/PMS2/EPCAM (ACMG secondary findings list); beta-globin HBB; the common MODY genes GCK/HNF1A/HNF4A/HNF1B. A result for any other gene is stored but changes nothing",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "family_history_diabetes_codes",
+      "value": {
+        "codes": [
+          "73211009",
+          "44054006",
+          "46635009",
+          "160303001"
+        ],
+        "icd10_prefixes": [
+          "E10",
+          "E11",
+          "E13",
+          "E14",
+          "Z83.3"
+        ]
+      },
+      "status": "published",
+      "source": "A relative's condition that counts as a family history of diabetes: SNOMED CT diabetes mellitus (73211009), type 2 (44054006), type 1 (46635009), family history of diabetes mellitus (160303001); ICD-10 E10-E14 and Z83.3",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "consent_when_not_recorded",
+      "value": {
+        "contact": true,
+        "use_genetic": false
+      },
+      "status": "design",
+      "source": "What holds for a person with no consent record. Contact about preventive care by their own care provider is allowed until they say no (they can stop it at any time: STOP, the My care page, or the clinic). Genetic results are never used without a recorded yes. Set contact to false where the Department of Health requires a recorded yes before any outreach",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "prediabetes_hba1c",
+      "value": [
+        5.7,
+        6.5
+      ],
+      "status": "published",
+      "source": "ADA: prediabetes is HbA1c 5.7-6.4%",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "weight_support_bmi",
+      "value": 30,
+      "status": "published",
+      "source": "WHO: obesity is BMI 30 or more",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "child_obesity_bmi_percentile",
+      "value": 95,
+      "status": "published",
+      "source": "CDC and AAP: obesity in children is BMI at or above the 95th percentile",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "warning_no_visit_days",
+      "value": 730,
+      "status": "design",
+      "source": "No clinic visit for over 2 years",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "warning_missed_check_under_age",
+      "value": 6,
+      "status": "design",
+      "source": "A missed check-up or vaccine is a warning sign under age 6",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "warning_chronic_test_months",
+      "value": 12,
+      "status": "design",
+      "source": "A long-term illness with no test for 12 months",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "warning_er_visits_same_problem",
+      "value": 3,
+      "status": "design",
+      "source": "3 or more emergency visits in 12 months for the same problem",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "results_review_invite_days",
+      "value": 2,
+      "status": "design",
+      "source": "An abnormal result is offered a review within 2 days",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "emergency_number",
+      "value": "998",
+      "status": "published",
+      "source": "UAE ambulance number",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "usual_care_checks",
+      "value": [
+        "bowel_screening",
+        "bp_check",
+        "breast_screening",
+        "cervical_screening",
+        "diabetes_screen",
+        "well_child_visit"
+      ],
+      "status": "design",
+      "source": "Checks usual care invites for (by age and sex only); this system adds the rest",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "check_groups",
+      "value": {
+        "well_child": [
+          "autism_screen",
+          "developmental_screen",
+          "mmr_vaccine",
+          "well_child_visit"
+        ],
+        "adult_screening": [
+          "basic_health_check",
+          "bowel_screening",
+          "bp_check",
+          "breast_screening",
+          "cervical_screening",
+          "depression_screen",
+          "diabetes_screen",
+          "hba1c_test",
+          "lipid_test",
+          "lung_screening"
+        ],
+        "programmes": [
+          "family_nutrition_programme",
+          "prediabetes_programme",
+          "stop_smoking_service",
+          "weight_support"
+        ]
+      },
+      "status": "design",
+      "source": "How checks are grouped in the results",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "urgent_signs",
+      "value": [
+        "Abnormal result with no follow-up",
+        "Child growth concern",
+        "Pregnancy with no recent check"
+      ],
+      "status": "design",
+      "source": "Warning signs that make a person Urgent (contact within the Urgent deadline)",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "high_signs",
+      "value": [
+        "Behaviour concern with no assessment",
+        "Development concern with no assessment",
+        "Long-term illness with no recent test",
+        "Many emergency visits for the same problem"
+      ],
+      "status": "design",
+      "source": "Warning signs that make a person High urgency",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "blood_sugar_checks",
+      "value": [
+        "basic_health_check",
+        "blood_sugar_test",
+        "diabetes_screen",
+        "hba1c_test",
+        "prediabetes_programme"
+      ],
+      "status": "design",
+      "source": "Checks that measure blood sugar, so a visit for one of them can find diabetes",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "never_held_checks",
+      "value": [
+        "emergency_callback",
+        "results_review"
+      ],
+      "status": "design",
+      "source": "Cards a doctor cannot put on hold from the list: an abnormal result or an emergency is always followed up",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "record_date_for_check",
+      "value": {
+        "breast_screening": "last_breast_screen",
+        "bowel_screening": "last_bowel_screen",
+        "cholesterol_test": "ldl_date",
+        "blood_sugar_test": "hba1c_date"
+      },
+      "status": "design",
+      "source": "Which record date counts as the last test for each genetic-pathway check",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "no_consent_task",
+      "value": {
+        "check": "reach_without_messages",
+        "pathway": "Care team contact",
+        "reason": "Urgent but no contact consent, so no messages are sent; decide how to reach this person (for example at their next visit)",
+        "guideline": "Clinician review"
+      },
+      "status": "design",
+      "source": "An Urgent person who refused messages still needs a clinician's decision; the task closes when consent returns or the person is no longer Urgent",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "guideline_aliases",
+      "value": {
+        "vaccine_catch_up": "mmr_vaccine",
+        "cholesterol_test": "lipid_test",
+        "blood_sugar_test": "diabetes_screen",
+        "basic_health_check": "bp_check"
+      },
+      "status": "design",
+      "source": "Checks that use another check's guideline row",
+      "url": null
+    },
+    {
+      "group": "Clinical rules",
+      "name": "case_finding_checks",
+      "value": [
+        "basic_health_check",
+        "blood_sugar_test",
+        "bp_check",
+        "diabetes_screen",
+        "hba1c_test"
+      ],
+      "status": "design",
+      "source": "Checks that can find hidden diabetes or high blood pressure. The system cannot see hidden cases, so the evaluation agent watches who completes these checks by group (adults of screening age) and alerts the team when a group falls behind",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "adjust_seed",
+      "value": 2026,
+      "status": "design",
+      "source": "Random seed for the UAE adjustment (same seed, same population)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "features_seed",
+      "value": 2027,
+      "status": "design",
+      "source": "Random seed for simulated attributes in preprocessing",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "region_share",
+      "value": {
+        "Abu Dhabi": 0.58,
+        "Al Ain": 0.3,
+        "Al Dhafra": 0.12
+      },
+      "status": "assumption",
+      "source": "Share of Abu Dhabi emirate residents by region; replace with Statistics Centre Abu Dhabi figures",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "place_weights",
+      "value": {
+        "city": 8,
+        "town": 5,
+        "suburb": 5,
+        "quarter": 4,
+        "neighbourhood": 4,
+        "village": 2,
+        "hamlet": 1
+      },
+      "status": "assumption",
+      "source": "Relative number of residents per OpenStreetMap place type, within a region",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "home_jitter_degrees",
+      "value": 0.008,
+      "status": "design",
+      "source": "Random spread of homes around a place centre (about 1 km), so neighbours are not stacked",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "road_speed_kmh",
+      "value": {
+        "city": 30,
+        "rural": 55,
+        "remote": 70
+      },
+      "status": "assumption",
+      "source": "Average road speed by area type, used for travel time to the nearest facility",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "road_detour_factor",
+      "value": 1.3,
+      "status": "assumption",
+      "source": "Road distance is about 1.3 times the straight-line distance",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "travel_overhead_min",
+      "value": 5,
+      "status": "assumption",
+      "source": "Minutes added to every trip (parking, walking in)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "facilities_radius_km",
+      "value": 10,
+      "status": "design",
+      "source": "Radius for counting nearby health facilities",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "nationality_mix",
+      "value": {
+        "working_men": {
+          "Emirati": 0.12,
+          "Other Arab": 0.12,
+          "South Asian": 0.52,
+          "Filipino": 0.07,
+          "Western": 0.05,
+          "Other": 0.12
+        },
+        "others": {
+          "Emirati": 0.3,
+          "Other Arab": 0.18,
+          "South Asian": 0.28,
+          "Filipino": 0.12,
+          "Western": 0.05,
+          "Other": 0.07
+        }
+      },
+      "status": "assumption",
+      "source": "Nationality mix; the expatriate workforce is mostly men of working age (no official Abu Dhabi breakdown by nationality is published)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "language_by_nationality",
+      "value": {
+        "Emirati": {
+          "Arabic": 1.0
+        },
+        "Other Arab": {
+          "Arabic": 0.9,
+          "English": 0.1
+        },
+        "South Asian": {
+          "Urdu": 0.45,
+          "Hindi": 0.4,
+          "English": 0.15
+        },
+        "Filipino": {
+          "Tagalog": 0.7,
+          "English": 0.3
+        },
+        "Western": {
+          "English": 1.0
+        },
+        "Other": {
+          "English": 0.7,
+          "Arabic": 0.3
+        }
+      },
+      "status": "assumption",
+      "source": "Main language by nationality",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "working_ages",
+      "value": [
+        18,
+        64
+      ],
+      "status": "design",
+      "source": "Ages counted as working age",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "work_shift_mix",
+      "value": {
+        "day": 0.5,
+        "evening": 0.15,
+        "none": 0.35
+      },
+      "status": "assumption",
+      "source": "Work shifts of working-age adults",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "work_shift_mix_south_asian_men",
+      "value": {
+        "day": 0.75,
+        "evening": 0.15,
+        "none": 0.1
+      },
+      "status": "assumption",
+      "source": "Work shifts of South Asian working-age men (more day-shift labour)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "insurance_mix_day_shift",
+      "value": {
+        "Basic": 0.8,
+        "Enhanced": 0.2
+      },
+      "status": "assumption",
+      "source": "Insurance of non-Emiratis on day shifts; Emiratis are on Thiqa (published: Thiqa is the scheme for UAE nationals)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "insurance_mix_others",
+      "value": {
+        "Basic": 0.4,
+        "Enhanced": 0.6
+      },
+      "status": "assumption",
+      "source": "Insurance of other non-Emiratis",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "phone_mix",
+      "value": {
+        "smartphone": 0.85,
+        "basic": 0.12,
+        "none": 0.03
+      },
+      "status": "assumption",
+      "source": "Phone type",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "can_read_share",
+      "value": 0.95,
+      "status": "assumption",
+      "source": "Share who can read a text message",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "smoking_rate",
+      "value": {
+        "M": 0.126,
+        "F": 0.02
+      },
+      "status": "published",
+      "source": "Gives the WHO 2025 UAE adult smoking rate of 8.8% overall with 64% men in the population",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "smoking_from_age",
+      "value": 15,
+      "status": "published",
+      "source": "WHO tobacco indicators count people aged 15 and over",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "guardian_ages",
+      "value": [
+        22,
+        55
+      ],
+      "status": "design",
+      "source": "A child's guardian is an adult of these ages, of the same nationality where possible",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "mcv2_target",
+      "value": 0.92,
+      "status": "published",
+      "source": "WHO/UNICEF estimates 2025: UAE second measles dose coverage 92%",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "mmr_check_ages",
+      "value": [
+        5,
+        9
+      ],
+      "status": "design",
+      "source": "Children checked for the second dose (Synthea keeps about 10 years of history, so older children's doses are missing)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "missed_visit_model",
+      "value": {
+        "base": 0.05,
+        "barrier_slope": 0.4,
+        "max": 0.9,
+        "family_sd": 0.06,
+        "default_barrier": 0.3,
+        "search_range": [
+          0.0,
+          3.0
+        ],
+        "search_steps": 25
+      },
+      "status": "assumption",
+      "source": "Chance a well-child visit is dropped rises with the family's access barrier; scaled so the measles target is met",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "undiagnosed_share",
+      "value": {
+        "diabetes": 0.4,
+        "hypertension": 0.5
+      },
+      "status": "assumption",
+      "source": "Share of all cases not yet diagnosed; totals are matched to WHO UAE prevalence",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "prevalence_ages",
+      "value": {
+        "diabetes": [
+          18,
+          120
+        ],
+        "hypertension": [
+          30,
+          79
+        ]
+      },
+      "status": "published",
+      "source": "Age ranges of the WHO indicators (diabetes 18+, hypertension 30-79)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "recent_normal_test_days",
+      "value": 180,
+      "status": "design",
+      "source": "A normal test in the last 6 months rules out a hidden case",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "hidden_case_weights",
+      "value": {
+        "age_centre": 45,
+        "bmi_centre": 27,
+        "default_bmi": 27.0,
+        "ancestry": 0.25,
+        "ancestry_groups": [
+          "Emirati",
+          "South Asian"
+        ],
+        "diabetes": {
+          "age_per_year": 0.0322,
+          "bmi_per_unit": 0.0862,
+          "male": 0.1469,
+          "prediabetes": 1.2305,
+          "smoking": 0.4623
+        },
+        "hypertension": {
+          "age_per_year": 0.055,
+          "bmi_per_unit": 0.046,
+          "male": 0.3183,
+          "prediabetes": 0.0,
+          "smoking": 0.1493
+        }
+      },
+      "status": "calibrated",
+      "source": "Who becomes a hidden case follows the log-odds of being undiagnosed among real NHANES adults (2015-2023, logistic regression of age, BMI, sex, told-prediabetes and smoking; hypertension without prediabetes). The ancestry effect (0.25) has no published value and stays an assumption",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "hidden_onset_years",
+      "value": 5,
+      "status": "assumption",
+      "source": "A hidden case started some time in the last 5 years (after the last normal test)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "hidden_values",
+      "value": {
+        "hba1c_from": 6.5,
+        "hba1c_spread": 0.9,
+        "systolic_from": 140,
+        "systolic_spread": 12
+      },
+      "status": "assumption",
+      "source": "The value a test would show today for a hidden case (truth file only)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "consent_contact",
+      "value": 0.92,
+      "status": "assumption",
+      "source": "Share who allow contact",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "consent_genetic",
+      "value": 0.7,
+      "status": "assumption",
+      "source": "Share who allow use of genetic information",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "family_history_recorded",
+      "value": 0.75,
+      "status": "assumption",
+      "source": "Share with family history in the records",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "family_history_diabetes",
+      "value": {
+        "with_diabetes": 0.45,
+        "without_diabetes": 0.15
+      },
+      "status": "published",
+      "source": "Odds ratio about 4.6, close to NHANES 1999-2002 (diabetes in 14.3% with a first-degree relative with diabetes vs 3.2% without, odds ratio about 5; CDC, Preventing Chronic Disease 2005)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "child_concerns",
+      "value": {
+        "development_under_6": 0.06,
+        "behaviour": 0.05,
+        "assessed": 0.4
+      },
+      "status": "assumption",
+      "source": "Development and behaviour concerns (Synthea has none) and the share already assessed",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "genetic_markers",
+      "value": {
+        "FH": 0.004,
+        "BRCA": 0.003,
+        "LYNCH": 0.003,
+        "HBB_CARRIER": 0.05,
+        "MODY": 0.001
+      },
+      "status": "assumption",
+      "source": "Marker prevalence (FH about 1 in 250, BRCA about 1 in 300-400; HBB carriers higher in the region)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "genetic_inheritance",
+      "value": 0.5,
+      "status": "published",
+      "source": "A child of a carrier inherits a dominant marker with 50% chance",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "variant_status_mix",
+      "value": {
+        "pathogenic": 0.6,
+        "likely_pathogenic": 0.25,
+        "VUS": 0.15
+      },
+      "status": "assumption",
+      "source": "Status of a found variant",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "polygenic_heritability",
+      "value": 0.5,
+      "status": "assumption",
+      "source": "Child's polygenic score = half the guardian's plus noise (variance kept at 1)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "married",
+      "value": {
+        "from_age": 22,
+        "share": 0.7
+      },
+      "status": "assumption",
+      "source": "Share married",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "well_child_ages_months",
+      "value": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        9,
+        12,
+        15,
+        18,
+        24,
+        30,
+        36,
+        48,
+        60,
+        72,
+        84,
+        96,
+        108,
+        120,
+        132,
+        144,
+        156,
+        168,
+        180,
+        192,
+        204
+      ],
+      "status": "published",
+      "source": "AAP Bright Futures well-child visit ages",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "well_child_windows_days",
+      "value": {
+        "under_24_months": [
+          30,
+          61
+        ],
+        "under_48_months": [
+          60,
+          92
+        ],
+        "older": [
+          180,
+          183
+        ]
+      },
+      "status": "design",
+      "source": "Days before and after a due date that a visit still counts",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "history_years",
+      "value": 10,
+      "status": "design",
+      "source": "Synthea keeps about 10 years of records",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "valid_ranges",
+      "value": {
+        "hba1c": [
+          3.5,
+          20
+        ],
+        "bmi": [
+          10,
+          80
+        ],
+        "bmi_percentile": [
+          0,
+          100
+        ],
+        "systolic_bp": [
+          60,
+          260
+        ],
+        "diastolic_bp": [
+          30,
+          160
+        ],
+        "total_cholesterol": [
+          50,
+          500
+        ],
+        "ldl": [
+          10,
+          400
+        ],
+        "hdl": [
+          5,
+          150
+        ]
+      },
+      "status": "design",
+      "source": "Physiologically possible values; anything outside is set to missing",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "abnormal_results",
+      "value": {
+        "hba1c": 6.5,
+        "systolic_bp": 160,
+        "ldl": 190,
+        "followup_days": 30
+      },
+      "status": "published",
+      "source": "HbA1c 6.5%+ (ADA diabetes), systolic 160+ (stage 2 hypertension), LDL 190+ (possible familial hypercholesterolaemia); no visit within 30 days counts as no follow-up",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "child_growth_concern",
+      "value": {
+        "ages": [
+          2,
+          17
+        ],
+        "below_percentile": 5,
+        "at_or_above_percentile": 97
+      },
+      "status": "published",
+      "source": "WHO growth references: BMI below the 5th or at/above the 97th percentile",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "prenatal_check_days",
+      "value": 42,
+      "status": "published",
+      "source": "Antenatal visits at least every 6 weeks (WHO antenatal care model)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "screened_months",
+      "value": 36,
+      "status": "published",
+      "source": "A diabetes test in the last 3 years counts as screened (ADA)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "data_sufficient",
+      "value": {
+        "adult_visits_2y": 2,
+        "adult_labs": 1,
+        "child_visits_2y": 1,
+        "years_of_records": 1
+      },
+      "status": "design",
+      "source": "Enough records to compute a risk score",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "risk_cutoff_years",
+      "value": 2,
+      "status": "design",
+      "source": "The risk model learns from records up to 2 years ago and what happened since",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "feature_lookback_days",
+      "value": 730,
+      "status": "design",
+      "source": "Visits and lab results are counted over the last 2 years (the _2y features)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "er_lookback_days",
+      "value": 365,
+      "status": "design",
+      "source": "Emergency visits and abnormal results are looked for in the last 12 months",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "region_boundaries",
+      "value": {
+        "al_dhafra_west_of_lon": 53.9,
+        "al_ain_east_of_lon": 55.3,
+        "al_ain_south_of_lat": 24.6
+      },
+      "status": "assumption",
+      "source": "Approximate boundaries used to put an OpenStreetMap place in Abu Dhabi, Al Ain or Al Dhafra region",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "calendar_years",
+      "value": [
+        2025,
+        2026,
+        2027
+      ],
+      "status": "design",
+      "source": "Years of the UAE calendar downloaded (Ramadan, Eid, public holidays)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "uae_fixed_holidays",
+      "value": {
+        "01-01": "New Year's Day",
+        "12-01": "Commemoration Day",
+        "12-02": "National Day",
+        "12-03": "National Day"
+      },
+      "status": "published",
+      "source": "UAE federal public holidays (Gregorian dates)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "uae_hijri_holidays",
+      "value": {
+        "01-01": "Islamic New Year",
+        "03-12": "Prophet's Birthday",
+        "12-09": "Arafat Day",
+        "10-01": "Eid al-Fitr",
+        "10-02": "Eid al-Fitr",
+        "10-03": "Eid al-Fitr",
+        "12-10": "Eid al-Adha",
+        "12-11": "Eid al-Adha",
+        "12-12": "Eid al-Adha"
+      },
+      "status": "published",
+      "source": "UAE federal public holidays (Hijri month-day, Umm al-Qura calendar)",
+      "url": null
+    },
+    {
+      "group": "Synthetic data",
+      "name": "ramadan_hijri_month",
+      "value": 9,
+      "status": "published",
+      "source": "Ramadan is the 9th Hijri month",
+      "url": null
+    },
+    {
+      "group": "Models",
+      "name": "cv_folds",
+      "value": 5,
+      "status": "design",
+      "source": "Folds for cross-validated scores, model checks and recalibration",
+      "url": null
+    },
+    {
+      "group": "Models",
+      "name": "top_reasons",
+      "value": 3,
+      "status": "design",
+      "source": "Number of reasons shown with each risk score",
+      "url": null
+    },
+    {
+      "group": "Models",
+      "name": "fallback_cutoffs",
+      "value": {
+        "high": 0.6,
+        "moderate": 0.3,
+        "base_rate": 0.2
+      },
+      "status": "design",
+      "source": "Used only if the risk model card is missing (the real cut-offs come from the score spread)",
+      "url": null
+    },
+    {
+      "group": "Models",
+      "name": "nhanes_adult_age",
+      "value": 20,
+      "status": "published",
+      "source": "NHANES diabetes analyses use adults aged 20 and over",
+      "url": null
+    },
+    {
+      "group": "Models",
+      "name": "nhanes_top_share",
+      "value": 0.3,
+      "status": "design",
+      "source": "Strategy compared with the broad rule: invite the top 30% by score",
+      "url": null
+    },
+    {
+      "group": "Models",
+      "name": "no_score_rank",
+      "value": 0.5,
+      "status": "design",
+      "source": "People with no risk score (children, too few records) count as the middle rank in the priority score",
+      "url": null
+    },
+    {
+      "group": "Models",
+      "name": "undiagnosed_bp_threshold",
+      "value": [
+        140,
+        90
+      ],
+      "status": "published",
+      "source": "WHO and ESC/ESH: hypertension is blood pressure 140/90 mmHg or more on repeated measurement (average of the NHANES readings)",
+      "url": null
+    },
+    {
+      "group": "Models",
+      "name": "local_calibration",
+      "value": {
+        "who_file": "who/uae_who_indicators.csv",
+        "indicators": {
+          "diabetes": [
+            "NCD_DIABETES_PREVALENCE_AGESTD",
+            "18-PLUS"
+          ],
+          "hypertension": [
+            "NCD_HYP_PREVALENCE_A",
+            null
+          ]
+        }
+      },
+      "status": "published",
+      "source": "Each score is shifted (intercept only, ranking unchanged) so the average over local adults without that diagnosis matches the expected undiagnosed rate: WHO UAE prevalence (data/real/who) minus the diagnosed share in the records, capped at the published undiagnosed share (config/synthetic_data.json)",
+      "url": null
+    },
+    {
+      "group": "Calibrated",
+      "name": "base_attendance_logit",
+      "value": 1.889,
+      "status": "calibrated",
+      "source": "usual care attends 79.2% of booked visits (achieved 0.785); Emirates Health Services primary care, Jul-Sep 2022: 14,038 no-shows of 67,429 booked appointments (JMIR Formative Research 2025)",
+      "url": "https://formative.jmir.org/2025/1/e64936"
+    },
+    {
+      "group": "Calibrated",
+      "name": "stop_share",
+      "value": 0.0824,
+      "status": "calibrated",
+      "source": "2.5% of contacted people opt out (achieved 0.0249); Kaiser Permanente Colorado, JAMA Network Open 2021: 2.5% of adults opted out of automated health texts in a year",
+      "url": "https://doi.org/10.1001/jamanetworkopen.2021.3479"
+    }
+  ],
+  "prices": {
+    "visit_aed": 220,
+    "visit_range_aed": [
+      120,
+      450
+    ],
+    "best_published_followup_rate": 0.932
+  },
+  "calibration_check": {
+    "usual_care_attendance": 0.797,
+    "usual_care_attendance_target": 0.792,
+    "usual_care_opt_out": 0.024,
+    "usual_care_opt_out_target": 0.025,
+    "usual_care_attendance_6_runs": 0.785,
+    "usual_care_opt_out_6_runs": 0.0249
+  },
+  "fairness_new": {
+    "nationality": [
+      {
+        "group": "Emirati",
+        "count": 979,
+        "recommendation_rate": 0.856,
+        "reach": 0.907,
+        "reach_range": [
+          0.885,
+          0.925
+        ],
+        "uptake": 0.401,
+        "uptake_range": [
+          0.368,
+          0.435
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Filipino",
+        "count": 470,
+        "recommendation_rate": 0.883,
+        "reach": 0.93,
+        "reach_range": [
+          0.901,
+          0.951
+        ],
+        "uptake": 0.373,
+        "uptake_range": [
+          0.328,
+          0.421
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Other",
+        "count": 484,
+        "recommendation_rate": 0.952,
+        "reach": 0.911,
+        "reach_range": [
+          0.882,
+          0.934
+        ],
+        "uptake": 0.364,
+        "uptake_range": [
+          0.322,
+          0.409
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Other Arab",
+        "count": 754,
+        "recommendation_rate": 0.906,
+        "reach": 0.94,
+        "reach_range": [
+          0.92,
+          0.955
+        ],
+        "uptake": 0.387,
+        "uptake_range": [
+          0.351,
+          0.424
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "South Asian",
+        "count": 2075,
+        "recommendation_rate": 0.948,
+        "reach": 0.925,
+        "reach_range": [
+          0.912,
+          0.936
+        ],
+        "uptake": 0.347,
+        "uptake_range": [
+          0.326,
+          0.368
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Western",
+        "count": 238,
+        "recommendation_rate": 0.912,
+        "reach": 0.926,
+        "reach_range": [
+          0.884,
+          0.954
+        ],
+        "uptake": 0.392,
+        "uptake_range": [
+          0.329,
+          0.458
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "region": [
+      {
+        "group": "Abu Dhabi",
+        "count": 2864,
+        "recommendation_rate": 0.917,
+        "reach": 0.917,
+        "reach_range": [
+          0.906,
+          0.927
+        ],
+        "uptake": 0.364,
+        "uptake_range": [
+          0.346,
+          0.382
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Al Ain",
+        "count": 1566,
+        "recommendation_rate": 0.913,
+        "reach": 0.928,
+        "reach_range": [
+          0.913,
+          0.94
+        ],
+        "uptake": 0.371,
+        "uptake_range": [
+          0.346,
+          0.396
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Al Dhafra",
+        "count": 570,
+        "recommendation_rate": 0.923,
+        "reach": 0.937,
+        "reach_range": [
+          0.913,
+          0.955
+        ],
+        "uptake": 0.388,
+        "uptake_range": [
+          0.347,
+          0.43
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "language": [
+      {
+        "group": "Arabic",
+        "count": 1797,
+        "recommendation_rate": 0.885,
+        "reach": 0.919,
+        "reach_range": [
+          0.905,
+          0.932
+        ],
+        "uptake": 0.394,
+        "uptake_range": [
+          0.371,
+          0.419
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "English",
+        "count": 1121,
+        "recommendation_rate": 0.925,
+        "reach": 0.926,
+        "reach_range": [
+          0.908,
+          0.94
+        ],
+        "uptake": 0.378,
+        "uptake_range": [
+          0.349,
+          0.408
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Hindi",
+        "count": 826,
+        "recommendation_rate": 0.952,
+        "reach": 0.925,
+        "reach_range": [
+          0.904,
+          0.941
+        ],
+        "uptake": 0.347,
+        "uptake_range": [
+          0.315,
+          0.381
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Tagalog",
+        "count": 324,
+        "recommendation_rate": 0.873,
+        "reach": 0.929,
+        "reach_range": [
+          0.893,
+          0.954
+        ],
+        "uptake": 0.382,
+        "uptake_range": [
+          0.327,
+          0.439
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Urdu",
+        "count": 932,
+        "recommendation_rate": 0.951,
+        "reach": 0.922,
+        "reach_range": [
+          0.903,
+          0.938
+        ],
+        "uptake": 0.327,
+        "uptake_range": [
+          0.297,
+          0.359
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "insurance": [
+      {
+        "group": "Basic",
+        "count": 2608,
+        "recommendation_rate": 0.941,
+        "reach": 0.93,
+        "reach_range": [
+          0.92,
+          0.94
+        ],
+        "uptake": 0.347,
+        "uptake_range": [
+          0.328,
+          0.366
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Enhanced",
+        "count": 1413,
+        "recommendation_rate": 0.913,
+        "reach": 0.919,
+        "reach_range": [
+          0.903,
+          0.933
+        ],
+        "uptake": 0.39,
+        "uptake_range": [
+          0.364,
+          0.417
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Thiqa",
+        "count": 979,
+        "recommendation_rate": 0.856,
+        "reach": 0.907,
+        "reach_range": [
+          0.885,
+          0.925
+        ],
+        "uptake": 0.401,
+        "uptake_range": [
+          0.368,
+          0.435
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "sex": [
+      {
+        "group": "F",
+        "count": 1821,
+        "recommendation_rate": 0.892,
+        "reach": 0.922,
+        "reach_range": [
+          0.908,
+          0.934
+        ],
+        "uptake": 0.385,
+        "uptake_range": [
+          0.362,
+          0.409
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "M",
+        "count": 3179,
+        "recommendation_rate": 0.93,
+        "reach": 0.923,
+        "reach_range": [
+          0.913,
+          0.932
+        ],
+        "uptake": 0.36,
+        "uptake_range": [
+          0.343,
+          0.377
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "age_band": [
+      {
+        "group": "0-5",
+        "count": 364,
+        "recommendation_rate": 0.549,
+        "reach": 0.915,
+        "reach_range": [
+          0.868,
+          0.946
+        ],
+        "uptake": 0.455,
+        "uptake_range": [
+          0.387,
+          0.524
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "18-39",
+        "count": 2660,
+        "recommendation_rate": 0.996,
+        "reach": 0.925,
+        "reach_range": [
+          0.914,
+          0.934
+        ],
+        "uptake": 0.358,
+        "uptake_range": [
+          0.34,
+          0.377
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "40-64",
+        "count": 1306,
+        "recommendation_rate": 0.996,
+        "reach": 0.923,
+        "reach_range": [
+          0.907,
+          0.936
+        ],
+        "uptake": 0.344,
+        "uptake_range": [
+          0.318,
+          0.37
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "6-17",
+        "count": 581,
+        "recommendation_rate": 0.597,
+        "reach": 0.922,
+        "reach_range": [
+          0.889,
+          0.946
+        ],
+        "uptake": 0.513,
+        "uptake_range": [
+          0.461,
+          0.565
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "65+",
+        "count": 89,
+        "recommendation_rate": 0.944,
+        "reach": 0.893,
+        "reach_range": [
+          0.809,
+          0.943
+        ],
+        "uptake": 0.298,
+        "uptake_range": [
+          0.21,
+          0.402
+        ],
+        "reliable": "OK"
+      }
+    ]
+  },
+  "fairness_old": {
+    "nationality": [
+      {
+        "group": "Emirati",
+        "count": 979,
+        "recommendation_rate": 0.62,
+        "reach": 0.918,
+        "reach_range": [
+          0.893,
+          0.937
+        ],
+        "uptake": 0.084,
+        "uptake_range": [
+          0.064,
+          0.109
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Filipino",
+        "count": 470,
+        "recommendation_rate": 0.636,
+        "reach": 0.933,
+        "reach_range": [
+          0.899,
+          0.956
+        ],
+        "uptake": 0.12,
+        "uptake_range": [
+          0.088,
+          0.162
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Other",
+        "count": 484,
+        "recommendation_rate": 0.696,
+        "reach": 0.929,
+        "reach_range": [
+          0.896,
+          0.952
+        ],
+        "uptake": 0.145,
+        "uptake_range": [
+          0.112,
+          0.187
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Other Arab",
+        "count": 754,
+        "recommendation_rate": 0.69,
+        "reach": 0.942,
+        "reach_range": [
+          0.919,
+          0.959
+        ],
+        "uptake": 0.121,
+        "uptake_range": [
+          0.096,
+          0.152
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "South Asian",
+        "count": 2075,
+        "recommendation_rate": 0.671,
+        "reach": 0.938,
+        "reach_range": [
+          0.924,
+          0.95
+        ],
+        "uptake": 0.078,
+        "uptake_range": [
+          0.065,
+          0.093
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Western",
+        "count": 238,
+        "recommendation_rate": 0.689,
+        "reach": 0.933,
+        "reach_range": [
+          0.884,
+          0.962
+        ],
+        "uptake": 0.177,
+        "uptake_range": [
+          0.126,
+          0.242
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "region": [
+      {
+        "group": "Abu Dhabi",
+        "count": 2864,
+        "recommendation_rate": 0.666,
+        "reach": 0.93,
+        "reach_range": [
+          0.918,
+          0.941
+        ],
+        "uptake": 0.112,
+        "uptake_range": [
+          0.099,
+          0.127
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Al Ain",
+        "count": 1566,
+        "recommendation_rate": 0.655,
+        "reach": 0.933,
+        "reach_range": [
+          0.916,
+          0.946
+        ],
+        "uptake": 0.09,
+        "uptake_range": [
+          0.074,
+          0.109
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Al Dhafra",
+        "count": 570,
+        "recommendation_rate": 0.677,
+        "reach": 0.951,
+        "reach_range": [
+          0.924,
+          0.968
+        ],
+        "uptake": 0.078,
+        "uptake_range": [
+          0.055,
+          0.109
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "language": [
+      {
+        "group": "Arabic",
+        "count": 1797,
+        "recommendation_rate": 0.653,
+        "reach": 0.928,
+        "reach_range": [
+          0.911,
+          0.941
+        ],
+        "uptake": 0.093,
+        "uptake_range": [
+          0.078,
+          0.111
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "English",
+        "count": 1121,
+        "recommendation_rate": 0.682,
+        "reach": 0.935,
+        "reach_range": [
+          0.915,
+          0.95
+        ],
+        "uptake": 0.164,
+        "uptake_range": [
+          0.139,
+          0.192
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Hindi",
+        "count": 826,
+        "recommendation_rate": 0.666,
+        "reach": 0.94,
+        "reach_range": [
+          0.917,
+          0.957
+        ],
+        "uptake": 0.067,
+        "uptake_range": [
+          0.049,
+          0.091
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Tagalog",
+        "count": 324,
+        "recommendation_rate": 0.627,
+        "reach": 0.931,
+        "reach_range": [
+          0.888,
+          0.958
+        ],
+        "uptake": 0.089,
+        "uptake_range": [
+          0.057,
+          0.136
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Urdu",
+        "count": 932,
+        "recommendation_rate": 0.675,
+        "reach": 0.938,
+        "reach_range": [
+          0.916,
+          0.954
+        ],
+        "uptake": 0.075,
+        "uptake_range": [
+          0.057,
+          0.098
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "insurance": [
+      {
+        "group": "Basic",
+        "count": 2608,
+        "recommendation_rate": 0.689,
+        "reach": 0.942,
+        "reach_range": [
+          0.93,
+          0.951
+        ],
+        "uptake": 0.096,
+        "uptake_range": [
+          0.083,
+          0.11
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Enhanced",
+        "count": 1413,
+        "recommendation_rate": 0.648,
+        "reach": 0.928,
+        "reach_range": [
+          0.909,
+          0.943
+        ],
+        "uptake": 0.123,
+        "uptake_range": [
+          0.104,
+          0.146
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "Thiqa",
+        "count": 979,
+        "recommendation_rate": 0.62,
+        "reach": 0.918,
+        "reach_range": [
+          0.893,
+          0.937
+        ],
+        "uptake": 0.084,
+        "uptake_range": [
+          0.064,
+          0.109
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "sex": [
+      {
+        "group": "F",
+        "count": 1821,
+        "recommendation_rate": 0.715,
+        "reach": 0.928,
+        "reach_range": [
+          0.912,
+          0.941
+        ],
+        "uptake": 0.098,
+        "uptake_range": [
+          0.083,
+          0.116
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "M",
+        "count": 3179,
+        "recommendation_rate": 0.634,
+        "reach": 0.937,
+        "reach_range": [
+          0.926,
+          0.947
+        ],
+        "uptake": 0.103,
+        "uptake_range": [
+          0.091,
+          0.117
+        ],
+        "reliable": "OK"
+      }
+    ],
+    "age_band": [
+      {
+        "group": "0-5",
+        "count": 364,
+        "recommendation_rate": 0.346,
+        "reach": 0.937,
+        "reach_range": [
+          0.88,
+          0.967
+        ],
+        "uptake": 0.071,
+        "uptake_range": [
+          0.038,
+          0.13
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "18-39",
+        "count": 2660,
+        "recommendation_rate": 0.618,
+        "reach": 0.934,
+        "reach_range": [
+          0.921,
+          0.945
+        ],
+        "uptake": 0.102,
+        "uptake_range": [
+          0.088,
+          0.117
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "40-64",
+        "count": 1306,
+        "recommendation_rate": 0.914,
+        "reach": 0.926,
+        "reach_range": [
+          0.91,
+          0.94
+        ],
+        "uptake": 0.11,
+        "uptake_range": [
+          0.093,
+          0.129
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "6-17",
+        "count": 581,
+        "recommendation_rate": 0.515,
+        "reach": 0.967,
+        "reach_range": [
+          0.94,
+          0.982
+        ],
+        "uptake": 0.084,
+        "uptake_range": [
+          0.057,
+          0.121
+        ],
+        "reliable": "OK"
+      },
+      {
+        "group": "65+",
+        "count": 89,
+        "recommendation_rate": 0.629,
+        "reach": 0.875,
+        "reach_range": [
+          0.764,
+          0.938
+        ],
+        "uptake": 0.071,
+        "uptake_range": [
+          0.028,
+          0.17
+        ],
+        "reliable": "OK"
+      }
+    ]
+  },
+  "safeguards_new": {
+    "all": [
+      {
+        "group": "Everyone",
+        "count": 5000,
+        "scored": 1866,
+        "true_cases": 283,
+        "flagged_high": 376,
+        "flag_rate": 0.202,
+        "false_positive_rate": 0.165,
+        "false_negative_rate": 0.594,
+        "fnr_range": [
+          0.536,
+          0.649
+        ],
+        "cases_per_100_flagged": 30.6,
+        "cases_not_scored": 140,
+        "hidden_cases_at_start": 423,
+        "hidden_found_share": 0.343,
+        "hidden_missed": 278,
+        "diabetes_predicted": 0.108,
+        "diabetes_observed": 0.152
+      }
+    ],
+    "by_condition": [
+      {
+        "condition": "diabetes",
+        "scored": 1866,
+        "true_cases": 283,
+        "flag_rate": 0.202,
+        "false_positive_rate": 0.165,
+        "false_negative_rate": 0.594,
+        "cases_per_100_flagged": 30.6,
+        "predicted": 0.108,
+        "observed": 0.152
+      }
+    ],
+    "definitions": {
+      "true_case": "diabetes or high blood pressure present at the start and not diagnosed (what the two models predict)",
+      "flag": "chance at or above the High cut-off (top share of local scores), combined or per condition",
+      "false_positive_rate": "flagged High, but not a true case (share of people who are not cases)",
+      "false_negative_rate": "a true case, but not flagged High (share of cases); children and people with too little data are not scored and are counted under cases_not_scored",
+      "hidden_found_share": "hidden cases present at the start that a visit found by the end of the run",
+      "calibration": "each condition's average predicted chance against the observed rate in the same people",
+      "small_groups": "groups under 10 people hidden; a rate needs at least 10 people or cases"
+    },
+    "nationality": [
+      {
+        "group": "Emirati",
+        "count": 979,
+        "scored": 334,
+        "true_cases": 54,
+        "flagged_high": 62,
+        "flag_rate": 0.186,
+        "false_positive_rate": 0.129,
+        "false_negative_rate": 0.519,
+        "fnr_range": [
+          0.389,
+          0.646
+        ],
+        "cases_per_100_flagged": 41.9,
+        "cases_not_scored": 30,
+        "hidden_cases_at_start": 84,
+        "hidden_found_share": 0.405,
+        "hidden_missed": 50,
+        "diabetes_predicted": 0.107,
+        "diabetes_observed": 0.162,
+        "reliable": "OK"
+      },
+      {
+        "group": "Filipino",
+        "count": 470,
+        "scored": 144,
+        "true_cases": 17,
+        "flagged_high": 23,
+        "flag_rate": 0.16,
+        "false_positive_rate": 0.142,
+        "false_negative_rate": 0.706,
+        "fnr_range": [
+          0.469,
+          0.867
+        ],
+        "cases_per_100_flagged": 21.7,
+        "cases_not_scored": 13,
+        "hidden_cases_at_start": 30,
+        "hidden_found_share": 0.367,
+        "hidden_missed": 19,
+        "diabetes_predicted": 0.095,
+        "diabetes_observed": 0.118,
+        "reliable": "OK"
+      },
+      {
+        "group": "Other",
+        "count": 484,
+        "scored": 199,
+        "true_cases": 28,
+        "flagged_high": 34,
+        "flag_rate": 0.171,
+        "false_positive_rate": 0.14,
+        "false_negative_rate": 0.643,
+        "fnr_range": [
+          0.458,
+          0.793
+        ],
+        "cases_per_100_flagged": 29.4,
+        "cases_not_scored": 12,
+        "hidden_cases_at_start": 40,
+        "hidden_found_share": 0.4,
+        "hidden_missed": 24,
+        "diabetes_predicted": 0.101,
+        "diabetes_observed": 0.141,
+        "reliable": "OK"
+      },
+      {
+        "group": "Other Arab",
+        "count": 754,
+        "scored": 271,
+        "true_cases": 41,
+        "flagged_high": 57,
+        "flag_rate": 0.21,
+        "false_positive_rate": 0.174,
+        "false_negative_rate": 0.585,
+        "fnr_range": [
+          0.434,
+          0.722
+        ],
+        "cases_per_100_flagged": 29.8,
+        "cases_not_scored": 17,
+        "hidden_cases_at_start": 58,
+        "hidden_found_share": 0.414,
+        "hidden_missed": 34,
+        "diabetes_predicted": 0.107,
+        "diabetes_observed": 0.151,
+        "reliable": "OK"
+      },
+      {
+        "group": "South Asian",
+        "count": 2075,
+        "scored": 822,
+        "true_cases": 126,
+        "flagged_high": 179,
+        "flag_rate": 0.218,
+        "false_positive_rate": 0.184,
+        "false_negative_rate": 0.595,
+        "fnr_range": [
+          0.508,
+          0.677
+        ],
+        "cases_per_100_flagged": 28.5,
+        "cases_not_scored": 65,
+        "hidden_cases_at_start": 191,
+        "hidden_found_share": 0.293,
+        "hidden_missed": 135,
+        "diabetes_predicted": 0.113,
+        "diabetes_observed": 0.153,
+        "reliable": "OK"
+      },
+      {
+        "group": "Western",
+        "count": 238,
+        "scored": 96,
+        "true_cases": 17,
+        "flagged_high": 21,
+        "flag_rate": 0.219,
+        "false_positive_rate": 0.19,
+        "false_negative_rate": 0.647,
+        "fnr_range": [
+          0.413,
+          0.827
+        ],
+        "cases_per_100_flagged": 28.6,
+        "cases_not_scored": 3,
+        "hidden_cases_at_start": 20,
+        "hidden_found_share": 0.2,
+        "hidden_missed": 16,
+        "diabetes_predicted": 0.116,
+        "diabetes_observed": 0.177,
+        "reliable": "OK"
+      }
+    ],
+    "region": [
+      {
+        "group": "Abu Dhabi",
+        "count": 2864,
+        "scored": 1061,
+        "true_cases": 167,
+        "flagged_high": 215,
+        "flag_rate": 0.203,
+        "false_positive_rate": 0.166,
+        "false_negative_rate": 0.599,
+        "fnr_range": [
+          0.523,
+          0.67
+        ],
+        "cases_per_100_flagged": 31.2,
+        "cases_not_scored": 81,
+        "hidden_cases_at_start": 248,
+        "hidden_found_share": 0.347,
+        "hidden_missed": 162,
+        "diabetes_predicted": 0.111,
+        "diabetes_observed": 0.157,
+        "reliable": "OK"
+      },
+      {
+        "group": "Al Ain",
+        "count": 1566,
+        "scored": 584,
+        "true_cases": 90,
+        "flagged_high": 114,
+        "flag_rate": 0.195,
+        "false_positive_rate": 0.156,
+        "false_negative_rate": 0.589,
+        "fnr_range": [
+          0.486,
+          0.685
+        ],
+        "cases_per_100_flagged": 32.5,
+        "cases_not_scored": 44,
+        "hidden_cases_at_start": 134,
+        "hidden_found_share": 0.343,
+        "hidden_missed": 88,
+        "diabetes_predicted": 0.103,
+        "diabetes_observed": 0.154,
+        "reliable": "OK"
+      },
+      {
+        "group": "Al Dhafra",
+        "count": 570,
+        "scored": 221,
+        "true_cases": 26,
+        "flagged_high": 47,
+        "flag_rate": 0.213,
+        "false_positive_rate": 0.185,
+        "false_negative_rate": 0.577,
+        "fnr_range": [
+          0.389,
+          0.745
+        ],
+        "cases_per_100_flagged": 23.4,
+        "cases_not_scored": 15,
+        "hidden_cases_at_start": 41,
+        "hidden_found_share": 0.317,
+        "hidden_missed": 28,
+        "diabetes_predicted": 0.11,
+        "diabetes_observed": 0.118,
+        "reliable": "OK"
+      }
+    ],
+    "language": [
+      {
+        "group": "Arabic",
+        "count": 1797,
+        "scored": 631,
+        "true_cases": 104,
+        "flagged_high": 123,
+        "flag_rate": 0.195,
+        "false_positive_rate": 0.146,
+        "false_negative_rate": 0.558,
+        "fnr_range": [
+          0.462,
+          0.649
+        ],
+        "cases_per_100_flagged": 37.4,
+        "cases_not_scored": 50,
+        "hidden_cases_at_start": 154,
+        "hidden_found_share": 0.409,
+        "hidden_missed": 91,
+        "diabetes_predicted": 0.106,
+        "diabetes_observed": 0.165,
+        "reliable": "OK"
+      },
+      {
+        "group": "English",
+        "count": 1121,
+        "scored": 438,
+        "true_cases": 59,
+        "flagged_high": 85,
+        "flag_rate": 0.194,
+        "false_positive_rate": 0.169,
+        "false_negative_rate": 0.644,
+        "fnr_range": [
+          0.517,
+          0.754
+        ],
+        "cases_per_100_flagged": 24.7,
+        "cases_not_scored": 26,
+        "hidden_cases_at_start": 85,
+        "hidden_found_share": 0.306,
+        "hidden_missed": 59,
+        "diabetes_predicted": 0.107,
+        "diabetes_observed": 0.135,
+        "reliable": "OK"
+      },
+      {
+        "group": "Hindi",
+        "count": 826,
+        "scored": 335,
+        "true_cases": 55,
+        "flagged_high": 77,
+        "flag_rate": 0.23,
+        "false_positive_rate": 0.189,
+        "false_negative_rate": 0.564,
+        "fnr_range": [
+          0.433,
+          0.686
+        ],
+        "cases_per_100_flagged": 31.2,
+        "cases_not_scored": 25,
+        "hidden_cases_at_start": 80,
+        "hidden_found_share": 0.287,
+        "hidden_missed": 57,
+        "diabetes_predicted": 0.115,
+        "diabetes_observed": 0.164,
+        "reliable": "OK"
+      },
+      {
+        "group": "Tagalog",
+        "count": 324,
+        "scored": 90,
+        "true_cases": 13,
+        "flagged_high": 12,
+        "flag_rate": 0.133,
+        "false_positive_rate": 0.104,
+        "false_negative_rate": 0.692,
+        "fnr_range": [
+          0.424,
+          0.873
+        ],
+        "cases_per_100_flagged": 33.3,
+        "cases_not_scored": 8,
+        "hidden_cases_at_start": 21,
+        "hidden_found_share": 0.429,
+        "hidden_missed": 12,
+        "diabetes_predicted": 0.094,
+        "diabetes_observed": 0.144,
+        "reliable": "OK"
+      },
+      {
+        "group": "Urdu",
+        "count": 932,
+        "scored": 372,
+        "true_cases": 52,
+        "flagged_high": 79,
+        "flag_rate": 0.212,
+        "false_positive_rate": 0.184,
+        "false_negative_rate": 0.615,
+        "fnr_range": [
+          0.48,
+          0.735
+        ],
+        "cases_per_100_flagged": 25.3,
+        "cases_not_scored": 31,
+        "hidden_cases_at_start": 83,
+        "hidden_found_share": 0.289,
+        "hidden_missed": 59,
+        "diabetes_predicted": 0.112,
+        "diabetes_observed": 0.14,
+        "reliable": "OK"
+      }
+    ],
+    "insurance": [
+      {
+        "group": "Basic",
+        "count": 2608,
+        "scored": 1015,
+        "true_cases": 150,
+        "flagged_high": 211,
+        "flag_rate": 0.208,
+        "false_positive_rate": 0.176,
+        "false_negative_rate": 0.607,
+        "fnr_range": [
+          0.527,
+          0.681
+        ],
+        "cases_per_100_flagged": 28.0,
+        "cases_not_scored": 71,
+        "hidden_cases_at_start": 221,
+        "hidden_found_share": 0.29,
+        "hidden_missed": 157,
+        "diabetes_predicted": 0.11,
+        "diabetes_observed": 0.148,
+        "reliable": "OK"
+      },
+      {
+        "group": "Enhanced",
+        "count": 1413,
+        "scored": 517,
+        "true_cases": 79,
+        "flagged_high": 103,
+        "flag_rate": 0.199,
+        "false_positive_rate": 0.167,
+        "false_negative_rate": 0.62,
+        "fnr_range": [
+          0.51,
+          0.719
+        ],
+        "cases_per_100_flagged": 29.1,
+        "cases_not_scored": 39,
+        "hidden_cases_at_start": 118,
+        "hidden_found_share": 0.398,
+        "hidden_missed": 71,
+        "diabetes_predicted": 0.107,
+        "diabetes_observed": 0.153,
+        "reliable": "OK"
+      },
+      {
+        "group": "Thiqa",
+        "count": 979,
+        "scored": 334,
+        "true_cases": 54,
+        "flagged_high": 62,
+        "flag_rate": 0.186,
+        "false_positive_rate": 0.129,
+        "false_negative_rate": 0.519,
+        "fnr_range": [
+          0.389,
+          0.646
+        ],
+        "cases_per_100_flagged": 41.9,
+        "cases_not_scored": 30,
+        "hidden_cases_at_start": 84,
+        "hidden_found_share": 0.405,
+        "hidden_missed": 50,
+        "diabetes_predicted": 0.107,
+        "diabetes_observed": 0.162,
+        "reliable": "OK"
+      }
+    ],
+    "sex": [
+      {
+        "group": "F",
+        "count": 1821,
+        "scored": 623,
+        "true_cases": 88,
+        "flagged_high": 111,
+        "flag_rate": 0.178,
+        "false_positive_rate": 0.148,
+        "false_negative_rate": 0.636,
+        "fnr_range": [
+          0.532,
+          0.729
+        ],
+        "cases_per_100_flagged": 28.8,
+        "cases_not_scored": 38,
+        "hidden_cases_at_start": 126,
+        "hidden_found_share": 0.325,
+        "hidden_missed": 85,
+        "diabetes_predicted": 0.102,
+        "diabetes_observed": 0.141,
+        "reliable": "OK"
+      },
+      {
+        "group": "M",
+        "count": 3179,
+        "scored": 1243,
+        "true_cases": 195,
+        "flagged_high": 265,
+        "flag_rate": 0.213,
+        "false_positive_rate": 0.174,
+        "false_negative_rate": 0.574,
+        "fnr_range": [
+          0.504,
+          0.642
+        ],
+        "cases_per_100_flagged": 31.3,
+        "cases_not_scored": 102,
+        "hidden_cases_at_start": 297,
+        "hidden_found_share": 0.35,
+        "hidden_missed": 193,
+        "diabetes_predicted": 0.111,
+        "diabetes_observed": 0.157,
+        "reliable": "OK"
+      }
+    ],
+    "age_band": [
+      {
+        "group": "0-5",
+        "count": 364,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 0,
+        "hidden_cases_at_start": 0,
+        "hidden_found_share": null,
+        "hidden_missed": 0,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "18-39",
+        "count": 2660,
+        "scored": 825,
+        "true_cases": 90,
+        "flagged_high": 52,
+        "flag_rate": 0.063,
+        "false_positive_rate": 0.038,
+        "false_negative_rate": 0.733,
+        "fnr_range": [
+          0.634,
+          0.814
+        ],
+        "cases_per_100_flagged": 46.2,
+        "cases_not_scored": 114,
+        "hidden_cases_at_start": 204,
+        "hidden_found_share": 0.373,
+        "hidden_missed": 128,
+        "diabetes_predicted": 0.064,
+        "diabetes_observed": 0.109,
+        "reliable": "OK"
+      },
+      {
+        "group": "40-64",
+        "count": 1306,
+        "scored": 979,
+        "true_cases": 174,
+        "flagged_high": 290,
+        "flag_rate": 0.296,
+        "false_positive_rate": 0.261,
+        "false_negative_rate": 0.54,
+        "fnr_range": [
+          0.466,
+          0.613
+        ],
+        "cases_per_100_flagged": 27.6,
+        "cases_not_scored": 25,
+        "hidden_cases_at_start": 199,
+        "hidden_found_share": 0.307,
+        "hidden_missed": 138,
+        "diabetes_predicted": 0.139,
+        "diabetes_observed": 0.178,
+        "reliable": "OK"
+      },
+      {
+        "group": "6-17",
+        "count": 581,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 0,
+        "hidden_cases_at_start": 0,
+        "hidden_found_share": null,
+        "hidden_missed": 0,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "65+",
+        "count": 89,
+        "scored": 62,
+        "true_cases": 19,
+        "flagged_high": 34,
+        "flag_rate": 0.548,
+        "false_positive_rate": 0.535,
+        "false_negative_rate": 0.421,
+        "fnr_range": [
+          0.231,
+          0.637
+        ],
+        "cases_per_100_flagged": 32.4,
+        "cases_not_scored": 1,
+        "hidden_cases_at_start": 20,
+        "hidden_found_share": 0.4,
+        "hidden_missed": 12,
+        "diabetes_predicted": 0.215,
+        "diabetes_observed": 0.306,
+        "reliable": "OK"
+      }
+    ]
+  },
+  "safeguards_old": {
+    "all": [
+      {
+        "group": "Everyone",
+        "count": 5000,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 423,
+        "hidden_cases_at_start": 423,
+        "hidden_found_share": 0.028,
+        "hidden_missed": 411,
+        "diabetes_predicted": null,
+        "diabetes_observed": null
+      }
+    ],
+    "by_condition": [
+      {
+        "condition": "diabetes",
+        "scored": 0,
+        "true_cases": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "cases_per_100_flagged": null,
+        "predicted": null,
+        "observed": null
+      }
+    ],
+    "definitions": {
+      "true_case": "diabetes or high blood pressure present at the start and not diagnosed (what the two models predict)",
+      "flag": "chance at or above the High cut-off (top share of local scores), combined or per condition",
+      "false_positive_rate": "flagged High, but not a true case (share of people who are not cases)",
+      "false_negative_rate": "a true case, but not flagged High (share of cases); children and people with too little data are not scored and are counted under cases_not_scored",
+      "hidden_found_share": "hidden cases present at the start that a visit found by the end of the run",
+      "calibration": "each condition's average predicted chance against the observed rate in the same people",
+      "small_groups": "groups under 10 people hidden; a rate needs at least 10 people or cases"
+    },
+    "nationality": [
+      {
+        "group": "Emirati",
+        "count": 979,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 84,
+        "hidden_cases_at_start": 84,
+        "hidden_found_share": 0.024,
+        "hidden_missed": 82,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Filipino",
+        "count": 470,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 30,
+        "hidden_cases_at_start": 30,
+        "hidden_found_share": 0.033,
+        "hidden_missed": 29,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Other",
+        "count": 484,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 40,
+        "hidden_cases_at_start": 40,
+        "hidden_found_share": 0.025,
+        "hidden_missed": 39,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Other Arab",
+        "count": 754,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 58,
+        "hidden_cases_at_start": 58,
+        "hidden_found_share": 0.034,
+        "hidden_missed": 56,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "South Asian",
+        "count": 2075,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 191,
+        "hidden_cases_at_start": 191,
+        "hidden_found_share": 0.026,
+        "hidden_missed": 186,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Western",
+        "count": 238,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 20,
+        "hidden_cases_at_start": 20,
+        "hidden_found_share": 0.05,
+        "hidden_missed": 19,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      }
+    ],
+    "region": [
+      {
+        "group": "Abu Dhabi",
+        "count": 2864,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 248,
+        "hidden_cases_at_start": 248,
+        "hidden_found_share": 0.032,
+        "hidden_missed": 240,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Al Ain",
+        "count": 1566,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 134,
+        "hidden_cases_at_start": 134,
+        "hidden_found_share": 0.015,
+        "hidden_missed": 132,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Al Dhafra",
+        "count": 570,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 41,
+        "hidden_cases_at_start": 41,
+        "hidden_found_share": 0.049,
+        "hidden_missed": 39,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      }
+    ],
+    "language": [
+      {
+        "group": "Arabic",
+        "count": 1797,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 154,
+        "hidden_cases_at_start": 154,
+        "hidden_found_share": 0.026,
+        "hidden_missed": 150,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "English",
+        "count": 1121,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 85,
+        "hidden_cases_at_start": 85,
+        "hidden_found_share": 0.059,
+        "hidden_missed": 80,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Hindi",
+        "count": 826,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 80,
+        "hidden_cases_at_start": 80,
+        "hidden_found_share": 0.0,
+        "hidden_missed": 80,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Tagalog",
+        "count": 324,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 21,
+        "hidden_cases_at_start": 21,
+        "hidden_found_share": 0.0,
+        "hidden_missed": 21,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Urdu",
+        "count": 932,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 83,
+        "hidden_cases_at_start": 83,
+        "hidden_found_share": 0.036,
+        "hidden_missed": 80,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      }
+    ],
+    "insurance": [
+      {
+        "group": "Basic",
+        "count": 2608,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 221,
+        "hidden_cases_at_start": 221,
+        "hidden_found_share": 0.036,
+        "hidden_missed": 213,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Enhanced",
+        "count": 1413,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 118,
+        "hidden_cases_at_start": 118,
+        "hidden_found_share": 0.017,
+        "hidden_missed": 116,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "Thiqa",
+        "count": 979,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 84,
+        "hidden_cases_at_start": 84,
+        "hidden_found_share": 0.024,
+        "hidden_missed": 82,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      }
+    ],
+    "sex": [
+      {
+        "group": "F",
+        "count": 1821,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 126,
+        "hidden_cases_at_start": 126,
+        "hidden_found_share": 0.016,
+        "hidden_missed": 124,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "M",
+        "count": 3179,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 297,
+        "hidden_cases_at_start": 297,
+        "hidden_found_share": 0.034,
+        "hidden_missed": 287,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      }
+    ],
+    "age_band": [
+      {
+        "group": "0-5",
+        "count": 364,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 0,
+        "hidden_cases_at_start": 0,
+        "hidden_found_share": null,
+        "hidden_missed": 0,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "18-39",
+        "count": 2660,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 204,
+        "hidden_cases_at_start": 204,
+        "hidden_found_share": 0.029,
+        "hidden_missed": 198,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "40-64",
+        "count": 1306,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 199,
+        "hidden_cases_at_start": 199,
+        "hidden_found_share": 0.03,
+        "hidden_missed": 193,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "6-17",
+        "count": 581,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 0,
+        "hidden_cases_at_start": 0,
+        "hidden_found_share": null,
+        "hidden_missed": 0,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      },
+      {
+        "group": "65+",
+        "count": 89,
+        "scored": 0,
+        "true_cases": 0,
+        "flagged_high": 0,
+        "flag_rate": null,
+        "false_positive_rate": null,
+        "false_negative_rate": null,
+        "fnr_range": null,
+        "cases_per_100_flagged": null,
+        "cases_not_scored": 20,
+        "hidden_cases_at_start": 20,
+        "hidden_found_share": 0.0,
+        "hidden_missed": 20,
+        "diabetes_predicted": null,
+        "diabetes_observed": null,
+        "reliable": "OK"
+      }
+    ]
+  },
+  "missed_case_gap_between_groups": {
+    "nationality": 0.214,
+    "region": 0.03,
+    "language": 0.142,
+    "insurance": 0.115,
+    "sex": 0.025,
+    "age_band": 0.093
+  },
+  "uptake_gap_between_groups": {
+    "nationality": {
+      "new": 0.054,
+      "old": 0.099
+    },
+    "region": {
+      "new": 0.024,
+      "old": 0.034
+    },
+    "language": {
+      "new": 0.067,
+      "old": 0.097
+    },
+    "insurance": {
+      "new": 0.054,
+      "old": 0.039
+    },
+    "sex": {
+      "new": 0.025,
+      "old": 0.005
+    },
+    "age_band": {
+      "new": 0.215,
+      "old": 0.039
+    }
+  },
+  "risk_model": {
+    "target": "chance of undiagnosed diabetes now, from a published questionnaire score",
+    "method": "FINDRISC points scaled to the UAE undiagnosed level. Nothing is trained: the points and bands are published",
+    "source": "Lindstrom J, Tuomilehto J. The diabetes risk score. Diabetes Care 2003;26:725-731",
+    "conditions": {
+      "diabetes": {
+        "label": "Diabetes (HbA1c 6.5% or more in an adult never told they have diabetes)",
+        "score": "FINDRISC (Lindstrom and Tuomilehto 2003)",
+        "items_used": [
+          "Age",
+          "BMI",
+          "High blood pressure diagnosis",
+          "Prediabetes",
+          "Family history of diabetes"
+        ],
+        "items_not_in_the_records": [
+          "Waist",
+          "Daily exercise",
+          "Daily vegetables"
+        ],
+        "range": "from the points the missing items could add; a person is never scored as if they were known",
+        "local_calibration": {
+          "who_prevalence": 0.2609,
+          "diagnosed_share_in_records": 0.0372,
+          "undiagnosed_rate_target": 0.1084,
+          "intercept_shift": -0.106
+        },
+        "validation": {
+          "score": "FINDRISC as used in this prototype (no waist)",
+          "auc": 0.743,
+          "auc_low": 0.724,
+          "auc_high": 0.763,
+          "cases_found_share": 0.64,
+          "invited_share": 0.3,
+          "adults": 12925
+        }
+      },
+      "hypertension": {
+        "label": "High blood pressure",
+        "score": "none: blood pressure is measured, so a high reading is a finding (an abnormal-result card), not a prediction"
+      }
+    },
+    "threshold_high": 0.2055,
+    "threshold_moderate": 0.1104,
+    "thresholds_by_condition": {
+      "diabetes": {
+        "high": 0.2055,
+        "moderate": 0.1104
+      }
+    },
+    "cutoff_rule": "High = top 15% of local scores, Moderate = top 40%",
+    "score_percentiles": [
+      0.009,
+      0.0158,
+      0.0158,
+      0.0158,
+      0.0158,
+      0.0158,
+      0.0158,
+      0.0158,
+      0.0158,
+      0.0158,
+      0.0158,
+      0.0158,
+      0.0248,
+      0.0248,
+      0.0248,
+      0.0248,
+      0.0248,
+      0.0248,
+      0.0248,
+      0.0248,
+      0.0248,
+      0.0248,
+      0.0271,
+      0.0271,
+      0.0271,
+      0.0271,
+      0.0291,
+      0.0293,
+      0.0338,
+      0.0338,
+      0.0338,
+      0.0361,
+      0.0361,
+      0.0361,
+      0.0361,
+      0.0472,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0509,
+      0.0657,
+      0.0954,
+      0.0954,
+      0.1104,
+      0.1104,
+      0.1104,
+      0.1104,
+      0.1104,
+      0.1104,
+      0.1104,
+      0.1104,
+      0.1104,
+      0.1247,
+      0.1254,
+      0.1254,
+      0.1254,
+      0.1254,
+      0.1404,
+      0.1404,
+      0.1404,
+      0.1404,
+      0.1721,
+      0.1721,
+      0.1721,
+      0.1721,
+      0.1721,
+      0.1888,
+      0.1888,
+      0.1888,
+      0.2055,
+      0.2055,
+      0.2055,
+      0.2055,
+      0.2055,
+      0.2055,
+      0.2055,
+      0.2222,
+      0.239,
+      0.2534,
+      0.2559,
+      0.2585,
+      0.2729,
+      0.2729,
+      0.2746,
+      0.2899,
+      0.307,
+      0.3368,
+      0.3368,
+      0.3668,
+      0.4581
+    ],
+    "base_rate_per_100": 10.84,
+    "people_scored": 1866,
+    "not_used": [
+      "nationality",
+      "language",
+      "insurance",
+      "region"
+    ],
+    "not_allowed_uses": [
+      "diagnosis",
+      "insurance pricing",
+      "reducing anyone's access to care"
+    ]
+  },
+  "nhanes": {
+    "test": "NHANES 2015-2023 adults never told they have diabetes (real survey data)",
+    "label": "HbA1c 6.5% or more",
+    "adults": 12925,
+    "cases": 456,
+    "top_share": 0.3,
+    "scores": [
+      {
+        "name": "FINDRISC, every item NHANES has (6 of 8)",
+        "kind": "published",
+        "auc": 0.748,
+        "auc_low": 0.728,
+        "auc_high": 0.767,
+        "cases_found_share": 0.647,
+        "invited_share": 0.3,
+        "items": "age, BMI, waist, treated for high blood pressure, ever told of high blood sugar, close relative with diabetes",
+        "source": "Lindstrom J, Tuomilehto J. The diabetes risk score. Diabetes Care 2003;26:725-731"
+      },
+      {
+        "name": "FINDRISC as used in this prototype (no waist)",
+        "kind": "used here",
+        "auc": 0.743,
+        "auc_low": 0.724,
+        "auc_high": 0.763,
+        "cases_found_share": 0.64,
+        "invited_share": 0.3,
+        "items": "age, BMI, high blood pressure diagnosis, told of high blood sugar, family history; the missing items widen the range",
+        "source": "Lindstrom J, Tuomilehto J. The diabetes risk score. Diabetes Care 2003;26:725-731"
+      },
+      {
+        "name": "ADA diabetes risk test (5 of 7 items)",
+        "kind": "published",
+        "auc": 0.737,
+        "auc_low": 0.717,
+        "auc_high": 0.754,
+        "cases_found_share": 0.627,
+        "invited_share": 0.3,
+        "items": "age, sex, family history, high blood pressure, BMI",
+        "source": "Bang H et al. Development and validation of a patient self-assessment score for diabetes risk. Ann Intern Med 2009;151:775-783"
+      },
+      {
+        "name": "Broad rule today (age 45+ or BMI 25+)",
+        "kind": "rule",
+        "auc": 0.566,
+        "auc_low": null,
+        "auc_high": null,
+        "cases_found_share": 0.993,
+        "invited_share": 0.866,
+        "items": "age and BMI",
+        "source": null
+      }
+    ],
+    "by_cycle": [
+      {
+        "cycle": "2015-2016",
+        "adults": 4186,
+        "cases": 134,
+        "auc": 0.75
+      },
+      {
+        "cycle": "2017-2018",
+        "adults": 4002,
+        "cases": 178,
+        "auc": 0.736
+      },
+      {
+        "cycle": "2021-2023",
+        "adults": 4737,
+        "cases": 144,
+        "auc": 0.749
+      }
+    ],
+    "headline": {
+      "score": "FINDRISC as used in this prototype (no waist)",
+      "auc": 0.743,
+      "auc_low": 0.724,
+      "auc_high": 0.763,
+      "cases_found_share": 0.64,
+      "invited_share": 0.3,
+      "adults": 12925
+    },
+    "note": "Nothing is trained: the points are the published ones, filled in only where NHANES has the answer, so a full questionnaire would do a little better. None was built for the UAE. The check shows how well the score ranks real people on data it was not tuned to."
+  },
+  "noshow_model": {
+    "support_planned_by": "rule: access barrier and past missed visits (no learned model)"
+  },
+  "sensitivity_worst_case": {
+    "telehealth_boost": 0.198,
+    "base_attendance_logit": 1.889,
+    "reply_mult": 0.7,
+    "old_followup_rate": 0.656,
+    "doctor_agree": 0.6,
+    "clinic_slots_per_day": 30.0,
+    "extra_found": 162.5,
+    "extra_people_completed": 1041.0,
+    "followup_new": 0.744629179899122,
+    "followup_old": 0.6001863932898416,
+    "followup_gap": 0.1444427866092804
+  },
+  "sensitivity_worst_followup": {
+    "telehealth_boost": 0.0,
+    "base_attendance_logit": 1.389,
+    "reply_mult": 1.0,
+    "old_followup_rate": 0.932,
+    "doctor_agree": 0.85,
+    "clinic_slots_per_day": 40.0,
+    "extra_found": 235.5,
+    "extra_people_completed": 1243.0,
+    "followup_new": 0.9613660986900424,
+    "followup_old": 0.9878048780487804,
+    "followup_gap": -0.0264387793587381
+  },
+  "ai_features": {
+    "learn_first_channel": false
+  },
+  "ai_ablation": {
+    "seeds": [
+      7,
+      21,
+      22,
+      23,
+      24
+    ],
+    "settings": {
+      "rules_only": {
+        "ai_learn_first_channel": false
+      },
+      "channel_learner": {
+        "ai_learn_first_channel": true
+      }
+    },
+    "summary": {
+      "rules_only": {
+        "well_child": 0.503,
+        "adult_screening": 0.343,
+        "found": 319.2,
+        "people_with_completed_care": 1704.6,
+        "people_contacted": 4228.0
+      },
+      "channel_learner": {
+        "well_child": 0.517,
+        "adult_screening": 0.342,
+        "found": 318.8,
+        "people_with_completed_care": 1696.2,
+        "people_contacted": 4233.6,
+        "first_messages_SMS": 871.4,
+        "replies_per_100_SMS": 14.82,
+        "first_messages_WhatsApp": 3577.6,
+        "replies_per_100_WhatsApp": 17.72
+      }
+    },
+    "runs": [
+      {
+        "setting": "rules_only",
+        "seed": 7,
+        "well_child": 0.511,
+        "adult_screening": 0.343,
+        "found": 311,
+        "people_with_completed_care": 1690,
+        "people_contacted": 4229
+      },
+      {
+        "setting": "channel_learner",
+        "seed": 7,
+        "well_child": 0.525,
+        "adult_screening": 0.338,
+        "found": 302,
+        "people_with_completed_care": 1661,
+        "people_contacted": 4234,
+        "first_messages_SMS": 917,
+        "replies_per_100_SMS": 14.7,
+        "first_messages_WhatsApp": 3570,
+        "replies_per_100_WhatsApp": 17.6
+      },
+      {
+        "setting": "rules_only",
+        "seed": 21,
+        "well_child": 0.492,
+        "adult_screening": 0.339,
+        "found": 326,
+        "people_with_completed_care": 1677,
+        "people_contacted": 4226
+      },
+      {
+        "setting": "channel_learner",
+        "seed": 21,
+        "well_child": 0.534,
+        "adult_screening": 0.339,
+        "found": 312,
+        "people_with_completed_care": 1701,
+        "people_contacted": 4227,
+        "first_messages_SMS": 323,
+        "replies_per_100_SMS": 11.8,
+        "first_messages_WhatsApp": 4090,
+        "replies_per_100_WhatsApp": 17.7
+      },
+      {
+        "setting": "rules_only",
+        "seed": 22,
+        "well_child": 0.52,
+        "adult_screening": 0.34,
+        "found": 335,
+        "people_with_completed_care": 1729,
+        "people_contacted": 4224
+      },
+      {
+        "setting": "channel_learner",
+        "seed": 22,
+        "well_child": 0.518,
+        "adult_screening": 0.347,
+        "found": 326,
+        "people_with_completed_care": 1702,
+        "people_contacted": 4238,
+        "first_messages_SMS": 855,
+        "replies_per_100_SMS": 16.5,
+        "first_messages_WhatsApp": 3603,
+        "replies_per_100_WhatsApp": 18.6
+      },
+      {
+        "setting": "rules_only",
+        "seed": 23,
+        "well_child": 0.525,
+        "adult_screening": 0.35,
+        "found": 322,
+        "people_with_completed_care": 1760,
+        "people_contacted": 4232
+      },
+      {
+        "setting": "channel_learner",
+        "seed": 23,
+        "well_child": 0.525,
+        "adult_screening": 0.355,
+        "found": 332,
+        "people_with_completed_care": 1750,
+        "people_contacted": 4237,
+        "first_messages_SMS": 1833,
+        "replies_per_100_SMS": 17.6,
+        "first_messages_WhatsApp": 2590,
+        "replies_per_100_WhatsApp": 16.6
+      },
+      {
+        "setting": "rules_only",
+        "seed": 24,
+        "well_child": 0.466,
+        "adult_screening": 0.342,
+        "found": 302,
+        "people_with_completed_care": 1667,
+        "people_contacted": 4229
+      },
+      {
+        "setting": "channel_learner",
+        "seed": 24,
+        "well_child": 0.485,
+        "adult_screening": 0.33,
+        "found": 322,
+        "people_with_completed_care": 1667,
+        "people_contacted": 4232,
+        "first_messages_SMS": 429,
+        "replies_per_100_SMS": 13.5,
+        "first_messages_WhatsApp": 4035,
+        "replies_per_100_WhatsApp": 18.1
+      }
+    ],
+    "note": "Averages over the seeds. rules_only is the system without the channel learner."
+  },
+  "seed_spread": {
+    "seeds": [
+      7,
+      21,
+      22,
+      23,
+      24
+    ],
+    "runs": [
+      {
+        "seed": 7,
+        "well_child_new": 0.511,
+        "adult_screening_new": 0.343,
+        "found_new": 311,
+        "followup_new": 0.847,
+        "followup_results_new": 163,
+        "well_child_old": 0.08,
+        "adult_screening_old": 0.104,
+        "found_old": 64,
+        "followup_old": 0.525,
+        "followup_results_old": 40
+      },
+      {
+        "seed": 21,
+        "well_child_new": 0.492,
+        "adult_screening_new": 0.339,
+        "found_new": 326,
+        "followup_new": 0.824,
+        "followup_results_new": 159,
+        "well_child_old": 0.094,
+        "adult_screening_old": 0.111,
+        "found_old": 56,
+        "followup_old": 0.688,
+        "followup_results_old": 32
+      },
+      {
+        "seed": 22,
+        "well_child_new": 0.52,
+        "adult_screening_new": 0.34,
+        "found_new": 335,
+        "followup_new": 0.828,
+        "followup_results_new": 186,
+        "well_child_old": 0.087,
+        "adult_screening_old": 0.098,
+        "found_old": 64,
+        "followup_old": 0.622,
+        "followup_results_old": 45
+      },
+      {
+        "seed": 23,
+        "well_child_new": 0.525,
+        "adult_screening_new": 0.35,
+        "found_new": 322,
+        "followup_new": 0.793,
+        "followup_results_new": 169,
+        "well_child_old": 0.096,
+        "adult_screening_old": 0.106,
+        "found_old": 64,
+        "followup_old": 0.556,
+        "followup_results_old": 36
+      },
+      {
+        "seed": 24,
+        "well_child_new": 0.466,
+        "adult_screening_new": 0.342,
+        "found_new": 302,
+        "followup_new": 0.842,
+        "followup_results_new": 165,
+        "well_child_old": 0.129,
+        "adult_screening_old": 0.106,
+        "found_old": 52,
+        "followup_old": 0.735,
+        "followup_results_old": 34
+      }
+    ],
+    "summary": {
+      "well_child_new": {
+        "mean": 0.503,
+        "min": 0.466,
+        "max": 0.525
+      },
+      "adult_screening_new": {
+        "mean": 0.343,
+        "min": 0.339,
+        "max": 0.35
+      },
+      "found_new": {
+        "mean": 319.2,
+        "min": 302.0,
+        "max": 335.0
+      },
+      "followup_new": {
+        "mean": 0.827,
+        "min": 0.793,
+        "max": 0.847
+      },
+      "followup_results_new": {
+        "mean": 168.4,
+        "min": 159.0,
+        "max": 186.0
+      },
+      "well_child_old": {
+        "mean": 0.097,
+        "min": 0.08,
+        "max": 0.129
+      },
+      "adult_screening_old": {
+        "mean": 0.105,
+        "min": 0.098,
+        "max": 0.111
+      },
+      "found_old": {
+        "mean": 60.0,
+        "min": 52.0,
+        "max": 64.0
+      },
+      "followup_old": {
+        "mean": 0.625,
+        "min": 0.525,
+        "max": 0.735
+      },
+      "followup_results_old": {
+        "mean": 37.4,
+        "min": 32.0,
+        "max": 45.0
+      }
+    }
+  }
+}

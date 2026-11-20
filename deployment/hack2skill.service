@@ -7,7 +7,7 @@ User=__APP_USER__
 WorkingDirectory=__APP_DIR__
 EnvironmentFile=-/etc/hack2skill.env
 # one process only: sessions, limits and the audit log are files under outputs/
-ExecStart=__APP_DIR__/venv/bin/python server.py --host 127.0.0.1 --port 8000
+ExecStart=__APP_DIR__/venv/bin/python server.py --host 0.0.0.0 --port __PORT__ --certfile /etc/ssl/hack2skill/cert.pem --keyfile /etc/ssl/hack2skill/key.pem
 Restart=on-failure
 RestartSec=3
 NoNewPrivileges=true

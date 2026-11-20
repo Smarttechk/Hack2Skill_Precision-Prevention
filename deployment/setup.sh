@@ -1,20 +1,27 @@
 #!/bin/sh
 # First-time setup on a fresh Ubuntu VPS. Run as root, from the cloned repo:
-#   cd /opt/hack2skill/app && sh deployment/setup.sh YOUR_VPS_IP
-# It installs Python and nginx, loads the demo pack, asks you to create the admin account,
-# then starts the app as a service behind nginx with HTTPS (self-signed unless you have a domain).
+#   cd /opt/hack2skill/app && sh deployment/setup.sh YOUR_VPS_IP [PORT]
+# PORT is the HTTPS port (default 8443). The app serves HTTPS itself, so no web server is needed and ports 80 and 443 stay free for other apps.
+# It installs Python, loads the demo pack, asks you to create the admin account,
+# then starts the app as a service with a self-signed certificate.
 set -eu
 
 SERVER_NAME="${1:-}"
-[ -n "$SERVER_NAME" ] || { echo "Usage: sh deployment/setup.sh YOUR_VPS_IP_OR_DOMAIN"; exit 1; }
+PORT="${2:-8443}"
+[ -n "$SERVER_NAME" ] || { echo "Usage: sh deployment/setup.sh YOUR_VPS_IP_OR_DOMAIN [PORT]"; exit 1; }
 [ "$(id -u)" -eq 0 ] || { echo "Run this as root."; exit 1; }
 
 APP_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 APP_USER=hack2skill
 
+if ss -tln | grep -q ":$PORT "; then
+  echo "Port $PORT is already in use on this server. Run again with another port, for example: sh deployment/setup.sh $SERVER_NAME 9443"
+  exit 1
+fi
+
 echo "== packages"
 apt-get update
-apt-get install -y python3 python3-venv python3-pip git nginx openssl ufw
+apt-get install -y python3 python3-venv python3-pip git openssl
 
 echo "== service user"
 id "$APP_USER" >/dev/null 2>&1 || useradd --system --home "$APP_DIR" --shell /usr/sbin/nologin "$APP_USER"
@@ -39,14 +46,15 @@ if [ ! -f "$APP_DIR/config/users.json" ]; then
   (cd "$APP_DIR" && "$APP_DIR/venv/bin/python" scripts/add_user.py "$ADMIN_NAME" admin)
 fi
 [ -f "$APP_DIR/config/users.json" ] || { echo "No account was created, so I am stopping."; exit 1; }
-chown "$APP_USER":"$APP_USER" "$APP_DIR/config/users.json"
 chmod 600 "$APP_DIR/config/users.json"
+# add_user.py ran as root, so hand everything the app writes to back to the service user
+chown -R "$APP_USER":"$APP_USER" "$APP_DIR/outputs" "$APP_DIR/config" "$APP_DIR/data" 2>/dev/null || true
 
 echo "== https certificate"
 CERT_DIR=/etc/ssl/hack2skill
 mkdir -p "$CERT_DIR"
 if [ ! -f "$CERT_DIR/cert.pem" ]; then
-  # self-signed: browsers will warn once. With a domain, run certbot afterwards (see deployment/README.md).
+  # self-signed: browsers will warn once
   case "$SERVER_NAME" in
     *[!0-9.]*) SAN="DNS:$SERVER_NAME" ;;
     *) SAN="IP:$SERVER_NAME" ;;
@@ -56,9 +64,10 @@ if [ ! -f "$CERT_DIR/cert.pem" ]; then
     -subj "/CN=$SERVER_NAME" -addext "subjectAltName=$SAN"
   chmod 600 "$CERT_DIR/key.pem"
 fi
+chown "$APP_USER":"$APP_USER" "$CERT_DIR/cert.pem" "$CERT_DIR/key.pem"
 
 echo "== systemd service"
-sed -e "s|__APP_DIR__|$APP_DIR|g" -e "s|__APP_USER__|$APP_USER|g" "$APP_DIR/deployment/hack2skill.service" > /etc/systemd/system/hack2skill.service
+sed -e "s|__APP_DIR__|$APP_DIR|g" -e "s|__APP_USER__|$APP_USER|g" -e "s|__PORT__|$PORT|g" "$APP_DIR/deployment/hack2skill.service" > /etc/systemd/system/hack2skill.service
 if [ ! -f /etc/hack2skill.env ]; then
   cp "$APP_DIR/deployment/hack2skill.env.example" /etc/hack2skill.env
   chmod 600 /etc/hack2skill.env
@@ -66,20 +75,14 @@ fi
 systemctl daemon-reload
 systemctl enable --now hack2skill
 
-echo "== nginx"
-sed -e "s|__SERVER_NAME__|$SERVER_NAME|g" "$APP_DIR/deployment/nginx.conf" > /etc/nginx/sites-available/hack2skill
-ln -sf /etc/nginx/sites-available/hack2skill /etc/nginx/sites-enabled/hack2skill
-rm -f /etc/nginx/sites-enabled/default
-nginx -t
-systemctl reload nginx
-
-echo "== firewall (SSH, HTTP, HTTPS only)"
-ufw allow OpenSSH
-ufw allow 80/tcp
-ufw allow 443/tcp
-ufw --force enable
+echo "== firewall"
+# only add a rule if ufw is already on; never turn it on here, other apps may depend on the current rules
+if ufw status | grep -q "Status: active"; then
+  ufw allow "$PORT"/tcp
+fi
 
 echo
-echo "Done. Open https://$SERVER_NAME (accept the certificate warning if it is self-signed)."
-echo "Check:  curl -k https://$SERVER_NAME/api/health"
+URL="https://$SERVER_NAME:$PORT"
+echo "Done. Open $URL (accept the certificate warning). If it does not load, allow port $PORT in the provider's firewall panel."
+echo "Check:  curl -k $URL/api/health"
 echo "Logs:   journalctl -u hack2skill -n 100 --no-pager"

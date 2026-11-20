@@ -1,23 +1,18 @@
 """
-The Care Assistant: an optional, read-only assistant for doctors, outreach staff and the hospital admin, built on the Claude API.
+Care Assistant: an optional helper for doctors, outreach staff and the admin, using the Claude API.
 
-It answers questions about the ONE record the signed-in user has opened ("why was this person flagged?", "what is due and what has
-staff done?") and hands over the approved message for a family. It is a real tool-using agent: the model decides which of the four
-read-only tools to call and in what order. Around it are hard limits, so that it cannot weaken the safety of the app:
+It answers questions about the one record the user has open and can hand over the approved message for a family. The model picks
+which of four read-only tools to call. The limits around it are in this file and in api/app.py:
 
-* Off unless there is an API key on the server (ANTHROPIC_API_KEY) and the anthropic package; one switch in config/models.json
-  (care_assistant.enabled) turns it off. Without them the app behaves exactly as before and says why the assistant is off.
-* Tools take NO person id: they work only on the record the user opened, which the app has already checked with the same access rules as
-  the Doctor view. The model cannot look at anyone else.
-* Tools only read. Nothing can be sent, saved, booked or changed, and nothing here writes a file. A person decides and acts.
-* The approved message for a family comes from the approved templates (data/reference/templates.csv), word for word, through the same
-  function the outreach agent uses. The model never writes a message to a family; it may only point staff to the approved text.
-* No names, phone numbers, Emirates IDs, addresses or free-text notes are given to the model. Outreach staff get no risk score and no
-  clinical reasons, as in the rest of the app. Emergencies are not the assistant's job: the fixed emergency rules stay as they are.
-* A use is written to the audit log with the tools used, never with the question or the answer.
+- off unless the server has ANTHROPIC_API_KEY and the anthropic package; care_assistant.enabled in config/models.json is a second switch
+- the tools take no person id, so they only see the record the app already opened under the usual access rules
+- nothing here writes, sends, books or saves anything
+- family messages come word for word from the approved templates (same function the outreach agent uses); the model never writes one
+- no names, phone numbers, Emirates IDs, addresses or notes go to the model, and outreach staff get no risk or clinical detail
+- each use goes in the audit log with the tools used, not the question or answer
 
-The loop is written by hand on the Messages API (not Managed Agents): the tools must run inside this server, under the user's own access
-rules, and health data should not be kept on an outside service longer than needed. See README, "Care Assistant".
+The loop is written by hand on the Messages API instead of Managed Agents, because the tools have to run on our server and health
+data should not stay on an outside service. See the README, "Care Assistant".
 """
 import collections
 import json
@@ -71,14 +66,14 @@ TOOL_NAMES = [t["name"] for t in TOOLS]
 
 
 class AssistantError(Exception):
-    """A problem the app turns into a clear HTTP answer (status 400, 403, 429, 502 or 503)."""
+    """Something the app turns into an HTTP answer (400, 403, 429, 502 or 503)."""
 
     def __init__(self, status, message, code=""):
         super().__init__(message)
         self.status, self.message, self.code = status, message, code
 
 
-# ------------------------------------------------------------------ settings and availability
+# settings
 def settings():
     cfg = dict(DEFAULTS)
     cfg.update(utils.config("models").get("care_assistant") or {})
@@ -89,7 +84,7 @@ _CLIENT = {"override": None, "real": None, "package_ok": None}
 
 
 def set_client(client):
-    """Tests give a stand-in model here; None puts the real client back."""
+    """Tests put a fake client here. None goes back to the real one."""
     _CLIENT["override"] = client
 
 
@@ -98,13 +93,13 @@ def _package_ok():
         try:
             import anthropic  # noqa: F401
             _CLIENT["package_ok"] = True
-        except Exception:                 # not installed, or blocked by the operating system
+        except Exception:                 # missing, or blocked by Windows
             _CLIENT["package_ok"] = False
     return _CLIENT["package_ok"]
 
 
 def status():
-    """Is the assistant on, and if not, why (shown in the app instead of the panel)."""
+    """On or off, and the reason when it is off. The app shows the reason instead of the panel."""
     cfg = settings()
     base = {"model": cfg["model"], "roles": list(ROLES)}
     if not cfg["enabled"]:
@@ -127,7 +122,7 @@ def _client():
     return _CLIENT["real"]
 
 
-# ------------------------------------------------------------------ limits
+# limits
 _RATE, _LOCK = collections.defaultdict(collections.deque), threading.Lock()
 
 
@@ -158,7 +153,7 @@ def clean_question(q):
 
 
 def clean_history(history):
-    """Earlier turns of this conversation, as plain text only: roles user or assistant, capped in number and length."""
+    """Keep the last few turns as plain text, user or assistant only."""
     cfg, out = settings(), []
     for m in (history or [])[-2 * cfg["max_history_turns"]:]:
         if isinstance(m, dict) and m.get("role") in ("user", "assistant") and isinstance(m.get("content"), str) and m["content"].strip():
@@ -168,10 +163,9 @@ def clean_history(history):
     return out
 
 
-# ------------------------------------------------------------------ the agent loop
+# the loop
 def _create(client, **kw):
-    """One request. Refusal fallbacks are on (the API re-runs a declined request on a fallback model); an SDK too old to know the
-    parameter falls back to a plain request."""
+    """One request, with refusal fallbacks on. An older SDK that does not know that parameter gets a plain request."""
     try:
         return client.beta.messages.create(betas=[FALLBACK_BETA], fallbacks="default", **kw)
     except TypeError:
@@ -183,8 +177,7 @@ def _text(resp):
 
 
 def run_tool(name, args, view):
-    """Run one read-only tool against the opened record. Returns (result, is_error). Unknown tools and bad inputs are errors the model
-    can read and recover from; they never raise."""
+    """Run one tool on the open record and return (result, is_error). Bad input comes back as an error the model can read. It never raises."""
     try:
         if name == "get_patient_overview":
             return view.overview(), False
@@ -200,12 +193,12 @@ def run_tool(name, args, view):
         return {"error": f"Unknown tool: {name}"}, True
     except AssistantError as e:
         return {"error": e.message}, True
-    except Exception:                      # a tool problem is never shown in detail, and never stops the loop
+    except Exception:                      # keep the detail out of the answer
         return {"error": "That information could not be read."}, True
 
 
 def ask(question, history, view, role, lang="en", client=None):
-    """Answer one question about the opened record. Returns {"answer", "tools_used", "approved_messages", "steps", "model"}."""
+    """Answer one question about the open record."""
     cfg = settings()
     client = client or _client()
     system = SYSTEM.replace("{language}", LANGUAGES.get(lang, "English")) + f"\nThe signed-in user is a {role}."
@@ -226,7 +219,7 @@ def ask(question, history, view, role, lang="en", client=None):
             continue
         uses = [b for b in resp.content if getattr(b, "type", "") == "tool_use"]
         if reason == "tool_use" and uses:
-            messages.append({"role": "assistant", "content": resp.content})       # whole content, so thinking blocks stay intact
+            messages.append({"role": "assistant", "content": resp.content})       # keep the whole content block
             results = []
             for b in uses:
                 out, is_error = run_tool(b.name, b.input, view)
@@ -237,7 +230,7 @@ def ask(question, history, view, role, lang="en", client=None):
                 if is_error:
                     item["is_error"] = True
                 results.append(item)
-            messages.append({"role": "user", "content": results})                  # all results in ONE user message
+            messages.append({"role": "user", "content": results})                  # all results go in one user message
             continue
         text = _text(resp)
         if reason == "max_tokens" and text:
@@ -247,7 +240,7 @@ def ask(question, history, view, role, lang="en", client=None):
 
 
 def friendly_error(exc):
-    """A clear message for a failed request to the service, without any detail from it."""
+    """Turn a failed call into a short message, without passing on any detail from the service."""
     name = type(exc).__name__
     if name == "AuthenticationError" or name == "PermissionDeniedError":
         return AssistantError(502, "The assistant's API key was not accepted by the service.", "auth")

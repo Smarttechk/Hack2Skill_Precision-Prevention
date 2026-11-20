@@ -1722,9 +1722,8 @@ def ml_opinion(pid):
 
 # ------------------------------------------------------------------ the Care Assistant (optional, read-only; see api/assistant.py)
 class AssistantView:
-    """What the Care Assistant may read about ONE person. The record is opened through person_row, so the same access rules as the Doctor
-    view apply (a person outside this account's limits looks like one who does not exist). Names, phone numbers, Emirates IDs, addresses
-    and free-text notes are never included; outreach staff get no risk score and no clinical reasons, as everywhere else in the app."""
+    """What the Care Assistant may read about one person. person_row applies the usual access rules, and no names, phones, IDs,
+    addresses or notes are included. Outreach staff get no risk or clinical detail."""
 
     def __init__(self, pid, role):
         self.r = person_row(pid)
@@ -1732,7 +1731,7 @@ class AssistantView:
         self.clinical = role in ("doctor", "admin")
 
     def overview(self):
-        r, s = self.r, summary_row(self.r)                     # summary_row already removes risk and reasons for outreach staff
+        r, s = self.r, summary_row(self.r)                     # summary_row drops risk and reasons for outreach staff
         out = {"age": s["age"], "sex": s["sex"], "region": s["region"], "language": s["language"], "urgency": s["urgency"], "state": s["state"],
                "is_child": s["is_child"], "nearest_facility": r.nearest_facility, "travel_minutes": r.travel_min, "may_contact": bool(r.may_contact)}
         if self.clinical:
@@ -1779,15 +1778,14 @@ class AssistantIn(BaseModel):
 
 @app.get("/api/assistant/status")
 def assistant_status():
-    """Is the Care Assistant on, and if not, why."""
+    """On or off, with the reason."""
     return care_assistant.status()
 
 
 @app.post("/api/assistant/ask")
 def assistant_ask(body: AssistantIn, request: Request):
-    """A question about the one record the user has opened. The answer, the tools used and the approved message (if asked for) come back; the
-    audit log gets the tools used, never the question or the answer."""
-    role = (ACCOUNT.get() or {}).get("role") or "admin"        # open mode (no accounts, your own computer) is the admin's view
+    """Ask about the open record. The audit log keeps the tools used, not the question or answer."""
+    role = (ACCOUNT.get() or {}).get("role") or "admin"        # open mode counts as admin
     if role not in care_assistant.ROLES:
         raise HTTPException(403, "The Care Assistant is for doctors, outreach staff and the hospital admin.")
     st = care_assistant.status()
@@ -1795,7 +1793,7 @@ def assistant_ask(body: AssistantIn, request: Request):
         raise HTTPException(503, st["reason"])
     try:
         question = care_assistant.clean_question(body.question)
-        view = AssistantView(body.pid, role)                    # 404 for anyone outside this account's limits
+        view = AssistantView(body.pid, role)                    # 404 outside this account's limits
         care_assistant.check_rate(by(request))
         out = care_assistant.ask(question, body.history, view, role, body.lang if body.lang in care_assistant.LANGUAGES else "en")
     except care_assistant.AssistantError as e:

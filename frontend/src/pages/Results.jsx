@@ -421,6 +421,32 @@ export default function Results() {
               <p className="small muted">{tr(nh.note)}</p>
             </div>
           )}
+          {data.nhanes_ml && data.nhanes_ml.scores && (() => {
+            const nm = data.nhanes_ml;
+            const five = nm.scores.find((s) => s.name === "Logistic regression, same 5 inputs");
+            const gain = (g) => `${g >= 0 ? "+" : ""}${g.toFixed(3)}`;
+            const everyGroup = (nm.by_group || []).length > 0 && nm.by_group.every((g) => g.model_auc > g.findrisc_auc);
+            return (
+              <div className="card">
+                <h3>{tr("Trained models compared with the published score")}</h3>
+                <p className="small">{tr("Same {n} real NHANES adults ({c} with undiagnosed diabetes). Each trained model is scored only on people it was not trained on (5-fold cross-validation, repeated). The model marked used in the app is shown to doctors as a second opinion; it never changes anyone's priority.",
+                  { n: nm.adults.toLocaleString(), c: nm.cases })}</p>
+                <table className="small"><thead><tr><th>{tr("Score")}</th><th>AUC</th><th>{tr("AUC gain over FINDRISC")}</th><th>{tr("Cases found")}</th></tr></thead>
+                  <tbody>{nm.scores.map((s) => (
+                    <tr key={s.name}><td>{tr(s.name)}{s.used_in_app && <div className="muted">{tr("used in the app")}</div>}</td>
+                      <td>{s.auc}<span className="muted"> ({s.auc_low}-{s.auc_high})</span></td>
+                      <td>{s.diff_vs_findrisc ? gain(s.diff_vs_findrisc.auc_gain) : "-"}</td>
+                      <td>{pct(s.cases_found_share)} {tr("of cases by inviting {p}", { p: pct(nm.top_share) })}</td></tr>
+                  ))}</tbody></table>
+                {five && five.diff_vs_findrisc && (
+                  <p className="small">{tr("The gain comes from routine record measurements (HDL and total cholesterol, blood pressure, sex), not from a more complex method: with only the five questionnaire inputs the gain is {g} AUC.",
+                    { g: gain(five.diff_vs_findrisc.auc_gain) })}</p>
+                )}
+                {everyGroup && <p className="small">{tr("Better than the published score in every group checked (sex, age band, ethnic group).")}</p>}
+                <p className="small muted">{tr("Trained on US survey data and not validated on UAE patients. Race, nationality, income and education are not used.")}</p>
+              </div>
+            );
+          })()}
           {rm && rm.conditions && (
             <div className="card">
               <h3>{tr("Risk score")}</h3>

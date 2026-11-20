@@ -11,6 +11,13 @@
       "status": "design",
       "source": "Number of reasons shown with each risk score"
     },
+    "ml_second_opinion": {
+      "value": {
+        "enabled": true
+      },
+      "status": "design",
+      "source": "Switch for the trained second opinion on undiagnosed diabetes (models/ml_risk.py, shown in the Doctor view next to the published FINDRISC score). It is information only: it never changes anyone's priority, so the simulation and every result are the same with it on or off. Switch it off to show the published score alone"
+    },
     "fallback_cutoffs": {
       "value": {
         "high": 0.6,

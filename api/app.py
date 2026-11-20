@@ -1613,6 +1613,10 @@ def condition_status(r):
             out.append({"condition": c, "name": name, "status": "reading", **bp_reading(r.Id)})
         else:
             out.append({"condition": c, "name": name, "status": "none"})
+    if any(o["condition"] == "diabetes" and o["status"] == "score" for o in out):
+        second = ml_opinion(r.Id)               # beside the published score, never instead of it
+        if second:
+            out.append(second)
     heart = heart_risk(r.Id)
     if heart:
         out.append(heart)
@@ -1696,6 +1700,22 @@ def heart_risk(pid):
     return {"condition": "cardiovascular", "name": "Heart disease, next 10 years", "status": "score", "risk": float(s["risk"]), "low": float(s["risk"]),
             "high": float(s["risk"]), "reasons": s["reasons"], "band": s["band"],
             "note": "Published formula (ACC/AHA 2013), information only: not scaled to the UAE and it does not change anyone's priority."}
+
+
+def ml_opinion(pid):
+    """A second opinion on undiagnosed diabetes from a model trained on real NHANES adults (models/ml_risk.py), shown next to the
+    published score as information for the doctor: scaled to the UAE level, switched by config/models.json, and never used for
+    anyone's priority."""
+    from models import ml_risk
+    f = feature_rows()
+    if pid not in f.index:
+        return None
+    s = ml_risk.second_opinion(f.loc[[pid]])
+    if not s:
+        return None
+    return {"condition": "diabetes_ml", "name": "Diabetes, machine-learning second opinion", "status": "score", "risk": s["risk"], "low": s["risk"],
+            "high": s["risk"], "reasons": s["reasons"], "band": s["band"], "inputs_recorded": s["measured"], "inputs_total": s["of"],
+            "note": "Trained on real survey data (NHANES) and scaled to the UAE level. Information only: it does not change anyone's priority."}
 
 
 def risk_model_conditions():
@@ -2524,7 +2544,8 @@ def results_api():
     learning = records(pd.read_csv(fl).sort_values("tries", ascending=False).head(PAGE["learning_rows"])) if os.path.exists(fl) else []
     cl = os.path.join(utils.OUTPUTS, "new", "channel_learning.csv")
     channels = records(pd.read_csv(cl)) if os.path.exists(cl) else []
-    return clean({**r, "daily": daily, "followup_learning": learning, "channel_learning": channels})
+    ml = utils.load_json(os.path.join(utils.MODELS, "ml_comparison.json"), None)             # trained models against the published score
+    return clean({**r, "daily": daily, "followup_learning": learning, "channel_learning": channels, "nhanes_ml": ml})
 
 
 @app.get("/api/alerts")

@@ -1,7 +1,8 @@
 """
 Risk agent (guide Step 4): a score with its range, top 3 reasons and the list of data used. The diabetes score is the published
-FINDRISC questionnaire (models/risk_scores.py); nothing is trained. People without enough records get "Not enough data to judge"
-instead of a guess.
+FINDRISC questionnaire (models/risk_scores.py); nothing is trained there, and this score alone sets the priority. A trained second
+opinion (models/ml_risk.py) is shown to doctors as information and never changes anyone's priority. People without enough records get
+"Not enough data to judge" instead of a guess.
 """
 import pandas as pd
 

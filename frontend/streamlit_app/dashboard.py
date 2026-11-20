@@ -301,7 +301,8 @@ def results_page(T):
     st.markdown("**Real-data check of the risk method (NHANES)**")
     nh = r.get("nhanes") or {}
     if nh:
-        st.write(f"The diabetes score is the published FINDRISC questionnaire (nothing is trained). On {nh['adults']:,} real NHANES adults "
+        st.write(f"The diabetes score that sets the order is the published FINDRISC questionnaire (nothing is trained; a trained second opinion is "
+                 f"shown to doctors in the web app as information only). On {nh['adults']:,} real NHANES adults "
                  f"it ranks undiagnosed diabetes with AUC {nh['headline']['auc']} ({nh['headline']['auc_low']} to {nh['headline']['auc_high']}).")
         st.dataframe(pd.DataFrame(nh["scores"])[["name", "auc", "auc_low", "auc_high", "cases_found_share", "invited_share"]], hide_index=True, width="stretch")
     rm = r.get("risk_model") or {}

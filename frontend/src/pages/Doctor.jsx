@@ -141,6 +141,7 @@ function ConditionRisk({ c, tr }) {
         {lo === hi ? tr("about {a}", { a: riskPct(c.risk) }) : tr("likely between {a} and {b}", { a: lo, b: hi })}
         {c.reasons?.length > 0 && <> · {tr("Main factors:")} {c.reasons.map((r) => tr(r)).join(tr(", "))}</>}
       </div>
+      {c.inputs_total != null && <div className="cond-note muted">{tr("{n} of {m} inputs on record", { n: c.inputs_recorded, m: c.inputs_total })}</div>}
       {c.note && <div className="cond-note muted">{tr(c.note)}</div>}
     </div>
   );

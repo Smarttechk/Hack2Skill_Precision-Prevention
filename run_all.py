@@ -15,13 +15,15 @@ STEPS = [
     ("Data and features", [sys.executable, "scripts/get_all_data.py"]),
     ("Real-data check of the published diabetes scores (NHANES)", [sys.executable, "-m", "models.validate_scores"]),
     ("Risk scores (published FINDRISC, scaled to the UAE level)", [sys.executable, "-m", "models.risk_scores"]),
+    ("Trained second opinion: compared with the published score (NHANES)", [sys.executable, "-m", "models.ml_comparison"]),
+    ("Trained second opinion: model scaled to the UAE level (information only)", [sys.executable, "-m", "models.ml_risk"]),
     ("Calibrate to published UAE figures", [sys.executable, "scripts/calibrate.py"]),
     ("60-day simulation", [sys.executable, "orchestrator.py"]),
     ("Evaluation", [sys.executable, "evaluate.py"]),
     ("Tests", None),
     ("React app", "frontend"),
 ]
-TESTS = ["tests/test_data.py", "tests/test_records.py", "tests/test_fhir_api.py", "tests/test_ai.py", "tests/test_features.py", "tests/test_system.py", "tests/test_dashboard.py",
+TESTS = ["tests/test_data.py", "tests/test_records.py", "tests/test_fhir_api.py", "tests/test_ai.py", "tests/test_ml_risk.py", "tests/test_features.py", "tests/test_system.py", "tests/test_dashboard.py",
          "tests/test_snips.py", "tests/test_snips2.py", "tests/test_snips3.py", "tests/test_api.py", "tests/test_careteam.py", "tests/test_outreach.py", "tests/test_family.py", "tests/test_demo_team.py", "tests/test_arabic_review.py", "tests/test_demo_data.py"]
 
 

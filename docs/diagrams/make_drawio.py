@@ -8,7 +8,6 @@ Writes, next to this script:
     1_end_to_end_architecture.drawio
     2_synthetic_data_pipeline.drawio
     3_seven_agents.drawio
-    paste_1/2/3_*.xml               the same pages as plain mxGraphModel, for Extras > Edit Diagram
 Open any of them at https://app.diagrams.net (File > Open from > Device) or in draw.io desktop.
 Arrows are real connectors and boxes sit inside real containers, so things stay attached when moved.
 """
@@ -101,12 +100,13 @@ def end_to_end():
     p.vertex("c4", label("No-show rule", "adds support only,", "never lowers priority"), BOX, three[0], 116, 200, 72, "b3")
     p.vertex("c5", label("Follow-up learner", "picks reminder, channel", "or health worker"), BOX, three[1], 116, 200, 72, "b3")
     p.vertex("c6", label("Evaluation", "results, fairness,", "worst case, reports"), BOX, three[2], 116, 200, 72, "b3")
-    p.vertex("e1", label("Message composer", "approved templates,", "timing, safety check"), BOX, three[0], 32, 200, 72, "b4")
-    p.vertex("e2", label("Chat", "fixed rules and", "approved replies"), BOX, three[1], 32, 200, 72, "b4")
-    p.vertex("e3", label("Consent and audit", "per-purpose consent,", "every action logged"), BOX, three[2], 32, 200, 72, "b4")
-    p.vertex("o1", label("Dashboard", "doctors agree or", "disagree; managers"), BOX, three[0], 32, 200, 72, "b5")
-    p.vertex("o2", label("Families", "WhatsApp, SMS, voice,", "health worker visits"), BOX, three[1], 32, 200, 72, "b5")
-    p.vertex("o3", label("Clinic systems", "FHIR Tasks to Malaffi", "and clinic work lists"), BOX, three[2], 32, 200, 72, "b5")
+    p.vertex("e1", label("Message composer", "approved templates,", "timing, safety check"), BOX, four[0], 32, 148, 72, "b4")
+    p.vertex("e2", label("Chat", "fixed rules and", "approved replies"), BOX, four[1], 32, 148, 72, "b4")
+    p.vertex("e3", label("Consent", "per-purpose, set by", "the person or guardian"), BOX, four[2], 32, 148, 72, "b4")
+    p.vertex("e4", label("Access and audit", "roles, care teams,", "tamper-evident log"), BOX, four[3], 32, 148, 72, "b4")
+    p.vertex("o1", label("Web app", "5 roles, English", "and Arabic"), BOX, three[0], 32, 200, 72, "b5")
+    p.vertex("o2", label("Families", "WhatsApp, SMS, voice,", "visits (simulated)"), BOX, three[1], 32, 200, 72, "b5")
+    p.vertex("o3", label("Clinic systems", "FHIR read API and tasks;", "Malaffi in a pilot"), BOX, three[2], 32, 200, 72, "b5")
     for i, (a, b) in enumerate([("b1", "b2"), ("b2", "b3"), ("b3", "b4"), ("b4", "b5")]):
         p.edge(f"f{i}", a, b, extra="exitX=0.5;exitY=1;entryX=0.5;entryY=0;")
     p.edge("loop", "b5", "b3", "doctor decisions, replies, attendance",
@@ -118,7 +118,7 @@ def end_to_end():
 # ---------------------------------------------------------------- 2. synthetic data pipeline
 def pipeline():
     p = Page("2 Synthetic data pipeline", "pipeline", 780, 820)
-    p.vertex("title", "Synthetic patients are built in four stages, then checked by 25 tests", TITLE, 24, 10, 720, 30)
+    p.vertex("title", "Synthetic patients are built in four stages, then checked by 25 data checks", TITLE, 24, 10, 720, 30)
     p.vertex("sub", "Left: what our scripts do. Right, dashed: the real data each stage uses.", NOTE, 24, 38, 720, 20)
     p.vertex("g", label("1. Generate with Synthea", "6 runs, one per age and sex group: 5,000 living people, about 10 minutes"), BOX, 24, 72, 480, 56)
     p.vertex("c", label("2. Combine", "stack the runs into data/raw; drop 5 unused files (billing, supplies, imaging)"), BOX, 24, 152, 480, 56)
@@ -127,14 +127,14 @@ def pipeline():
     subs = [("a1", "a. Homes in 401 real places, distance to the nearest of 360 health facilities"),
             ("a2", "b. People: nationality, language, insurance, shifts, guardians"),
             ("a3", "c. Missed well-child visits, tuned to a 92% second measles dose"),
-            ("a4", "d. Hidden diabetes and hypertension and smoking, matched to WHO totals"),
+            ("a4", "d. Hidden hypertension (WHO level) and diabetes (capped at 40% of the WHO total), smoking"),
             ("a5", "e. Remove records dated in the future")]
     for i, (sid, text) in enumerate(subs):
         p.vertex(sid, text, STEP, 16, 32 + 48 * i, 448, 40, "adj")
-    p.vertex("o1", label("Adjusted records", "data/processed/"), BOX, 24, 614, 152, 56)
-    p.vertex("o2", label("Truth file", "simulation only"), BOX, 188, 614, 152, 56)
-    p.vertex("o3", label("Summary", "adjust_summary.json"), BOX, 352, 614, 152, 56)
-    p.vertex("k", label("Checked", "25 data tests and DATA_REPORT.md: no problems found"), ACCENT, 24, 694, 480, 56)
+    p.vertex("o1", label("Adjusted records", "data/processed/", "uae_synthea/"), BOX, 24, 614, 152, 72)
+    p.vertex("o2", label("Truth file", "truth_hidden.csv,", "simulation only"), BOX, 188, 614, 152, 72)
+    p.vertex("o3", label("Summary", "adjust_summary.json"), BOX, 352, 614, 152, 72)
+    p.vertex("k", label("Checked", "25 data checks and DATA_REPORT.md: no problems found"), ACCENT, 24, 714, 480, 56)
     p.vertex("wb", label("World Bank", "UAE age and sex, 2024"), SOURCE, 536, 72, 200, 56)
     p.vertex("osm", label("OpenStreetMap", "401 places, 360 health facilities"), SOURCE, 536, 336, 200, 56)
     p.vertex("who", label("WHO", "measles second dose,", "diabetes, hypertension,", "smoking targets"), SOURCE, 536, 436, 200, 96)
@@ -156,14 +156,14 @@ def seven_agents():
     p.vertex("title", "Seven agents share one patient table; doctors stay in the loop", TITLE, 24, 12, 720, 32)
     xa, xb, xc = 64, 296, 528
     p.vertex("in1", label("Synthetic patients", "5,000, adjusted to the UAE"), BOX, xa, 60, 208, 64)
-    p.vertex("in2", label("Real data", "NHANES, WHO, clinics, calendar"), BOX, xb, 60, 208, 64)
+    p.vertex("in2", label("Real data", "NHANES, WHO, World Bank,", "OpenStreetMap, calendar"), BOX, xb, 60, 208, 64)
     p.vertex("in3", label("Guidelines and templates", "24 rules, approved messages"), BOX, xc, 60, 208, 64)
     p.vertex("prep", "Data preparation: one row per patient, consent applied before any use",
              BOX.replace("align=left", "align=center").replace("verticalAlign=top", "verticalAlign=middle"), 64, 152, 672, 48)
     p.vertex("orch", "Orchestrator: runs the agents in order, every simulated day", BAND, 64, 228, 672, 220)
     ax = [16, 180, 344, 508]
     agents = [("a1", "Care-gap agent", "overdue checks,", "warning signs"), ("a2", "Risk agent", "score with range,", "top 3 reasons"),
-              ("a3", "Priority step", "urgency, deadline,", "pathway card"), ("a4", "Outreach agent", "channel, template,", "contact time"),
+              ("a3", "Priority agent", "urgency, deadline,", "pathway card"), ("a4", "Outreach agent", "channel, template,", "contact time"),
               ("a5", "Chat assistant", "replies, booking,", "consent, emergency"), ("a6", "Follow-up agent", "reminders; learns", "what works"),
               ("a7", "Evaluation agent", "results, fairness,", "daily report")]
     for i, (aid, n, l1, l2) in enumerate(agents):
@@ -175,9 +175,9 @@ def seven_agents():
             p.edge(f"ag{i}", a, b, extra="exitX=0.5;exitY=1;entryX=0.5;entryY=0;")
         else:
             p.edge(f"ag{i}", a, b, extra="exitX=1;exitY=0.5;entryX=0;entryY=0.5;")
-    p.vertex("o1", label("React app, 10 pages", "doctors, outreach, managers"), BOX, xa, 476, 208, 64)
-    p.vertex("o2", label("Messages to families", "WhatsApp, SMS, voice, visits"), BOX, xb, 476, 208, 64)
-    p.vertex("o3", label("FHIR Tasks", "to Malaffi and clinic systems"), BOX, xc, 476, 208, 64)
+    p.vertex("o1", label("React web app", "14 pages, 5 roles,", "English and Arabic"), BOX, xa, 476, 208, 64)
+    p.vertex("o2", label("Messages to families", "WhatsApp, SMS, voice,", "visits (simulated)"), BOX, xb, 476, 208, 64)
+    p.vertex("o3", label("FHIR", "read API and tasks for", "Malaffi (pilot) and clinics"), BOX, xc, 476, 208, 64)
     for i, s in enumerate(["in1", "in2", "in3"]):
         p.edge(f"i{i}", s, "prep", extra="exitX=0.5;exitY=1;entryX=" + ["0.155", "0.5", "0.845"][i] + ";entryY=0;")
     p.edge("p0", "prep", "orch", extra="exitX=0.5;exitY=1;entryX=0.5;entryY=0;")
@@ -204,7 +204,3 @@ if __name__ == "__main__":
     print(write(pages, os.path.join(HERE, "all_diagrams.drawio")))
     for p, name in zip(pages, ["1_end_to_end_architecture", "2_synthetic_data_pipeline", "3_seven_agents"]):
         print(write([p], os.path.join(HERE, f"{name}.drawio")))
-        paste = os.path.join(HERE, f"paste_{name}.xml")           # paste into draw.io: Extras > Edit Diagram
-        with open(paste, "w", encoding="utf-8") as fh:
-            fh.write(ET.tostring(p.model, encoding="unicode"))
-        print(paste)

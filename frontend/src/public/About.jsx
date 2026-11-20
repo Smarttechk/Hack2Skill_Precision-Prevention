@@ -74,7 +74,7 @@ export default function About() {
 
         <div className="pub-info">
           <Icon name="shield" size={16} />
-          <span>{tr("Keep in mind: every patient in this prototype is generated, not real. The risk score is a published questionnaire (nothing is trained here) and is checked on real survey data; on the generated people its power is modest, so most hidden cases are found through care gaps, warning signs and family pathways. A clinician should review every translation and clinical rule before real use.")}</span>
+          <span>{tr("Keep in mind: every patient in this prototype is generated, not real. The risk score that sets the order is a published questionnaire (nothing is trained) and is checked on real survey data. A trained second opinion, shown to doctors as information only, is checked on the same data. On the generated people the score's power is modest, so most hidden cases are found through care gaps, warning signs and family pathways. A clinician should review every translation and clinical rule before real use.")}</span>
         </div>
         <p className="small muted center" style={{ marginTop: 12 }}>
           {tr("Some pages need a sign-in with the right role.")} <Link to="/roles">{tr("Who sees what")}</Link>

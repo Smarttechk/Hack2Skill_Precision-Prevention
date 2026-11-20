@@ -27,8 +27,8 @@ python run_all.py                    # data -> models -> 60-day simulation -> ev
 python server.py                     # API + React app at http://127.0.0.1:8000
 ```
 
-`python run_all.py --sensitivity` also runs the worst-case analysis and the AI on/off comparison (over an hour extra; it was about 1.5 hours on one laptop). The optional
-The summaries and chat replies are fixed approved text; nothing calls an outside service.
+`python run_all.py --sensitivity` also runs the worst-case analysis and the AI on/off comparison (over an hour extra; it was about 1.5 hours on one laptop).
+The summaries and chat replies are fixed approved text. By default nothing calls an outside service; the only optional exception is the Care Assistant (see "Care Assistant" below), which stays off until an API key is set.
 The React build needs Node.js 18 or newer; `run_all.py` builds it once into `frontend/dist`.
 
 ## The app (React + FastAPI)
@@ -246,6 +246,25 @@ clinical decision stays with a doctor.
 | Support for likely no-shows (`models/noshow.py`) | Extra help for people with a known access barrier or a missed visit, by a plain rule | On (rule) |
 | Follow-up learner (`agents/followup.py`) | Learns which follow-up action gets each kind of family to attend (simple counts per group, no fitted model) | On |
 | First-message channel learner (`agents/outreach.py`) | Learns WhatsApp or SMS from replies, starting from the rule | Off: no gain found |
+| Care Assistant (`api/assistant.py`) | A language model (Claude API) that answers a doctor's, outreach worker's or admin's question about the one record that is open, using four read-only tools. It never decides, sends or changes anything | Off until an API key is set; **not tested against the live service** (see below) |
+
+**Care Assistant** (optional, off by default). It is an agent in the narrow sense: the model chooses which of four read-only tools to call (record overview,
+open care gaps, contact history, approved message) and answers from what they return. It is built as a manual tool-use loop on the Claude Messages API
+(`claude-opus-5-5`, medium effort, at most 6 steps), not on a hosted agent service, because the tools must run inside this server under the signed-in user's own
+access rules, and health data should not be kept on an outside service longer than needed.
+
+- **Guardrails.** Read-only: no tool writes, books, sends or changes a priority. The tools take no person id, so the assistant can only see the record the user
+  opened, under the same access rule as the rest of the app (a record outside the user's region or hospital is a 404). The system prompt forbids diagnosis,
+  treatment advice and priority changes, and tells the assistant to stop at emergency words and point to the fixed emergency rules (998). Tool text is treated as data, not as instructions.
+- **Family messages are never written by the model.** `get_approved_message` returns the approved template for an open check (`agents/outreach.py`, `safe_message`); the screen shows it
+  in its own box, and staff send it themselves.
+- **What leaves the server.** Only the opened record's age band, sex, risk band and reasons, open care gaps and contact outcomes. No name, phone number, Emirates ID, address or note is sent. Outreach staff get no
+  risk or clinical detail at all. Each question is limited to 800 characters, 20 questions an hour per user, and the last 6 turns of text.
+- **Audit.** Each use is written to the signed audit log (`assistant_used`: who, which record number, which tools), without the question or the answer.
+- **One switch.** `care_assistant.enabled` in `config/models.json`, or leave `ANTHROPIC_API_KEY` unset. Nothing that decides who is contacted, or in what order, imports the assistant.
+- **Enable it.** `python -m pip install -r requirements-assistant.txt`, set `ANTHROPIC_API_KEY` on the server, restart. The panel then appears under the record in the Doctor and Journey pages; without a key it says why it is off.
+- **What is and is not tested.** `tests/test_assistant.py` (34 checks) runs the whole loop, the tools, the redaction, the limits and the endpoint against a scripted stand-in for the API. The real service
+  was **not** called: the build PC's application control blocks the `anthropic` package, so a pilot must run a first live check on the server (a few real questions against synthetic records) before anyone relies on it. The answers are AI-generated and can be wrong.
 
 **What the trained second opinion adds was measured** (`python -m models.ml_comparison`, `outputs/models/ml_comparison.json`; the Results page shows it).
 Same 12,925 real NHANES adults and 456 undiagnosed cases as the real-data check, same label (HbA1c of 6.5% or more). Every trained model is

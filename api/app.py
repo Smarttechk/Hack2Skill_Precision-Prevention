@@ -11,6 +11,7 @@ import os
 import re
 import threading
 import time
+import types
 from datetime import datetime, timedelta
 from functools import lru_cache
 
@@ -29,6 +30,7 @@ import utils
 from agents import chat, outreach
 from api import auth, careteam, clinic_answers, family
 from api import outreach as contact_log        # who contacted whom (agents.outreach below is the message composer)
+from api import assistant as care_assistant    # the optional, read-only Care Assistant (off unless an API key is set)
 from agents.priority import DEADLINE_DAYS
 from models.risk_scores import band as risk_band
 
@@ -1716,6 +1718,95 @@ def ml_opinion(pid):
     return {"condition": "diabetes_ml", "name": "Diabetes, machine-learning second opinion", "status": "score", "risk": s["risk"], "low": s["risk"],
             "high": s["risk"], "reasons": s["reasons"], "band": s["band"], "inputs_recorded": s["measured"], "inputs_total": s["of"],
             "note": "Trained on real survey data (NHANES) and scaled to the UAE level. Information only: it does not change anyone's priority."}
+
+
+# ------------------------------------------------------------------ the Care Assistant (optional, read-only; see api/assistant.py)
+class AssistantView:
+    """What the Care Assistant may read about ONE person. The record is opened through person_row, so the same access rules as the Doctor
+    view apply (a person outside this account's limits looks like one who does not exist). Names, phone numbers, Emirates IDs, addresses
+    and free-text notes are never included; outreach staff get no risk score and no clinical reasons, as everywhere else in the app."""
+
+    def __init__(self, pid, role):
+        self.r = person_row(pid)
+        self.pid, self.role = pid, role
+        self.clinical = role in ("doctor", "admin")
+
+    def overview(self):
+        r, s = self.r, summary_row(self.r)                     # summary_row already removes risk and reasons for outreach staff
+        out = {"age": s["age"], "sex": s["sex"], "region": s["region"], "language": s["language"], "urgency": s["urgency"], "state": s["state"],
+               "is_child": s["is_child"], "nearest_facility": r.nearest_facility, "travel_minutes": r.travel_min, "may_contact": bool(r.may_contact)}
+        if self.clinical:
+            keep = ("name", "status", "band", "risk", "low", "high", "reasons", "note", "day")
+            out.update(warning_signs=list(r.warning_signs), risk_text=s["risk_text"], risk_band=s["risk_band"], main_factors=list(r.risk_reasons),
+                       data_used=list(r.data_used), conditions=[{k: c.get(k) for k in keep if k in c} for c in condition_status(r)],
+                       one_line_summary=summaries.clinician_summary(risk_band(r.risk), list(r.risk_reasons), list(r.warning_signs),
+                                                                    r.urgency if isinstance(r.urgency, str) else None))
+        return clean(out)
+
+    def care_gaps(self):
+        rows = []
+        for c in self.r.open_cards or []:
+            row = {"check": c.get("check"), "pathway": c.get("pathway"), "status": c.get("status")}
+            if self.clinical:
+                row.update(reason=c.get("reason"), guideline=c.get("guideline"), decision=c.get("decision"), invite_by_day=c.get("invite_by_day"))
+            rows.append(row)
+        return clean({"open_checks": rows, "count": len(rows)})
+
+    def contact_history(self):
+        df = contact_log.contacts()
+        df = df[df.person == self.pid].tail(10)
+        return clean({"contacts": [{"when": str(t)[:16], "channel": ch or None, "outcome": oc} for t, ch, oc in zip(df.time, df.channel, df.outcome)],
+                      "count": int(len(df))})
+
+    def approved_message(self, check):
+        open_checks = {c.get("check") for c in (self.r.open_cards or [])}
+        if check not in open_checks:
+            raise care_assistant.AssistantError(400, "That check is not open for this person.")
+        ctx = types.SimpleNamespace(templates=utils.load_templates())
+        text, own = outreach.safe_message(ctx, check, "guardian" if self.r.is_child else "adult", self.r.language, "Clinic visit")
+        if text is None:
+            return {"check": check, "text": None, "note": "There is no approved message for this check: staff should call instead."}
+        return {"check": check, "language": self.r.language if own else "English", "in_family_language": bool(own), "text": text,
+                "note": "Approved wording. Staff send it themselves and fill in the care option. The wording is a draft until the clinical team and a native speaker approve it."}
+
+
+class AssistantIn(BaseModel):
+    pid: str
+    question: str
+    history: list[dict] = []
+    lang: str = "en"
+
+
+@app.get("/api/assistant/status")
+def assistant_status():
+    """Is the Care Assistant on, and if not, why."""
+    return care_assistant.status()
+
+
+@app.post("/api/assistant/ask")
+def assistant_ask(body: AssistantIn, request: Request):
+    """A question about the one record the user has opened. The answer, the tools used and the approved message (if asked for) come back; the
+    audit log gets the tools used, never the question or the answer."""
+    role = (ACCOUNT.get() or {}).get("role") or "admin"        # open mode (no accounts, your own computer) is the admin's view
+    if role not in care_assistant.ROLES:
+        raise HTTPException(403, "The Care Assistant is for doctors, outreach staff and the hospital admin.")
+    st = care_assistant.status()
+    if not st["available"]:
+        raise HTTPException(503, st["reason"])
+    try:
+        question = care_assistant.clean_question(body.question)
+        view = AssistantView(body.pid, role)                    # 404 for anyone outside this account's limits
+        care_assistant.check_rate(by(request))
+        out = care_assistant.ask(question, body.history, view, role, body.lang if body.lang in care_assistant.LANGUAGES else "en")
+    except care_assistant.AssistantError as e:
+        raise HTTPException(e.status, e.message)
+    except HTTPException:
+        raise
+    except Exception as e:                                      # a failed request to the service: a clear message, no detail
+        err = care_assistant.friendly_error(e)
+        raise HTTPException(err.status, err.message)
+    auth.log("assistant_used", by(request), role, computer(request), f"{mrn(body.pid)}: {', '.join(out['tools_used']) or 'no tools'}")
+    return out
 
 
 def risk_model_conditions():

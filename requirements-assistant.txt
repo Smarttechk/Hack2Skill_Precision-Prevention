@@ -1,0 +1,2 @@
+# Optional: only for the Care Assistant (README, "Care Assistant"). The app, the tests and every decision run without it.
+anthropic>=1.1.0

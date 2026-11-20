@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { api, useApi } from "../api.js";
 import { Badge, Banner, CardsTable, ErrorBox, Loading, RiskBar, useMore } from "../components.jsx";
 import CareTeamBanner from "../CareTeamBanner.jsx";
+import CareAssistant from "../CareAssistant.jsx";
 import { useT, useTr } from "../i18n.js";
 import { checkLabel } from "../labels.js";
 
@@ -241,6 +242,8 @@ function PersonPanel({ pid }) {
         <h4>{tr("Pathway cards")}</h4>
         <CardsTable cards={data.cards} />
       </section>
+
+      <CareAssistant key={pid} pid={pid} />
 
       <details className="pp-more">
         <summary>{tr("Data used and summary")}</summary>

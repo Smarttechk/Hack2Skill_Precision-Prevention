@@ -73,7 +73,8 @@
         ],
         "journey": [
           "/api/journeys",
-          "/api/journey"
+          "/api/journey",
+          "/api/assistant"
         ],
         "phone": [
           "/api/phone"

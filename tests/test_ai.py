@@ -162,7 +162,11 @@ for d_, dirs, files in os.walk(ROOT):
             txt = open(os.path.join(d_, n), encoding="utf-8", errors="ignore").read()
             if re.search(r"import anthropic|anthropic[>=]|ANTHROPIC_API_KEY", txt):
                 found.append(n)
-check("no code or requirement refers to an AI service or needs an API key", not found)
+# the only place an outside AI service is named is the optional Care Assistant (api/assistant.py) and its own requirements file;
+# the decisions, the summaries and the chat replies never use it, and the main requirements do not need it
+check("only the optional Care Assistant refers to an AI service, and the main requirements do not need one",
+      set(found) <= {"assistant.py", "requirements-assistant.txt", "models.json", "ar_more.js"}  # the last two only mention the key in text
+      and "anthropic" not in open(os.path.join(ROOT, "requirements.txt"), encoding="utf-8").read().lower())
 
 # ---- the API
 from fastapi.testclient import TestClient  # noqa: E402

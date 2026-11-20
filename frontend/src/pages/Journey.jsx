@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useApi } from "../api.js";
 import { Badge, ErrorBox, Loading } from "../components.jsx";
 import { useTr } from "../i18n.js";
+import CareAssistant from "../CareAssistant.jsx";
 
 const LABEL = {
   flagged: "Flagged", message: "Message sent", follow_up: "Follow-up", booked: "Booked", attended: "Visit completed",
@@ -28,6 +29,7 @@ export default function Journey() {
         </select>
       </div>
       {pid && <Timeline pid={pid} />}
+      {pid && <CareAssistant key={pid} pid={pid} />}
     </>
   );
 }

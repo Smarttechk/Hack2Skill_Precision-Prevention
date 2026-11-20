@@ -2545,7 +2545,8 @@ def results_api():
     cl = os.path.join(utils.OUTPUTS, "new", "channel_learning.csv")
     channels = records(pd.read_csv(cl)) if os.path.exists(cl) else []
     ml = utils.load_json(os.path.join(utils.MODELS, "ml_comparison.json"), None)             # trained models against the published score
-    return clean({**r, "daily": daily, "followup_learning": learning, "channel_learning": channels, "nhanes_ml": ml})
+    shadow = utils.load_json(os.path.join(utils.MODELS, "ml_shadow.json"), None)             # the same two scores on the simulated residents
+    return clean({**r, "daily": daily, "followup_learning": learning, "channel_learning": channels, "nhanes_ml": ml, "ml_shadow": shadow})
 
 
 @app.get("/api/alerts")

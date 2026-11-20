@@ -443,6 +443,25 @@ export default function Results() {
                     { g: gain(five.diff_vs_findrisc.auc_gain) })}</p>
                 )}
                 {everyGroup && <p className="small">{tr("Better than the published score in every group checked (sex, age band, ethnic group).")}</p>}
+                {data.ml_shadow && (() => {
+                  const sh = data.ml_shadow;
+                  const hdl = (sh.single_input_auc || []).find((r) => r.input === "HDL cholesterol");
+                  const worse = sh.trained.auc < sh.published.auc;
+                  return (
+                    <div className="pathway" style={{ marginTop: 8 }}>
+                      <div className="pathway-top"><b>{tr("Shadow check on the simulated residents")}</b></div>
+                      <div className="pathway-meta">
+                        {tr("{n} simulated adults, {c} hidden diabetes cases. FINDRISC: AUC {p}. Trained model: AUC {t}. The model only watches: it changes nobody's priority.",
+                          { n: sh.adults.toLocaleString(), c: sh.cases, p: sh.published.auc, t: sh.trained.auc })}{" "}
+                        {worse
+                          ? tr("Here the trained model ranks the hidden cases worse than FINDRISC. The simulation builds its hidden cases from age, BMI and family history, so HDL, cholesterol and blood pressure carry no signal in it (HDL alone: AUC {r} in real adults, {s} here); without them the model scores {w}.",
+                            { r: hdl?.real_adults_auc, s: hdl?.simulated_auc, w: sh.trained_without_measurements?.auc })
+                          : tr("Here the trained model ranks the hidden cases better than FINDRISC.")}{" "}
+                        {tr("So this check cannot confirm the model: the real-data check on NHANES is the valid test, and a pilot must repeat it on the hospital's own patients.")}
+                      </div>
+                    </div>
+                  );
+                })()}
                 <p className="small muted">{tr("Trained on US survey data and not validated on UAE patients. Race, nationality, income and education are not used.")}</p>
               </div>
             );

@@ -17,6 +17,7 @@ STEPS = [
     ("Risk scores (published FINDRISC, scaled to the UAE level)", [sys.executable, "-m", "models.risk_scores"]),
     ("Trained second opinion: compared with the published score (NHANES)", [sys.executable, "-m", "models.ml_comparison"]),
     ("Trained second opinion: model scaled to the UAE level (information only)", [sys.executable, "-m", "models.ml_risk"]),
+    ("Trained second opinion: shadow check on the simulated residents", [sys.executable, "-m", "models.ml_shadow"]),
     ("Calibrate to published UAE figures", [sys.executable, "scripts/calibrate.py"]),
     ("60-day simulation", [sys.executable, "orchestrator.py"]),
     ("Evaluation", [sys.executable, "evaluate.py"]),

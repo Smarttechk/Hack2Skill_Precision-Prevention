@@ -128,5 +128,37 @@ used = [s for s in sources if reads_ml_risk(s)]
 check("nothing that decides who is contacted, or in what order, reads it: priority and every result are the same with it on or off", not used)
 check("the switch is a documented setting, on by default", utils.config("models")["ml_second_opinion"]["enabled"] is True)
 
+# ---- the shadow check on the simulated residents
+from models import ml_shadow  # noqa: E402
+sh = utils.load_json(os.path.join(utils.MODELS, "ml_shadow.json"), {})
+pop, _ = ml_shadow.population()
+check("the shadow check scores exactly the adults the published score covers, with the hidden truth as the answer key (never an input)",
+      sh["adults"] == len(pop) == len(adults) and sh["cases"] == int(pop.hidden.sum()) and "hidden" not in ml_risk.INPUTS
+      and not any(c in ml_risk.INPUTS for c in ("hidden_diabetes", "diabetes_onset", "hba1c_if_tested_now")))
+check("its numbers can be recomputed: the published and the trained AUC match the file",
+      abs(roc_auc_score(pop.hidden, pop.published) - sh["published"]["auc"]) < 0.002 and abs(roc_auc_score(pop.hidden, pop.trained) - sh["trained"]["auc"]) < 0.002)
+check("on the simulated people FINDRISC reproduces the README's figure (AUC about 0.69), so the answer key is the right one", abs(sh["published"]["auc"] - 0.69) < 0.03)
+check("it reports what it found, whichever way: both AUCs with ranges, the gain with its range, the overlap of the High band, and why (inputs alone, real against simulated)",
+      all(k in sh for k in ("published", "trained", "auc_gain", "high_band_overlap", "trained_without_measurements", "single_input_auc"))
+      and len(sh["single_input_auc"]) == 5 and "not a measure of real-world accuracy" in sh["note"] and "only watches" in sh["note"])
+def opens_truth(path):
+    """True when the code (not a docstring or comment) calls load_truth or names the truth file."""
+    tree = ast.parse(open(os.path.join(ROOT, path), encoding="utf-8").read())
+    doc = {id(n.body[0].value) for n in ast.walk(tree) if isinstance(n, (ast.Module, ast.FunctionDef, ast.ClassDef))
+           and n.body and isinstance(n.body[0], ast.Expr) and isinstance(n.body[0].value, ast.Constant)}
+    for n in ast.walk(tree):
+        if isinstance(n, ast.Attribute) and n.attr == "load_truth" or isinstance(n, ast.Name) and n.id == "load_truth":
+            return True
+        if isinstance(n, ast.Constant) and isinstance(n.value, str) and "truth_hidden" in n.value and id(n) not in doc:
+            return True
+    return False
+
+
+truth_users = [m for m in ("models/ml_risk.py", "models/risk_scores.py", "models/ml_comparison.py") if opens_truth(m)]
+check("the file check really catches the truth: it finds it in the shadow check, which uses it as the answer key", opens_truth("models/ml_shadow.py"))
+check("the models that score people never open the hidden truth (only the shadow check and the evaluation do, as the answer key)", not truth_users)
+used_shadow = [s for s in sources if "ml_shadow" in open(os.path.join(ROOT, s), encoding="utf-8").read()]
+check("nothing that decides who is contacted reads the shadow check", not used_shadow)
+
 print(f"\n{sum(ok)}/{len(ok)} checks passed")
 sys.exit(0 if all(ok) else 1)

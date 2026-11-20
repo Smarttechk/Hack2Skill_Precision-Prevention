@@ -274,6 +274,21 @@ What this shows, and what it does not:
 - That is why it is only a second opinion. Using it to decide priority would change who is contacted, and every result, and should wait for a validation on
   the hospital's own patients.
 
+**Shadow check on the simulated residents** (`python -m models.ml_shadow`, `outputs/models/ml_shadow.json`; the Results page shows it). The trained model
+also scores the app's own 1,866 simulated adults without a diabetes diagnosis, next to FINDRISC, against the simulation's hidden truth
+(283 hidden cases; the truth is only the answer key, never an input). It only watches: it changes nobody's priority and no result.
+
+| | AUC (95% range) | Top 30% finds | High band holds |
+|---|---|---|---|
+| FINDRISC (published, sets the priority) | 0.686 (0.651 to 0.717) | 52% | 41% |
+| Trained second opinion | 0.633 (0.597 to 0.666) | 45% | 25% |
+
+Here the trained model does **worse** (AUC gain -0.053, range -0.080 to -0.025). The reason is in the simulation, not in the model: it
+makes its hidden cases from age, BMI and family history, so HDL, cholesterol and blood pressure carry no signal in it. One input alone: HDL has an AUC of
+0.645 in real adults and 0.508 in the simulation, systolic blood pressure 0.666 and 0.476.
+Without those three measurements the same model scores 0.67 on the simulated adults. So this check cannot confirm the model: the real-data check above is the valid
+test, and a pilot must repeat it on the hospital's own patients, with the second opinion switched off (`ml_second_opinion`) if the gain does not hold there.
+
 **What the channel learner adds was measured, and it is off** (`python evaluate.py --ablation`,
 `outputs/results/ai_ablation.json`; 5 seeds, same people and capacity):
 

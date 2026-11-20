@@ -19,6 +19,16 @@ With no accounts set up the app opens in "open mode": a **Preview as** switch at
 "How this meets each requirement" pages are public. Everything in the pack is simulated. The pack leaves out the hospital
 records database (842 MB), so the FHIR API, patient names, past visits and the record download need the full build below.
 
+To open a profile directly, put `http://127.0.0.1:8000` in front of one of these links (add `&lang=ar` for Arabic). A full example: `http://127.0.0.1:8000/doctor?role=doctor`
+
+| Profile | Link |
+|---|---|
+| Hospital admin | `/today?role=admin` |
+| Doctor | `/doctor?role=doctor` |
+| Outreach staff | `/queue?role=outreach` |
+| Programme manager | `/results?role=manager` |
+| Patient or family | `/mycare?role=patient` |
+
 ## Run it (the full build, several hours)
 
 ```
